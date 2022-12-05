@@ -1,3 +1,4 @@
+import Search from "../Search/Search";
 import "./Nav.css"
 
 const Nav = () => {

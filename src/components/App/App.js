@@ -5,7 +5,6 @@ import LandingPage from "../LandingPage/LandingPage";
 import Nav from "../Nav/Nav";
 import ResultCard from "../ResultCard/ResultCard";
 import ResultsPage from "../ResultsPage/ResultsPage";
-import Search from "../Search/Search";
 import SingleResultPage from "../SingleResultPage/SingleResultPage";
 
 import './App.css';
