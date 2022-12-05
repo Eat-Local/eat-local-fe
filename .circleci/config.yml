@@ -11,6 +11,9 @@ jobs:
       - checkout
       - node/install-packages:
           pkg-manager: npm
+      - run:
+          name: Run tests
+          command: npx eslint src
       - run : 
           name : Run build
           command: npm run build
