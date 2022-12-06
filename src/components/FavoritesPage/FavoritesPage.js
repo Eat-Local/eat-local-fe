@@ -7,9 +7,8 @@ import React from 'react'
 const FavoritesPage = () => {
   const [searchFavorites, setSearchFavorites] = useState('')
 
-  const handleChange = (event) => {
-    const result = event.target.value
-    setSearchFavorites(result)
+  const handleClick = (event) => {
+    event.preventDefault()
   }
 
   return (
@@ -19,9 +18,9 @@ const FavoritesPage = () => {
           placeholder='SEARCH FAVORITES' 
           className='input' 
           value={searchFavorites} 
-          onChange={handleChange} 
+          onChange={(event) => setSearchFavorites(event.target.value)} 
           required/>
-        <button disabled={searchFavorites.length<1} type='submit' className='submit'>GO</button>
+        <button disabled={searchFavorites.length<1} type='submit' className='submit' onClick={handleClick}>GO</button>
         </form>
       
     </div>
