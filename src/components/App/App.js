@@ -2,7 +2,7 @@
 // import FavoritesPage from "../FavoritesPage/FavoritesPage";
 // import Footer from "../Footer/Footer";
 // import LandingPage from "../LandingPage/LandingPage";
-// import Nav from "../Nav/Nav";
+import Nav from "../Nav/Nav";
 // import ResultCard from "../ResultCard/ResultCard";
 // import ResultsPage from "../ResultsPage/ResultsPage";
 // import SingleResultPage from "../SingleResultPage/SingleResultPage";
@@ -13,6 +13,7 @@ const App = () => {
 
   return (
     <main>
+      <Nav />
       Hello!
     </main>
   )
