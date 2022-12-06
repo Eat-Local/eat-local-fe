@@ -1,0 +1,13 @@
+section {
+  text-align: center;
+  margin-top: 25vh;
+}
+
+.featured-container {
+  margin-top: 30vh;
+}
+
+.featured-cards {
+  display: flex;
+  justify-content: space-evenly;
+}
