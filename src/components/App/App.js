@@ -1,6 +1,6 @@
 // import { useState, useEfffect } from "react"
 // import FavoritesPage from "../FavoritesPage/FavoritesPage";
-// import Footer from "../Footer/Footer";
+import Footer from "../Footer/Footer";
 // import LandingPage from "../LandingPage/LandingPage";
 // import Nav from "../Nav/Nav";
 // import ResultCard from "../ResultCard/ResultCard";
@@ -14,6 +14,7 @@ const App = () => {
   return (
     <main>
       Hello!
+      <Footer/>
     </main>
   )
 }
