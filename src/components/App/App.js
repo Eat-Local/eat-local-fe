@@ -1,5 +1,5 @@
 // import { useState, useEfffect } from "react"
-// import FavoritesPage from "../FavoritesPage/FavoritesPage";
+import FavoritesPage from "../FavoritesPage/FavoritesPage";
 import Footer from "../Footer/Footer";
 // import LandingPage from "../LandingPage/LandingPage";
 // import Nav from "../Nav/Nav";
@@ -14,6 +14,7 @@ const App = () => {
   return (
     <main>
       Hello!
+      <FavoritesPage/>
       <Footer/>
     </main>
   )
