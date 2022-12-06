@@ -5,8 +5,12 @@ const Search = () => {
   const [ zipcode, setZipcode ] = useState('');
   const [ business, setBusiness ] = useState('restaurant');
 
+  const handleClick = (event) => {
+    event.preventDefault();
+  } 
+
   return (
-    <form>
+    <form className="search-bar">
       <label> 
         <input
           type="text"
@@ -43,6 +47,7 @@ const Search = () => {
           onChange={(event) => setBusiness(event.target.value)}
       /> Brewery
      </label>
+     <button onClick={handleClick}>Search</button>
     </form>
   )
 }
