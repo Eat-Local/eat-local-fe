@@ -1,4 +1,24 @@
+.single-result-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .single-result {
   border: 1px solid black;
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  width: 60vw;
+}
+
+.single-result img {
+  width: 25vw;
+}
+
+.information-container {
+  margin-left: 1%;
 }
