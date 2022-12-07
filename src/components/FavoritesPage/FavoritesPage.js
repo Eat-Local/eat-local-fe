@@ -14,7 +14,7 @@ const FavoritesPage = () => {
   }
 
   return (
-    <div>
+    <section className="favorites-section">
       <form className='keyword-form'>
         <input type='text' 
           placeholder='SEARCH FAVORITES' 
@@ -24,8 +24,7 @@ const FavoritesPage = () => {
           required/>
         <button disabled={searchFavorites.length<1} type='submit' className='submit' onClick={(event) => handleClick(event)}>GO</button>
         </form>
-      
-    </div>
+    </section>
   )
 }
 
