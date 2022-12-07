@@ -4,7 +4,7 @@ import { data } from "../../assets/mock-data";
 const placeholder = require('../../assets/eatlocalicon.png')
 
 const SingleResultPage = () => {
-  const { address, description, hours, img, phone, rating, site, title, type, wheelchair_accessible } = data[0].attributes;
+  const { address, description, hours, img, phone, rating, site, title, wheelchair_accessible } = data[0].attributes;
   const altText = `A photo describing ${title}'s business, provided by ${title}`
   const accessibility = wheelchair_accessible ? "Yes" : "No";
 
