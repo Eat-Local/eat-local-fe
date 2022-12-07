@@ -1,6 +1,5 @@
 .footer-container {
-  position : absolute;
-  bottom : 5px;
+  bottom: 5px;
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
