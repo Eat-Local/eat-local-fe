@@ -4,7 +4,7 @@ import LandingPage from "../LandingPage/LandingPage";
 import Footer from "../Footer/Footer";
 // import ResultCard from "../ResultCard/ResultCard";
 // import ResultsPage from "../ResultsPage/ResultsPage";
-// import SingleResultPage from "../SingleResultPage/SingleResultPage";
+import SingleResultPage from "../SingleResultPage/SingleResultPage";
 // import FavoritesPage from "../FavoritesPage/FavoritesPage";
 import './App.css';
 
@@ -14,7 +14,8 @@ const App = () => {
   return (
     <main>
       <Nav />
-      <LandingPage />
+      {/* <LandingPage /> */}
+      <SingleResultPage />
       <Footer/>
     </main>
   )
