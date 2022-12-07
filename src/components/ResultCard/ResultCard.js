@@ -1,9 +1,11 @@
 import "./ResultCard.css"
 
-const ResultCard = () => {
+const ResultCard = ({title, photo, rating}) => {
   return (
-    <div>
-      <p>Test</p>
+    <div className="business-card">
+      <img className="business-card-image" src={photo} alt={title}></img>
+      <p>{title}</p>
+      <p>{rating}</p>
     </div>
   )
 
