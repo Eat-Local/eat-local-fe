@@ -4,6 +4,7 @@
 }
 
 .featured-container {
+  border: 1px solid black;
   margin-top: 30vh;
   padding-bottom: 8rem;
 }
@@ -11,5 +12,4 @@
 .featured-cards {
   display: flex;
   justify-content: space-evenly;
-  
 }
