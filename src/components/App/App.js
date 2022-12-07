@@ -12,7 +12,7 @@ const App = () => {
   // const [ restaurants, setRestaurants ] = useState([])
 
   return (
-    <main>
+    <main className="page-container">
       <Nav />
       <LandingPage />
       {/* <SingleResultPage /> */}

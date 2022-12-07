@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="footer-container">
       <div className="frontend-container">
-        <h3 className="frontenders"><a href="https://github.com/Eat-Local/eat-local-fe.git" target="_blank" rel="noopener noreferrer">Front-End Team</a></h3>
+        <h3 className="frontenders"><a href="https://github.com/Eat-Local/eat-local-fe.git" target="_blank" rel="noopener noreferrer" >FrontEnd Team</a></h3>
         <p className="contributors"><a href="https://www.linkedin.com/in/anthonyshellman/" target="_blank" rel="noopener noreferrer">Anthony Shellman</a></p>
         <p className="contributors"><a href="https://www.linkedin.com/in/victoria-ashley-fields/" target="_blank" rel="noopener noreferrer">Victoria Fields</a></p>
         <p className="contributors"><a href="https://www.linkedin.com/in/cole-edwin-anthony/" target="_blank" rel="noopener noreferrer">Cole Anthony</a></p>

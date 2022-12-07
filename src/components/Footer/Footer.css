@@ -1,19 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&family=Poppins:wght@200;400&display=swap');
+
 .footer-container {
-  bottom: 5px;
+  bottom: 0;
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
+  background-color: #d7edd9;
+  margin-top: 5rem;
+  position: absolute;
+  width: 100%;
+  padding: 10px;
 }
 
 .frontend-container {
   margin-right: 20px;
+  margin-left: 10px;
 
 }
 .frontenders, .backenders {
   font-size: .8rem;
   margin-bottom: 8px;
+  font-family: 'Poppins', sans-serif;
+  color: black;
 }
+
+
 .contributors {
   font-size: .7rem;
   margin: 1px;
+  font-family: 'Poppins', sans-serif;
+  color: black;
+}
+
+a{
+  text-decoration:none;  
 }
