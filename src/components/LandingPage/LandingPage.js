@@ -3,7 +3,7 @@ import "./LandingPage.css"
 
 const LandingPage = () => {
   return(
-    <section>
+    <section className="landing-section">
       <div className="overview-container">
         <p>
           Lorem ipsum dolor amet mustache knausgaard +1, blue bottle waistcoat tbh semiotics artisan synth stumptown<br/>gastropub cornhole celiac swag.

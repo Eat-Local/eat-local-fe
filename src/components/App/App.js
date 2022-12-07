@@ -15,6 +15,7 @@ const App = () => {
     <main>
       <Nav />
       <LandingPage />
+      {/* <SingleResultPage /> */}
       <Footer/>
     </main>
   )

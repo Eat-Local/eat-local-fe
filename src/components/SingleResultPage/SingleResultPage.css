@@ -1,0 +1,33 @@
+.single-result-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.single-result {
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  position: relative;
+  width: 60vw;
+}
+
+.business-photo {
+  width: 20rem;
+}
+
+.information-container {
+  margin-left: 1%;
+}
+
+.favorite-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0.5%;
+  width: 2rem;
+}
