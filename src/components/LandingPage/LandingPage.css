@@ -5,9 +5,11 @@
 
 .featured-container {
   margin-top: 30vh;
+  padding-bottom: 8rem;
 }
 
 .featured-cards {
   display: flex;
   justify-content: space-evenly;
+  
 }
