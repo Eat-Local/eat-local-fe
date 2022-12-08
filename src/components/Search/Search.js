@@ -1,23 +1,25 @@
 import { useState } from 'react';
 import "./Search.css"
 
-const Search = () => {
-  const [ zipcode, setZipcode ] = useState('');
-  const [ business, setBusiness ] = useState('restaurant');
+const Search = ( { business, setBusiness, location, setLocation, onSearch} ) => {
+  // const [ location, setLocation ] = useState('');
+  // const [ business, setBusiness ] = useState('restaurant');
 
   const handleClick = (event) => {
     event.preventDefault();
-  } 
+    const query = location.toLowerCase();
+    onSearch(business, query);
+  }
 
   return (
     <form className="search-bar">
       <label> 
         <input
           type="text"
-          value={zipcode}
+          value={location}
           name="zipcode"
-          placeholder="Location: zipcode"
-          onChange={(event) => setZipcode(event.target.value)}
+          placeholder="Location"
+          onChange={(event) => setLocation(event.target.value)}
         />
       </label>
       <label>
