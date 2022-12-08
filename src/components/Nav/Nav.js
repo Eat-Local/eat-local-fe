@@ -9,19 +9,21 @@ const logo = require('../../assets/eatlocalicon.png');
 const Nav = ( { business, setBusiness, location, setLocation, onSearch } ) => {
   const [openLogin, setOpenLogin] = useState(false);
   const ref = useRef(null);
+  const loginRef = useRef();
 
   const handleClick = (event) => {
     setOpenLogin(!openLogin);
+    // console.log('openLogin in handleClick: ', openLogin)
   }
 
   useEffect(() => {
     const listener = (event) => {
-      if (!ref.current || ref.current.contains(event.target)) {
+      if (!ref.current || ref.current.contains(event.target) || loginRef.current.contains(event.target)) {
         return;
       }
+      // console.log('openLogin in useEffect: ', openLogin)
       setOpenLogin(false);
     };
-
     document.addEventListener("mousedown", listener);
     document.addEventListener("touchstart", listener);
 
@@ -29,7 +31,7 @@ const Nav = ( { business, setBusiness, location, setLocation, onSearch } ) => {
       document.removeEventListener("mousedown", listener);
       document.removeEventListener("touchstart", listener);
     }
-  }, [ref, setOpenLogin])
+  }, [ref])
 
   return(
     <>
@@ -46,7 +48,7 @@ const Nav = ( { business, setBusiness, location, setLocation, onSearch } ) => {
         />
         <div className="greeting-menu-container">
           <span className="greeting">Hello, username!</span>
-          <span className="menu"><span onClick={(event) => handleClick(event)}>Login</span> | Favorites</span>
+          <span className="menu"><span ref={loginRef} className="login" onClick={(event) => handleClick(event)}>Login</span> | Favorites</span>
         </div>
       </nav>
       {openLogin && <div className="login-container" ref={ref}><Login /></div>}
