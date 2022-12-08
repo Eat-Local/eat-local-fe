@@ -1,7 +1,7 @@
 .single-result-section {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  /* flex-direction: column; */
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -17,7 +17,11 @@
 }
 
 .business-photo {
-  width: 20rem;
+  width: 15rem;
+}
+
+.marker {
+  fill: #e60000
 }
 
 .information-container {
