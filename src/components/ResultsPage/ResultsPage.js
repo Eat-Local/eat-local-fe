@@ -16,9 +16,11 @@ const ResultsPage = () => {
     )
   })
   return (
-    <div className="results-container">
-      {businessCard}
-    </div>
+    <section className="results-section">
+      <div className="results-container">
+        {businessCard}
+      </div>
+    </section>
   )
 }
 
