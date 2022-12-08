@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import Search from "../Search/Search";
+import Login from "../Login/Login";
 import { Link } from "react-router-dom"
 import "./Nav.css";
 
@@ -48,7 +49,7 @@ const Nav = ( { business, setBusiness, location, setLocation, onSearch } ) => {
           <span className="menu"><span onClick={(event) => handleClick(event)}>Login</span> | Favorites</span>
         </div>
       </nav>
-      {openLogin && <div className="login-container" ref={ref}>I am Login</div>}
+      {openLogin && <div className="login-container" ref={ref}><Login /></div>}
     </>
   )
 }
