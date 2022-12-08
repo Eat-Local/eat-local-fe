@@ -6,7 +6,8 @@ import "./Nav.css";
 
 const logo = require('../../assets/eatlocalicon.png');
 
-const Nav = ( { business, setBusiness, location, setLocation, onSearch } ) => {
+const Nav = ( { business, setBusiness, location, setLocation, onSearch, name, 
+              email, setName, setEmail, getUser } ) => {
   const [openLogin, setOpenLogin] = useState(false);
   const ref = useRef(null);
   const loginRef = useRef();
@@ -51,7 +52,16 @@ const Nav = ( { business, setBusiness, location, setLocation, onSearch } ) => {
           <span className="menu"><span ref={loginRef} className="login" onClick={(event) => handleClick(event)}>Login</span> | Favorites</span>
         </div>
       </nav>
-      {openLogin && <div className="login-container" ref={ref}><Login /></div>}
+      {openLogin && <div className="login-container" ref={ref}>
+        <Login 
+          name={name}
+          email={email}
+          setName={setName}
+          setEmail={setEmail}
+          getUser={getUser}
+        />
+        </div>
+      }
     </>
   )
 }

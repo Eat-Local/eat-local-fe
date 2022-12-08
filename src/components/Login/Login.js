@@ -1,9 +1,12 @@
-import { useState } from 'react';
 import './Login.css';
 
-const Login = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+const Login = ({ name, email, setName, setEmail, getUser}) => {
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    console.log(email)
+    getUser(email)
+  }
 
   return(
     <form>
@@ -21,7 +24,7 @@ const Login = () => {
           placeholder="Email address"
           onChange={(event) => setEmail(event.target.value)}
         />
-        <button>Login!</button>
+        <button onClick={(event) => handleSubmit(event)}>Login!</button>
     </form>
   )
 }
