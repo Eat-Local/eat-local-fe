@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { Route, Switch } from "react-router-dom";
-import { gql, useQuery } from '@apollo/client';
+import { gql } from '@apollo/client';
 import Nav from "../Nav/Nav";
 import LandingPage from "../LandingPage/LandingPage";
 import Footer from "../Footer/Footer";
@@ -17,7 +17,7 @@ const App = ({client}) => {
   const [ results, setResults ] = useState([]);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [user, setUser] = useState(null)
+  // const [user, setUser] = useState(null)
   
 
   // const genRandomNum = (min, max) => {
