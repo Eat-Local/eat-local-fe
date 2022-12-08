@@ -55,7 +55,9 @@ const App = () => {
         onSearch={onSearch}
       />
       {/* <LandingPage /> */}
-      <ResultsPage />
+      <ResultsPage
+        results={results}
+      />
       <Footer/>
     </main>
   )
