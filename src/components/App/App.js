@@ -61,10 +61,10 @@ const App = () => {
           results={results}
          />
         </Route>
-        <Route exact path="/results/:id" render={({ match })=> {
-          const businessToRender = results.find(business => business.id === match.params.id)
+        <Route exact path="/results/:alias" render={({ match })=> {
+          const businessToRender = results.find(business => business.attributes.alias === match.params.alias)
           console.log(businessToRender)
-          return <SingleResultPage id={match.params.id} business={businessToRender}/>}
+          return <SingleResultPage business={businessToRender}/>}
         } />
       </Switch>
       <Footer/>

@@ -5,7 +5,7 @@ import ResultCard from "../ResultCard/ResultCard"
 const ResultsPage = ({ results }) => {
   const businessCards = results.map((business) => {
     const { id } = business;
-    const { title, rating, img, is_closed,  } = business.attributes;
+    const { title, rating, img, is_closed, alias  } = business.attributes;
     return (
       <ResultCard
         key={id}
@@ -14,6 +14,7 @@ const ResultsPage = ({ results }) => {
         rating={rating}
         photo={img}
         isClosed={is_closed}
+        alias={alias}
       />
     )
   })
