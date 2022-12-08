@@ -1,6 +1,7 @@
 .business-card {
   border: 1px solid black;
   width: 10rem;
+  margin: 0.5%;
   /* height: 10rem; */
 }
 
