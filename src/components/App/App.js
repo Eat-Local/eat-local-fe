@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react"
+import { Route, Switch } from "react-router-dom";
 import Nav from "../Nav/Nav";
 import LandingPage from "../LandingPage/LandingPage";
 import Footer from "../Footer/Footer";
 // import ResultCard from "../ResultCard/ResultCard";
 import ResultsPage from "../ResultsPage/ResultsPage";
-// import SingleResultPage from "../SingleResultPage/SingleResultPage";
+import SingleResultPage from "../SingleResultPage/SingleResultPage";
 // import FavoritesPage from "../FavoritesPage/FavoritesPage";
 import './App.css';
 
@@ -21,13 +22,10 @@ const App = () => {
   useEffect(() => {
     fetch(`https://throbbing-wood-3534.fly.dev/api/v1/business?business=$restaurant&location=denver`)
       .then(data => data.json())
-      .then(restaurants => {
-        console.log(restaurants);
         // use random num gen and length of restaurants to find a random denv rest
         // set a first element in featured array
         // repeat this logic for brewery and grocery?
         // could add random logic for other locations if we felt inclined
-      })
   }, [])
 
   const onSearch = (business, searchQuery) => {
@@ -54,10 +52,21 @@ const App = () => {
         setBusiness={setBusiness}
         onSearch={onSearch}
       />
-      <LandingPage />
-      <ResultsPage
-        results={results}
-      />
+      <Switch>
+        <Route exact path="/">
+          <LandingPage />
+        </Route>
+        <Route exact path="/results">
+         <ResultsPage 
+          results={results}
+         />
+        </Route>
+        <Route exact path="/results/:alias" render={({ match })=> {
+          const businessToRender = results.find(business => business.attributes.alias === match.params.alias)
+          console.log(businessToRender)
+          return <SingleResultPage business={businessToRender}/>}
+        } />
+      </Switch>
       <Footer/>
     </main>
   )

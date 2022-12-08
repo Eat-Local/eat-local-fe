@@ -1,8 +1,8 @@
+import { useHistory } from "react-router-dom"
 import "./Search.css"
 
 const Search = ( { business, setBusiness, location, setLocation, onSearch} ) => {
-  // const [ location, setLocation ] = useState('');
-  // const [ business, setBusiness ] = useState('restaurant');
+  const history = useHistory()
 
   const handleClick = (event) => {
     event.preventDefault();
@@ -10,8 +10,12 @@ const Search = ( { business, setBusiness, location, setLocation, onSearch} ) => 
     onSearch(business, query);
   }
 
+  const handleNavigate = () => {
+    history.push("/results")
+  }
+
   return (
-    <form className="search-bar">
+    <form className="search-bar" onSubmit={handleClick}>
       <label> 
         <input
           type="text"
@@ -25,8 +29,8 @@ const Search = ( { business, setBusiness, location, setLocation, onSearch} ) => 
         <input
           type="radio"
           name="business"
-          value="restaurant"
-          checked={business === "restaurant"}
+          value="family restaurant"
+          checked={business === "family restaurant"}
           onChange={(event) => setBusiness(event.target.value)}
         /> Restaurant
       </label>
@@ -34,10 +38,10 @@ const Search = ( { business, setBusiness, location, setLocation, onSearch} ) => 
       <input
           type="radio"
           name="business"
-          value="grocery"
-          checked={business === "grocery"}
+          value="farmers market"
+          checked={business === "farmers market"}
           onChange={(event) => setBusiness(event.target.value)}
-      /> Grocery
+      /> Market
      </label>
      <label>
       <input
@@ -48,8 +52,9 @@ const Search = ( { business, setBusiness, location, setLocation, onSearch} ) => 
           onChange={(event) => setBusiness(event.target.value)}
       /> Brewery
      </label>
-     <button onClick={handleClick}>Search</button>
+        <button type="submit" onClick={handleNavigate}>Search</button>
     </form>
+
   )
 }
 
