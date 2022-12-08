@@ -1,12 +1,26 @@
 import "./SingleResultPage.css";
-// import { data } from "../../assets/mock-data";
+import GoogleMapReact from 'google-map-react';
+import {ImLocation} from 'react-icons/im'
+import {AiOutlineStar} from 'react-icons/ai'
+
+const AnyReactComponent = ({ text }) => <div>{text}</div>;
+
 
 const placeholder = require('../../assets/eatlocalicon.png')
 
 const SingleResultPage = ({ business }) => {
-  const { hours, img, phone, rating, site, title } = business.attributes;
+  const { img, display_phone, rating, site, title, price, coordinates, display_address } = business.attributes;
+  const phone = display_phone.replace(/[^\d]/g, '');
+  console.log(display_phone)
+  console.log(business)
   const altText = `A photo describing ${title}'s business, provided by ${title}`
-  // const accessibility = wheelchair_accessible ? "Yes" : "No";
+  const defaultProps = {
+    center: {
+      lat: coordinates.latitude,
+      lng: coordinates.longitude
+    },
+    zoom: 11
+  }
 
   return(
     <section className="single-result-section">
@@ -14,16 +28,27 @@ const SingleResultPage = ({ business }) => {
         <img className="business-photo" src={img} alt={altText} />
         <div className="information-container">
           <h1>{title}</h1>
-          {/* <p>{description}</p> */}
-          <p>{rating}</p>
-          {/* <p>{address}</p> */}
-          <p>{hours}</p>
-          <p>{phone}</p>
-          {/* <p>Wheelchair Accessible: {accessibility}</p> */}
+          {price}
+          <p>Rating: {rating}/5</p>
+          <p>{display_address.display_address}</p>
+          <a href={phone}>{display_phone}</a>
           <p>Check out {title}'s <a href={site} target="_blank" rel="noopener noreferrer">website</a>!</p>
         </div>
-        <img className="favorite-icon" src={placeholder} alt="an outline of a star" />
+        <AiOutlineStar className="favorite-icon"/>
       </article>
+      <div style={{ height: '50vh', width: '50%' }}>
+      <GoogleMapReact
+        bootstrapURLKeys={{ key: "AIzaSyAmmY9E1-q22Nt5B1QWzyFku0c9iM_v4gY" }}
+        defaultCenter={defaultProps.center}
+        defaultZoom={defaultProps.zoom}
+      >
+        <AnyReactComponent
+          lat={coordinates.latitude}
+          lng={coordinates.longitude}
+          text={<ImLocation/>}
+        />
+      </GoogleMapReact>
+    </div>
     </section>
   )
 }
