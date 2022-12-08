@@ -12,7 +12,7 @@ const App = () => {
   const [ location, setLocation ] = useState('');
   const [ business, setBusiness ] = useState('restaurant');
   // const [ featured, setFeatured ] = useState([]);
-  const [ results, setResults ] = useState([]);
+  // const [ results, setResults ] = useState([]);
 
   // const genRandomNum = (min, max) => {
   //   return Math.floor(Math.random() * (max - min + 1) + min)
