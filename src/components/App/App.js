@@ -3,7 +3,7 @@ import Nav from "../Nav/Nav";
 import LandingPage from "../LandingPage/LandingPage";
 import Footer from "../Footer/Footer";
 // import ResultCard from "../ResultCard/ResultCard";
-import ResultsPage from "../ResultsPage/ResultsPage";
+// import ResultsPage from "../ResultsPage/ResultsPage";
 // import SingleResultPage from "../SingleResultPage/SingleResultPage";
 // import FavoritesPage from "../FavoritesPage/FavoritesPage";
 import './App.css';
@@ -11,12 +11,12 @@ import './App.css';
 const App = () => {
   const [ location, setLocation ] = useState('');
   const [ business, setBusiness ] = useState('restaurant');
-  const [ featured, setFeatured ] = useState([]);
+  // const [ featured, setFeatured ] = useState([]);
   const [ results, setResults ] = useState([]);
 
-  const genRandomNum = (min, max) => {
-    return Math.floor(Math.random() * (max - min + 1) + min)
-  }
+  // const genRandomNum = (min, max) => {
+  //   return Math.floor(Math.random() * (max - min + 1) + min)
+  // }
 
   useEffect(() => {
     fetch(`https://throbbing-wood-3534.fly.dev/api/v1/business?business=$restaurant&location=denver`)
@@ -54,10 +54,10 @@ const App = () => {
         setBusiness={setBusiness}
         onSearch={onSearch}
       />
-      {/* <LandingPage /> */}
-      <ResultsPage
+      <LandingPage />
+      {/* <ResultsPage
         results={results}
-      />
+      /> */}
       <Footer/>
     </main>
   )

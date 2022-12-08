@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import "./Search.css"
 
 const Search = ( { business, setBusiness, location, setLocation, onSearch} ) => {
