@@ -12,7 +12,7 @@ const LandingPage = () => {
         </p>
       </div>
       <div className="featured-container">
-        <p className="featured-businesses-msg">Featured Local Busniesses:</p>
+        <p className="featured-businesses-msg">Featured Local Businesses:</p>
           <div className="featured-cards">
             <ResultCard />
             <ResultCard />

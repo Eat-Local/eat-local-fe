@@ -1,10 +1,10 @@
 .business-card {
-border: 1px solid black;
-width: 180px;
-height: 300px;
-
+  border: 1px solid black;
+  width: 10rem;
+  margin: 0.5%;
+  /* height: 10rem; */
 }
 
 .business-card-image {
-  width: 180px;
+  width: 10rem;
 }

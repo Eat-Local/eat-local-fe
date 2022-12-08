@@ -1,24 +1,28 @@
 import "./ResultsPage.css"
-import { data } from "../../assets/mock-data"
-
 import React from 'react'
 import ResultCard from "../ResultCard/ResultCard"
 
-const ResultsPage = () => {
-  const businessCard = data.map((business, index) => {
+const ResultsPage = ({ results }) => {
+  const businessCards = results.map((business) => {
+    const { id } = business;
+    const { title, rating, img, is_closed,  } = business.attributes;
     return (
       <ResultCard
-        title={business.attributes.title}
-        rating={business.attributes.rating}
-        photo={business.attributes.img}
-        key={index}
+        key={id}
+        id={id}
+        title={title}
+        rating={rating}
+        photo={img}
+        isClosed={is_closed}
       />
     )
   })
   return (
-    <div className="results-container">
-      {businessCard}
-    </div>
+    <section className="results-section">
+      <div className="results-container">
+        {businessCards}
+      </div>
+    </section>
   )
 }
 

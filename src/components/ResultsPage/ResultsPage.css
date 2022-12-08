@@ -1,6 +1,12 @@
+.results-section {
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
 .results-container {
-  padding: 20px;
+  /* padding: 20px; */
   display: flex;
+  flex-wrap: wrap;
+  /* height: 50vh; */
   justify-content: space-around;
-  
 }
