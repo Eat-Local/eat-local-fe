@@ -2,11 +2,9 @@ import "./SingleResultPage.css";
 import GoogleMapReact from 'google-map-react';
 import {ImLocation} from 'react-icons/im'
 import {AiOutlineStar} from 'react-icons/ai'
+const apiKey = process.env.REACT_APP_GOOGLE_API_KEY
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
-
-
-const placeholder = require('../../assets/eatlocalicon.png')
 
 const SingleResultPage = ({ business }) => {
   const { img, display_phone, rating, site, title, price, coordinates, display_address } = business.attributes;
@@ -21,6 +19,7 @@ const SingleResultPage = ({ business }) => {
     },
     zoom: 11
   }
+  console.log(apiKey)
 
   return(
     <section className="single-result-section">
@@ -38,7 +37,7 @@ const SingleResultPage = ({ business }) => {
       </article>
       <div style={{ height: '50vh', width: '50%' }}>
       <GoogleMapReact
-        bootstrapURLKeys={{ key: "AIzaSyAmmY9E1-q22Nt5B1QWzyFku0c9iM_v4gY" }}
+        bootstrapURLKeys={{ key: apiKey }}
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
       >
