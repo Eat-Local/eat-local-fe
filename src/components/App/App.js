@@ -11,7 +11,7 @@ import './App.css';
 
 const App = () => {
   const [ location, setLocation ] = useState('');
-  const [ business, setBusiness ] = useState('restaurant');
+  const [ business, setBusiness ] = useState('family restaurant');
   // const [ featured, setFeatured ] = useState([]);
   const [ results, setResults ] = useState([]);
 
