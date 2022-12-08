@@ -1,9 +1,8 @@
-import { useState } from 'react';
 import './Login.css';
 
-const Login = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+const Login = ({ name, email, setName, setEmail}) => {
+  // const [name, setName] = useState('');
+  // const [email, setEmail] = useState('');
 
   return(
     <form>

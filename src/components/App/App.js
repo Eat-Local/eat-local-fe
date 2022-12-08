@@ -14,6 +14,8 @@ const App = () => {
   const [ business, setBusiness ] = useState('family restaurant');
   // const [ featured, setFeatured ] = useState([]);
   const [ results, setResults ] = useState([]);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
 
   // const genRandomNum = (min, max) => {
   //   return Math.floor(Math.random() * (max - min + 1) + min)
@@ -51,6 +53,10 @@ const App = () => {
         business={business}
         setBusiness={setBusiness}
         onSearch={onSearch}
+        name={name}
+        email={email}
+        setName={setName}
+        setEmail={setEmail}
       />
       <Switch>
         <Route exact path="/">
