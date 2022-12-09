@@ -4,7 +4,6 @@ const Login = ({ name, email, setName, setEmail, getUser}) => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log(email)
     getUser(email)
   }
 

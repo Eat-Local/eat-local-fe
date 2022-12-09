@@ -4,11 +4,10 @@ import { gql } from '@apollo/client';
 import Nav from "../Nav/Nav";
 import LandingPage from "../LandingPage/LandingPage";
 import Footer from "../Footer/Footer";
-// import ResultCard from "../ResultCard/ResultCard";
 import ResultsPage from "../ResultsPage/ResultsPage";
 import SingleResultPage from "../SingleResultPage/SingleResultPage";
-// import FavoritesPage from "../FavoritesPage/FavoritesPage";
 import './App.css';
+import FavoritesPage from "../FavoritesPage/FavoritesPage";
 
 const App = ({client}) => {
   const [ location, setLocation ] = useState('');
@@ -17,7 +16,7 @@ const App = ({client}) => {
   const [ results, setResults ] = useState([]);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  // const [user, setUser] = useState(null)
+  const [user, setUser] = useState(null)
   
 
   // const genRandomNum = (min, max) => {
@@ -34,7 +33,6 @@ const App = ({client}) => {
   // }, [])
 
   const onSearch = (business, searchQuery) => {
-    console.log(`https://throbbing-wood-3534.fly.dev/api/v1/business?business=${business}&location=${searchQuery}`);
     
     fetch(`https://throbbing-wood-3534.fly.dev/api/v1/business?business=${business}&location=${searchQuery}`)
       .then(res => {
@@ -63,7 +61,8 @@ const App = ({client}) => {
       }
     `,
   })
-  .then((result) => console.log(result));
+  .then((result) => setUser(result.data.user))
+
   }
 
   return (
@@ -79,6 +78,7 @@ const App = ({client}) => {
         setName={setName}
         setEmail={setEmail}
         getUser={getUser}
+        user={user}
       />
       <Switch>
         <Route exact path="/">
@@ -91,9 +91,11 @@ const App = ({client}) => {
         </Route>
         <Route exact path="/results/:alias" render={({ match })=> {
           const businessToRender = results.find(business => business.attributes.alias === match.params.alias)
-          console.log(businessToRender)
           return <SingleResultPage business={businessToRender}/>}
         } />
+        <Route exact path="/favorites">
+          <FavoritesPage user={user} />
+        </Route>
       </Switch>
       <Footer/>
     </main>
