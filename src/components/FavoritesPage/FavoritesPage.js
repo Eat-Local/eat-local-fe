@@ -13,6 +13,7 @@ const FavoritesPage = ({ user }) => {
   } else {
     favorites = user.favorites.map((business) => {
       const { id, title, rating, img, is_closed, alias} = business
+      console.log(business)
       return (
       <ResultCard
         key={id}

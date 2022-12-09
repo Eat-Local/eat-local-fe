@@ -54,15 +54,62 @@ const App = ({client}) => {
           fname
           lname
           email
+          id
           favorites {
-            title
+               id,
+             title,
+             venueType,
+             address,
+             rating,
+             url,
+             image,
+             isClosed,
+             phone,
+             userId
           }
         }
       }
     `,
   })
   .then((result) => setUser(result.data.user))
+  }
 
+  const addFavorite = (data) => {
+    client.mutate({
+      mutation: gql`
+      mutation {
+        createFavorite(input: {
+                   title: "place",
+                   venueType: "brewery",
+                   address: "123 Fake street, Denver, CO, 80205"
+                   rating: "2.2",
+                   url: "www.fake.com",
+                   image: "www.fakepic.com",
+                   phone: "(303) 123-4567",
+                   userId: "6"
+                 }) {
+                  favorite {
+                    id,
+                    title,
+                    venueType,
+                    address,
+                    rating,
+                    url,
+                    image,
+                    isClosed,
+                    phone,
+                    userId
+                   }
+                  errors
+                 }
+               }`
+    })
+    .then(res => console.log('hi', res))
+  }
+addFavorite()
+console.log(user)
+  const deleteFavorite = () => {
+    console.log('you deleted a favorite!!!!!')
   }
 
   return (
@@ -87,6 +134,8 @@ const App = ({client}) => {
         <Route exact path="/results">
          <ResultsPage 
           results={results}
+          addFavorite={addFavorite}
+          deleteFavorite={deleteFavorite}
          />
         </Route>
         <Route exact path="/results/:alias" render={({ match })=> {
