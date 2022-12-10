@@ -2,9 +2,15 @@ import {useState} from 'react'
 import "./FavoritesPage.css"
 import ResultCard from '../ResultCard/ResultCard'
 
-const FavoritesPage = ({ user }) => {
+const FavoritesPage = ({ user, deleteFavorite }) => {
   const [searchFavorites, setSearchFavorites] = useState('')
   
+  let displaySearch = false;
+
+  if (user && user.favorites.length > 0) {
+    displaySearch = true;
+  }
+
   let favorites;
 
   if (!user) {
@@ -23,6 +29,7 @@ const FavoritesPage = ({ user }) => {
           photo={image}
           alias={alias}
           user={user}
+          deleteFavorite={deleteFavorite}
           displayType="favorite"
         />
       )
@@ -50,18 +57,16 @@ const FavoritesPage = ({ user }) => {
     event.preventDefault()
   }
 
-
-
   return (
     <section className="favorites-section">
-      {user && <form className='keyword-form'>
+      {displaySearch && <form className='keyword-form'>
         <input type='text' 
           placeholder='SEARCH FAVORITES' 
           className='input' 
           value={searchFavorites} 
           onChange={(event) => setSearchFavorites(event.target.value)} 
           required/>
-        <button disabled={searchFavorites.length < 1} type='submit' className='submit' onClick={(event) => handleClick(event)}>GO</button>
+        {/* <button disabled={searchFavorites.length < 1} type='submit' className='submit' onClick={(event) => handleClick(event)}>GO</button> */}
       </form>}
       {favorites}
     </section>
