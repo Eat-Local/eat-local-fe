@@ -3,9 +3,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 99vw;
+  z-index: 100;
+  background-color: #d7edd9;
 }
 
 .main-nav img {
@@ -24,12 +26,12 @@
 
 .login-container {
   border: 1px solid red;
-  position: absolute;
+  position: fixed;
   top: 4.5rem;
   right: 0.5rem;
   height: 10rem;
   width: 10rem;
-  z-index: 1;
+  z-index: 100;
 }
 
 .login:hover {

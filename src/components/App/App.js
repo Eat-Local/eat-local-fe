@@ -4,11 +4,10 @@ import { gql } from '@apollo/client';
 import Nav from "../Nav/Nav";
 import LandingPage from "../LandingPage/LandingPage";
 import Footer from "../Footer/Footer";
-// import ResultCard from "../ResultCard/ResultCard";
 import ResultsPage from "../ResultsPage/ResultsPage";
 import SingleResultPage from "../SingleResultPage/SingleResultPage";
-// import FavoritesPage from "../FavoritesPage/FavoritesPage";
 import './App.css';
+import FavoritesPage from "../FavoritesPage/FavoritesPage";
 
 const App = ({client}) => {
   const [ location, setLocation ] = useState('');
@@ -17,7 +16,7 @@ const App = ({client}) => {
   const [ results, setResults ] = useState([]);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  // const [user, setUser] = useState(null)
+  const [user, setUser] = useState(null)
   
 
   // const genRandomNum = (min, max) => {
@@ -34,7 +33,6 @@ const App = ({client}) => {
   // }, [])
 
   const onSearch = (business, searchQuery) => {
-    console.log(`https://throbbing-wood-3534.fly.dev/api/v1/business?business=${business}&location=${searchQuery}`);
     
     fetch(`https://throbbing-wood-3534.fly.dev/api/v1/business?business=${business}&location=${searchQuery}`)
       .then(res => {
@@ -56,16 +54,78 @@ const App = ({client}) => {
           fname
           lname
           email
+          id
           favorites {
-            title
+               id,
+             title,
+             venueType,
+             address,
+             rating,
+             url,
+             image,
+             isClosed,
+             phone,
+             userId
           }
         }
       }
     `,
   })
-  .then((result) => console.log(result));
+  .then((result) => setUser(result.data.user))
   }
 
+  const addFavorite = (data) => {
+    client.mutate({
+      mutation: gql`
+      mutation {
+        createFavorite(input: {
+                   title: "place",
+                   venueType: "brewery",
+                   address: "123 Fake street, Denver, CO, 80205"
+                   rating: "2.2",
+                   url: "www.fake.com",
+                   image: "www.fakepic.com",
+                   phone: "(303) 123-4567",
+                   userId: "6"
+                 }) {
+                  favorite {
+                    id,
+                    title,
+                    venueType,
+                    address,
+                    rating,
+                    url,
+                    image,
+                    isClosed,
+                    phone,
+                    userId
+                   }
+                  errors
+                 }
+               }`
+    })
+    .then(res => console.log('hi', res))
+  }
+
+console.log(user)
+
+//   const deleteFavorite = (id) => {
+//     client.mutate({
+//       mutation: gql`
+//     mutation {
+//       destroyFavorite(input: {
+//                  id: 31
+//                }) {
+//                 favorite {
+//                   id,
+     
+//                 }
+//                 errors
+//              }
+//            }`
+//       })
+//   }
+// deleteFavorite()
   return (
     <main className="page-container">
       <Nav
@@ -79,6 +139,7 @@ const App = ({client}) => {
         setName={setName}
         setEmail={setEmail}
         getUser={getUser}
+        user={user}
       />
       <Switch>
         <Route exact path="/">
@@ -87,13 +148,17 @@ const App = ({client}) => {
         <Route exact path="/results">
          <ResultsPage 
           results={results}
+          addFavorite={addFavorite}
+          // deleteFavorite={deleteFavorite}
          />
         </Route>
         <Route exact path="/results/:alias" render={({ match })=> {
           const businessToRender = results.find(business => business.attributes.alias === match.params.alias)
-          console.log(businessToRender)
           return <SingleResultPage business={businessToRender}/>}
         } />
+        <Route exact path="/favorites">
+          <FavoritesPage user={user} />
+        </Route>
       </Switch>
       <Footer/>
     </main>
