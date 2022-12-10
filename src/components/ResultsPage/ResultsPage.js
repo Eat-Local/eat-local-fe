@@ -6,7 +6,7 @@ const ResultsPage = ({ results, user, addFavorite, deleteFavorite }) => {
   const businessCards = results.map((business) => {
     const { id } = business;
     const { title, rating, img, is_closed, alias  } = business.attributes;
-    console.log('this is img, assigned to photo: ', img)
+   
     return (
       <ResultCard
         key={id}

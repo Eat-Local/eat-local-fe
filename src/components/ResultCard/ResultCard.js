@@ -3,9 +3,15 @@ import { AiOutlineStar } from 'react-icons/ai';
 import "./ResultCard.css";
 
 const ResultCard = ({title, photo, rating, id, alias, user, addFavorite, deleteFavorite, business}) => {
-  const buttonTxt = 'add to favorites';
+  const inUserFavs = user.favorites.reduce((acc, favorite) => {
+    console.log('favorite.title in reduce: ', favorite.title)
+    if (favorite.title === title) {
+      acc = true;
+    }
+    return acc;
+  }, false)
   
-  // logic for user.favorites and whether or not it includes current card for btn display
+  const buttonTxt = inUserFavs ? 'delete from favorites' : 'add to favorites'
 
   const handleClick = (event) => {
     const userId = user.id;
