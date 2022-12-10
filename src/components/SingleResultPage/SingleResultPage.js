@@ -7,6 +7,7 @@ const apiKey = process.env.REACT_APP_GOOGLE_API_KEY
 const Marker = ({ text }) => <div>{text}</div>
 
 const SingleResultPage = ({ business }) => {
+  console.log('i am business: ', business)
   const { img, display_phone, rating, site, title, price, coordinates, display_address } = business.attributes;
   const phone = display_phone.replace(/[^\d]/g, '');
   const address = display_address.display_address.map((element) => `${element} `)

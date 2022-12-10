@@ -4,6 +4,7 @@ import ResultCard from '../ResultCard/ResultCard'
 
 const FavoritesPage = ({ user }) => {
   const [searchFavorites, setSearchFavorites] = useState('')
+  
   let favorites;
 
   if (!user) {
@@ -11,19 +12,18 @@ const FavoritesPage = ({ user }) => {
   } else if (user.favorites.length === 0) {
     favorites = "You dont have any favorites yet"
   } else {
-    favorites = user.favorites.map((business) => {
-      const { id, title, rating, img, is_closed, alias} = business
-      console.log(business)
+    favorites = user.favorites.map((favorite) => {
+      const { id, title, rating, img, alias} = favorite;
+      console.log('this is a favorite: ', favorite)
       return (
-      <ResultCard
-        key={id}
-        id={id}
-        title={title}
-        rating={rating}
-        photo={img}
-        isClosed={is_closed}
-        alias={alias}
-      />
+        <ResultCard
+          key={id}
+          id={id}
+          title={title}
+          rating={rating}
+          photo={img}
+          alias={alias}
+        />
       )
     })
   }

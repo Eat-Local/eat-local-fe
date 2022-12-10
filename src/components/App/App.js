@@ -6,8 +6,8 @@ import LandingPage from "../LandingPage/LandingPage";
 import Footer from "../Footer/Footer";
 import ResultsPage from "../ResultsPage/ResultsPage";
 import SingleResultPage from "../SingleResultPage/SingleResultPage";
-import './App.css';
 import FavoritesPage from "../FavoritesPage/FavoritesPage";
+import './App.css';
 
 const App = ({client}) => {
   const [ location, setLocation ] = useState('');
@@ -43,7 +43,7 @@ const App = ({client}) => {
         }
       })
       .then(data => setResults(data.data))
-      .catch(error => console.log(error))
+      .catch(error => console.log('onSearch fetch error: ', error))
   }
 
   const getUser = (userEmail) => {
@@ -56,14 +56,13 @@ const App = ({client}) => {
           email
           id
           favorites {
-               id,
+             id,
              title,
              venueType,
              address,
              rating,
              url,
              image,
-             isClosed,
              phone,
              userId
           }
@@ -74,19 +73,27 @@ const App = ({client}) => {
   .then((result) => setUser(result.data.user))
   }
 
-  const addFavorite = (data) => {
+  const addFavorite = (business, userID) => {
+    const { img, display_phone, rating, site, title, display_address, venue_type } = business.attributes;
+    const address = display_address.display_address.reduce((acc, element) => {
+      if (element) {
+        acc += ` ${element} `
+      }
+      return acc;
+    }, ``)
+
     client.mutate({
       mutation: gql`
       mutation {
         createFavorite(input: {
-                   title: "place",
-                   venueType: "brewery",
-                   address: "123 Fake street, Denver, CO, 80205"
-                   rating: "2.2",
-                   url: "www.fake.com",
-                   image: "www.fakepic.com",
-                   phone: "(303) 123-4567",
-                   userId: "6"
+                   title: "${title}",
+                   venueType: "${venue_type}",
+                   address: "${address}"
+                   rating: "${rating}",
+                   url: "${site}",
+                   image: "${img}",
+                   phone: "${display_phone}",
+                   userId: "${userID}"
                  }) {
                   favorite {
                     id,
@@ -104,28 +111,27 @@ const App = ({client}) => {
                  }
                }`
     })
-    .then(res => console.log('hi', res))
+    .then(res => console.log('addFavorite response: ', res))
   }
 
-console.log(user)
+  const deleteFavorite = (id) => {
+    client.mutate({
+      mutation: gql`
+      mutation {
+      destroyFavorite(input: {
+                 id: ${id}
+               }) {
+                favorite {
+                  id,
+                }
+                errors
+               }
+              }`
+    })
+    .then(res => console.log('deleteFav response: ', res))
+    // when passing id, it must parseInt
+  }
 
-//   const deleteFavorite = (id) => {
-//     client.mutate({
-//       mutation: gql`
-//     mutation {
-//       destroyFavorite(input: {
-//                  id: 31
-//                }) {
-//                 favorite {
-//                   id,
-     
-//                 }
-//                 errors
-//              }
-//            }`
-//       })
-//   }
-// deleteFavorite()
   return (
     <main className="page-container">
       <Nav
@@ -148,16 +154,27 @@ console.log(user)
         <Route exact path="/results">
          <ResultsPage 
           results={results}
+          user={user}
           addFavorite={addFavorite}
-          // deleteFavorite={deleteFavorite}
+          deleteFavorite={deleteFavorite}
          />
         </Route>
         <Route exact path="/results/:alias" render={({ match })=> {
           const businessToRender = results.find(business => business.attributes.alias === match.params.alias)
-          return <SingleResultPage business={businessToRender}/>}
-        } />
+          return <SingleResultPage 
+                    business={businessToRender}
+                    user={user}
+                    addFavorite={addFavorite}
+                    deleteFavorite={deleteFavorite}
+                 />
+          }
+         } 
+        />
         <Route exact path="/favorites">
-          <FavoritesPage user={user} />
+          <FavoritesPage 
+            user={user}
+            deleteFavorite={deleteFavorite}
+          />
         </Route>
       </Switch>
       <Footer/>
