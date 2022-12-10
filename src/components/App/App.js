@@ -106,12 +106,26 @@ const App = ({client}) => {
     })
     .then(res => console.log('hi', res))
   }
-addFavorite()
-console.log(user)
-  const deleteFavorite = () => {
-    console.log('you deleted a favorite!!!!!')
-  }
 
+console.log(user)
+
+//   const deleteFavorite = (id) => {
+//     client.mutate({
+//       mutation: gql`
+//     mutation {
+//       destroyFavorite(input: {
+//                  id: 31
+//                }) {
+//                 favorite {
+//                   id,
+     
+//                 }
+//                 errors
+//              }
+//            }`
+//       })
+//   }
+// deleteFavorite()
   return (
     <main className="page-container">
       <Nav
@@ -135,7 +149,7 @@ console.log(user)
          <ResultsPage 
           results={results}
           addFavorite={addFavorite}
-          deleteFavorite={deleteFavorite}
+          // deleteFavorite={deleteFavorite}
          />
         </Route>
         <Route exact path="/results/:alias" render={({ match })=> {
