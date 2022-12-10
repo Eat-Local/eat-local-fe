@@ -26,8 +26,7 @@ const ResultCard = ({title, photo, rating, id, alias, user, addFavorite, deleteF
   } else if (displayType === "result") {
     linkText = `/results/${alias}`
   } else if (displayType === "favorite") {
-    linkText = `/favorites/${alias}`
-    // or favorites/title, whatever we end up using!
+    linkText = `/favorites/${id}`
   }
 
   const buttonTxt = inUserFavs ? 'delete from favorites' : 'add to favorites'
