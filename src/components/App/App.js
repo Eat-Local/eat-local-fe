@@ -1,49 +1,45 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Route, Switch } from "react-router-dom";
 import { gql } from '@apollo/client';
+import { getBusiness } from '../../apiCalls.js';
 import Nav from "../Nav/Nav";
 import LandingPage from "../LandingPage/LandingPage";
 import Footer from "../Footer/Footer";
 import ResultsPage from "../ResultsPage/ResultsPage";
 import SingleResultPage from "../SingleResultPage/SingleResultPage";
-import './App.css';
 import FavoritesPage from "../FavoritesPage/FavoritesPage";
+import './App.css';
 
 const App = ({client}) => {
   const [ location, setLocation ] = useState('');
   const [ business, setBusiness ] = useState('family restaurant');
-  // const [ featured, setFeatured ] = useState([]);
+  const [ featured, setFeatured ] = useState([]);
   const [ results, setResults ] = useState([]);
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [user, setUser] = useState(null)
+  const [ name, setName ] = useState('');
+  const [ email, setEmail ] = useState('');
+  const [ user, setUser ] = useState(null);
   
+  const genRandomNum = (min, max) => {
+    return Math.floor(Math.random() * (max - min + 1) + min)
+  }
 
-  // const genRandomNum = (min, max) => {
-  //   return Math.floor(Math.random() * (max - min + 1) + min)
-  // }
-
-  // useEffect(() => {
-  //   fetch(`https://throbbing-wood-3534.fly.dev/api/v1/business?business=$restaurant&location=denver`)
-  //     .then(data => data.json())
-  //       // use random num gen and length of restaurants to find a random denv rest
-  //       // set a first element in featured array
-  //       // repeat this logic for brewery and grocery?
-  //       // could add random logic for other locations if we felt inclined
-  // }, [])
+  useEffect(() => {
+    Promise.all([getBusiness('family restaurant', 'denver'), getBusiness('farmers market', 'denver'), getBusiness('brewery', 'denver')])
+      .then(data => {
+          const randomFeatBusinesses = data.reduce((acc, business) => {
+            const featBusiness = business.data[genRandomNum(0, business.data.length - 1)];
+            acc.push(featBusiness);
+            return acc;
+        }, []) 
+        setFeatured(randomFeatBusinesses);
+      })
+      .catch(error => console.log('promise.all error: ', error))
+  }, [])
 
   const onSearch = (business, searchQuery) => {
-    
-    fetch(`https://throbbing-wood-3534.fly.dev/api/v1/business?business=${business}&location=${searchQuery}`)
-      .then(res => {
-        if (!res.ok) {
-          throw new Error('Oops, something went wrong trying to find businesses in your location. Try entering a different location!')
-        } else {
-          return res.json()
-        }
-      })
+    getBusiness(business, searchQuery)
       .then(data => setResults(data.data))
-      .catch(error => console.log(error))
+      .catch(error => console.log('onSearch fetch error: ', error))
   }
 
   const getUser = (userEmail) => {
@@ -56,14 +52,13 @@ const App = ({client}) => {
           email
           id
           favorites {
-               id,
+             id,
              title,
              venueType,
              address,
              rating,
              url,
              image,
-             isClosed,
              phone,
              userId
           }
@@ -74,19 +69,28 @@ const App = ({client}) => {
   .then((result) => setUser(result.data.user))
   }
 
-  const addFavorite = (data) => {
+  const addFavorite = (business, userID) => {
+    const { img, display_phone, rating, site, title, display_address, venue_type } = business.attributes;
+    const address = display_address.display_address.reduce((acc, element) => {
+      if (element) {
+        acc += ` ${element} `
+      }
+      return acc;
+    }, ``)
+
     client.mutate({
       mutation: gql`
       mutation {
         createFavorite(input: {
-                   title: "place",
-                   venueType: "brewery",
-                   address: "123 Fake street, Denver, CO, 80205"
-                   rating: "2.2",
-                   url: "www.fake.com",
-                   image: "www.fakepic.com",
-                   phone: "(303) 123-4567",
-                   userId: "6"
+                   title: "${title}",
+                   venueType: "${venue_type}",
+                   address: "${address}"
+                   rating: "${rating}",
+                   url: "${site}",
+                   image: "${img}",
+                   phone: "${display_phone}",
+                   userId: "${userID}",
+                   isClosed: "currently required, but data is unused on the FE"
                  }) {
                   favorite {
                     id,
@@ -104,28 +108,35 @@ const App = ({client}) => {
                  }
                }`
     })
-    .then(res => console.log('hi', res))
+    .then(res => {
+      console.log('addFavorite response: ', res);
+      // confused regarding having to refresh for new user data... tried this logic, not sure what's going on.
+      // const updatedUser = getUser(user.email);
+      // setUser(updatedUser);
+    })
+    .catch(error => console.log('addFavorite error: ', error))
   }
 
-console.log(user)
+  const deleteFavorite = (id) => {
+    client.mutate({
+      mutation: gql`
+      mutation {
+      destroyFavorite(input: {
+                 id: ${id}
+               }) {
+                favorite {
+                  id,
+                }
+                errors
+               }
+              }`
+    })
+    .then(res => console.log('deleteFav response: ', res))
+    .catch(error => console.log('deleteFav error: ', error))
+  }
 
-//   const deleteFavorite = (id) => {
-//     client.mutate({
-//       mutation: gql`
-//     mutation {
-//       destroyFavorite(input: {
-//                  id: 31
-//                }) {
-//                 favorite {
-//                   id,
-     
-//                 }
-//                 errors
-//              }
-//            }`
-//       })
-//   }
-// deleteFavorite()
+  console.log("I am user in app: ", user);
+
   return (
     <main className="page-container">
       <Nav
@@ -143,22 +154,62 @@ console.log(user)
       />
       <Switch>
         <Route exact path="/">
-          <LandingPage />
+          <LandingPage
+            featured={featured}
+            user={user}
+            addFavorite={addFavorite}
+            deleteFavorite={deleteFavorite}
+          />
         </Route>
+        <Route exact path="/featured/:alias" render={({ match })=> {
+          const businessToRender = featured.find(business => business.attributes.alias === match.params.alias)
+          return <SingleResultPage 
+                    business={businessToRender}
+                    user={user}
+                    addFavorite={addFavorite}
+                    deleteFavorite={deleteFavorite}
+                 />
+          }
+         } 
+        />
         <Route exact path="/results">
          <ResultsPage 
           results={results}
+          user={user}
           addFavorite={addFavorite}
-          // deleteFavorite={deleteFavorite}
+          deleteFavorite={deleteFavorite}
          />
         </Route>
         <Route exact path="/results/:alias" render={({ match })=> {
           const businessToRender = results.find(business => business.attributes.alias === match.params.alias)
-          return <SingleResultPage business={businessToRender}/>}
-        } />
+          return <SingleResultPage 
+                    business={businessToRender}
+                    user={user}
+                    addFavorite={addFavorite}
+                    deleteFavorite={deleteFavorite}
+                 />
+          }
+         } 
+        />
         <Route exact path="/favorites">
-          <FavoritesPage user={user} />
+          <FavoritesPage 
+            user={user}
+            deleteFavorite={deleteFavorite}
+          />
         </Route>
+        <Route exact path="/favorites/:title" render={({ match })=> {
+          // this is where we would mimic similar logic as the /results/:alias and /featured/:alias routes...
+          // however, there is no alias in favorites, and I don't know how to change the params variable hahaha
+          // const businessToRender = user.favorites.find(business => business.title === match.params.title)
+          // return <SingleResultPage 
+          //           business={businessToRender}
+          //           user={user}
+          //           addFavorite={addFavorite}
+          //           deleteFavorite={deleteFavorite}
+          //        />
+          }
+         } 
+        />
       </Switch>
       <Footer/>
     </main>

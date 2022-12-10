@@ -15,7 +15,6 @@ const Nav = ( { business, setBusiness, location, setLocation, onSearch, name,
 
   const handleClick = (event) => {
     setOpenLogin(!openLogin);
-    // console.log('openLogin in handleClick: ', openLogin)
   }
 
   useEffect(() => {
@@ -23,7 +22,6 @@ const Nav = ( { business, setBusiness, location, setLocation, onSearch, name,
       if (!ref.current || ref.current.contains(event.target) || loginRef.current.contains(event.target)) {
         return;
       }
-      // console.log('openLogin in useEffect: ', openLogin)
       setOpenLogin(false);
     };
     document.addEventListener("mousedown", listener);
@@ -50,7 +48,7 @@ const Nav = ( { business, setBusiness, location, setLocation, onSearch, name,
         />
         <div className="greeting-menu-container">
          <span className="greeting">Hello, {greeting}!</span>
-          <span className="menu"><span ref={loginRef} className="login" onClick={(event) => handleClick(event)}>Login</span> | <Link to="/favorites">Favorites</Link></span>
+          <span className="menu"><Link to="/">Home</Link> | <span ref={loginRef} className="login" onClick={(event) => handleClick(event)}>Login</span> | <Link to="/favorites">Favorites</Link></span>
         </div>
       </nav>
       {openLogin && <div className="login-container" ref={ref}>
