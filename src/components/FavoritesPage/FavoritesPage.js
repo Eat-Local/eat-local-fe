@@ -53,10 +53,6 @@ const FavoritesPage = ({ user, deleteFavorite }) => {
     })
   }
 
-  const handleClick = (event) => {
-    event.preventDefault()
-  }
-
   return (
     <section className="favorites-section">
       {displaySearch && <form className='keyword-form'>
@@ -66,7 +62,6 @@ const FavoritesPage = ({ user, deleteFavorite }) => {
           value={searchFavorites} 
           onChange={(event) => setSearchFavorites(event.target.value)} 
           required/>
-        {/* <button disabled={searchFavorites.length < 1} type='submit' className='submit' onClick={(event) => handleClick(event)}>GO</button> */}
       </form>}
       {favorites}
     </section>

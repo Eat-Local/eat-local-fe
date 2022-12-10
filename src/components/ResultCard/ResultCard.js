@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { AiOutlineStar } from 'react-icons/ai';
+// import { AiOutlineStar } from 'react-icons/ai';
 import "./ResultCard.css";
 
 const ResultCard = ({title, photo, rating, id, alias, user, addFavorite, deleteFavorite, business, displayType}) => { 
