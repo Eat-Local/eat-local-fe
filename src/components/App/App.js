@@ -15,9 +15,9 @@ const App = ({client}) => {
   const [ business, setBusiness ] = useState('family restaurant');
   const [ featured, setFeatured ] = useState([]);
   const [ results, setResults ] = useState([]);
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [user, setUser] = useState(null)
+  const [ name, setName ] = useState('');
+  const [ email, setEmail ] = useState('');
+  const [ user, setUser ] = useState(null);
   
   const genRandomNum = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min)
@@ -37,14 +37,7 @@ const App = ({client}) => {
   }, [])
 
   const onSearch = (business, searchQuery) => {
-    fetch(`https://throbbing-wood-3534.fly.dev/api/v1/business?business=${business}&location=${searchQuery}`)
-      .then(res => {
-        if (!res.ok) {
-          throw new Error('Oops, something went wrong trying to find businesses in your location. Try entering a different location!')
-        } else {
-          return res.json()
-        }
-      })
+    getBusiness(business, searchQuery)
       .then(data => setResults(data.data))
       .catch(error => console.log('onSearch fetch error: ', error))
   }
