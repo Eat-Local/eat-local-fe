@@ -2,8 +2,6 @@ import ResultCard from "../ResultCard/ResultCard";
 import "./LandingPage.css"
 
 const LandingPage = ({ user, addFavorite, deleteFavorite, featured }) => {
-  console.log('featured in Landing Page: ', featured)
-
   const featBusinesses = featured.map(business => {
     const { id } = business;
     const { title, rating, img, is_closed, alias  } = business.attributes;
@@ -29,9 +27,12 @@ const LandingPage = ({ user, addFavorite, deleteFavorite, featured }) => {
     <section className="landing-section">
       <div className="overview-container">
         <p>
-          Lorem ipsum dolor amet mustache knausgaard +1, blue bottle waistcoat tbh semiotics artisan synth stumptown<br/>gastropub cornhole celiac swag.
-          Brunch raclette vexillologist post-ironic glossier ennui XOXO mlkshk godard<br/>pour-over blog tumblr humblebrag.
-          Blue bottle put a bird on it twee prism biodiesel brooklyn. Blue bottle ennui tbh succulents.
+        Eat local was designed to exclusively support local businesses.  Unlike larger companies, small businesses do not have 
+        the resources or the capital to survive without sales and support.  Approximately 1 out of 5 small businesses close their 
+        doors permanently within their first year of business.  The odds of a small business failing increase more each year they are open–with a 
+        failure rate of 66% after 10 years of business.  Although running a small business is very difficult, it is near impossible without 
+        support. To continue to have diverse options to eat, drink, and shop, there needs to be an effort made to support these businesses or 
+        your favorite neighborhood spots may not be around much longer.  Please eat local!
         </p>
       </div>
       <div className="featured-container">
