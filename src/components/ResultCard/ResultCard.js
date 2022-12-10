@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { AiOutlineStar } from 'react-icons/ai';
 import "./ResultCard.css";
 
-const ResultCard = ({title, photo, rating, id, alias, user, addFavorite, deleteFavorite, business}) => { 
+const ResultCard = ({title, photo, rating, id, alias, user, addFavorite, deleteFavorite, business, displayType}) => { 
   let inUserFavs = false;
   
   if (user) {
@@ -19,11 +19,22 @@ const ResultCard = ({title, photo, rating, id, alias, user, addFavorite, deleteF
     deleteFavorite(parseInt(currentFavorite.id));
   }
 
+  let linkText;
+
+  if (displayType === "featured") {
+    linkText = `/featured/${alias}`
+  } else if (displayType === "result") {
+    linkText = `/results/${alias}`
+  } else if (displayType === "favorite") {
+    linkText = `/favorites/${alias}`
+    // or favorites/title, whatever we end up using!
+  }
+
   const buttonTxt = inUserFavs ? 'delete from favorites' : 'add to favorites'
 
   return (
     <article className="business-card">
-      <Link to={`/results/${alias}`}><img className="business-card-image" src={photo} alt={title}></img></Link>
+      <Link to={linkText}><img className="business-card-image" src={photo} alt={title}></img></Link>
       <p>{title}</p>
       <p>{rating}</p>
       {user && <button onClick={inUserFavs ? handleDelete : () => addFavorite(business, user.id)}>{buttonTxt}</button>}

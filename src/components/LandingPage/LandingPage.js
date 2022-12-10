@@ -18,6 +18,7 @@ const LandingPage = ({ user, addFavorite, deleteFavorite, featured }) => {
         addFavorite={addFavorite}
         deleteFavorite={deleteFavorite}
         business={business}
+        displayType="featured"
       />
     )
    }

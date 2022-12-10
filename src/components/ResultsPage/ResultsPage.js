@@ -20,6 +20,7 @@ const ResultsPage = ({ results, user, addFavorite, deleteFavorite }) => {
         addFavorite={addFavorite}
         deleteFavorite={deleteFavorite}
         business={business}
+        displayType="result"
       />
     )
   })

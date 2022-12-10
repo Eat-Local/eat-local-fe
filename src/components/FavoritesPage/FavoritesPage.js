@@ -11,10 +11,9 @@ const FavoritesPage = ({ user }) => {
     favorites = "You should log in"
   } else if (user.favorites.length === 0) {
     favorites = "You dont have any favorites yet"
-  } else {
+  } else if (!searchFavorites) {
     favorites = user.favorites.map((favorite) => {
       const { id, title, rating, image, alias} = favorite;
-      console.log('this is a favorite: ', favorite)
       return (
         <ResultCard
           key={id}
@@ -24,6 +23,24 @@ const FavoritesPage = ({ user }) => {
           photo={image}
           alias={alias}
           user={user}
+          displayType="favorite"
+        />
+      )
+    })
+  } else {
+    const filteredFavorites = user.favorites.filter(favorite => favorite.title.toLowerCase().includes(searchFavorites.toLocaleLowerCase()));
+    favorites = filteredFavorites.map((favorite) => {
+      const { id, title, rating, image, alias} = favorite;
+      return (
+        <ResultCard
+          key={id}
+          id={id}
+          title={title}
+          rating={rating}
+          photo={image}
+          alias={alias}
+          user={user}
+          displayType="favorite"
         />
       )
     })
@@ -44,7 +61,7 @@ const FavoritesPage = ({ user }) => {
           value={searchFavorites} 
           onChange={(event) => setSearchFavorites(event.target.value)} 
           required/>
-        <button disabled={searchFavorites.length<1} type='submit' className='submit' onClick={(event) => handleClick(event)}>GO</button>
+        <button disabled={searchFavorites.length < 1} type='submit' className='submit' onClick={(event) => handleClick(event)}>GO</button>
       </form>}
       {favorites}
     </section>

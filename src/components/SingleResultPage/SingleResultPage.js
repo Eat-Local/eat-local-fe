@@ -1,7 +1,7 @@
 import "./SingleResultPage.css";
 import GoogleMapReact from 'google-map-react';
-import {MdLocationPin} from 'react-icons/md'
-import {AiOutlineStar} from 'react-icons/ai'
+import { MdLocationPin } from 'react-icons/md';
+import { AiOutlineStar } from 'react-icons/ai';
 const apiKey = process.env.REACT_APP_GOOGLE_API_KEY
 
 const Marker = ({ text }) => <div>{text}</div>

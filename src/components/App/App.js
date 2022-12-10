@@ -109,6 +109,7 @@ const App = ({client}) => {
                }`
     })
     .then(res => console.log('addFavorite response: ', res))
+    .catch(error => console.log('addFavorite error: ', error))
   }
 
   const deleteFavorite = (id) => {
@@ -126,7 +127,7 @@ const App = ({client}) => {
               }`
     })
     .then(res => console.log('deleteFav response: ', res))
-    // when passing id, it must parseInt
+    .catch(error => console.log('deleteFav error: ', error))
   }
 
   console.log("I am user in app: ", user);
@@ -155,6 +156,17 @@ const App = ({client}) => {
             deleteFavorite={deleteFavorite}
           />
         </Route>
+        <Route exact path="/featured/:alias" render={({ match })=> {
+          const businessToRender = featured.find(business => business.attributes.alias === match.params.alias)
+          return <SingleResultPage 
+                    business={businessToRender}
+                    user={user}
+                    addFavorite={addFavorite}
+                    deleteFavorite={deleteFavorite}
+                 />
+          }
+         } 
+        />
         <Route exact path="/results">
          <ResultsPage 
           results={results}
@@ -180,6 +192,17 @@ const App = ({client}) => {
             deleteFavorite={deleteFavorite}
           />
         </Route>
+        <Route exact path="/favorites/:title" render={({ match })=> {
+          // const businessToRender = user.favorites.find(business => business.title === match.params.title)
+          // return <SingleResultPage 
+          //           business={businessToRender}
+          //           user={user}
+          //           addFavorite={addFavorite}
+          //           deleteFavorite={deleteFavorite}
+          //        />
+          }
+         } 
+        />
       </Switch>
       <Footer/>
     </main>
