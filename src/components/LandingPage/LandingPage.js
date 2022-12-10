@@ -1,7 +1,30 @@
 import ResultCard from "../ResultCard/ResultCard";
 import "./LandingPage.css"
 
-const LandingPage = () => {
+const LandingPage = ({ user, addFavorite, deleteFavorite, featured }) => {
+  console.log('featured in Landing Page: ', featured)
+
+  const featBusinesses = featured.map(business => {
+    const { id } = business;
+    const { title, rating, img, is_closed, alias  } = business.attributes;
+    return (
+      <ResultCard
+        key={id}
+        id={id}
+        title={title}
+        rating={rating}
+        photo={img}
+        isClosed={is_closed}
+        alias={alias}
+        user={user}
+        addFavorite={addFavorite}
+        deleteFavorite={deleteFavorite}
+        business={business}
+      />
+    )
+   }
+  )
+
   return(
     <section className="landing-section">
       <div className="overview-container">
@@ -14,9 +37,7 @@ const LandingPage = () => {
       <div className="featured-container">
         <p className="featured-businesses-msg">Featured Local Businesses:</p>
           <div className="featured-cards">
-            <ResultCard />
-            <ResultCard />
-            <ResultCard />
+            {featBusinesses}
           </div>
       </div>
     </section>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { Route, Switch } from "react-router-dom";
 import { gql } from '@apollo/client';
+import { getBusiness } from '../../apiCalls.js';
 import Nav from "../Nav/Nav";
 import LandingPage from "../LandingPage/LandingPage";
 import Footer from "../Footer/Footer";
@@ -12,44 +13,30 @@ import './App.css';
 const App = ({client}) => {
   const [ location, setLocation ] = useState('');
   const [ business, setBusiness ] = useState('family restaurant');
-  // const [ featured, setFeatured ] = useState([]);
+  const [ featured, setFeatured ] = useState([]);
   const [ results, setResults ] = useState([]);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [user, setUser] = useState(null)
   
+  const genRandomNum = (min, max) => {
+    return Math.floor(Math.random() * (max - min + 1) + min)
+  }
 
-  // const genRandomNum = (min, max) => {
-  //   return Math.floor(Math.random() * (max - min + 1) + min)
-  // }
-
-  // useEffect(() => {
-  //   fetch(`https://throbbing-wood-3534.fly.dev/api/v1/business?business=$restaurant&location=denver`)
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       const featRes = data.data[genRandomNum(0, data.data.length)];
-  //       console.log('featRes', featRes)
-  //     });
-    
-  //   fetch(`https://throbbing-wood-3534.fly.dev/api/v1/business?business=$market&location=denver`)
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       const featMarket = data.data[genRandomNum(0, data.data.length)];
-  //       console.log('featMarket', featMarket)
-  //     });
-
-  //   fetch(`https://throbbing-wood-3534.fly.dev/api/v1/business?business=$brewery&location=denver`)
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       const featBrewery = data.data[genRandomNum(0, data.data.length)];
-  //       console.log('featBrewery', featBrewery)
-  //     });
-
-  //       // we would want to change the api end points to reflect what we're actually searching at business= query;
-  // }, [])
+  useEffect(() => {
+    Promise.all([getBusiness('family restaurant', 'denver'), getBusiness('farmers market', 'denver'), getBusiness('brewery', 'denver')])
+      .then(data => {
+          const randomFeatBusinesses = data.reduce((acc, business) => {
+          const featBusiness = business.data[genRandomNum(0, business.data.length)];
+          acc.push(featBusiness);
+          return acc;
+        }, []) 
+        setFeatured(randomFeatBusinesses);
+      })
+      .catch(error => console.log('promise.all error: ', error))
+  }, [])
 
   const onSearch = (business, searchQuery) => {
-    
     fetch(`https://throbbing-wood-3534.fly.dev/api/v1/business?business=${business}&location=${searchQuery}`)
       .then(res => {
         if (!res.ok) {
@@ -168,7 +155,12 @@ const App = ({client}) => {
       />
       <Switch>
         <Route exact path="/">
-          <LandingPage />
+          <LandingPage
+            featured={featured}
+            user={user}
+            addFavorite={addFavorite}
+            deleteFavorite={deleteFavorite}
+          />
         </Route>
         <Route exact path="/results">
          <ResultsPage 
