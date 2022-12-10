@@ -2,10 +2,11 @@ import "./ResultsPage.css"
 import React from 'react'
 import ResultCard from "../ResultCard/ResultCard"
 
-const ResultsPage = ({ results }) => {
+const ResultsPage = ({ results, user, addFavorite, deleteFavorite }) => {
   const businessCards = results.map((business) => {
     const { id } = business;
     const { title, rating, img, is_closed, alias  } = business.attributes;
+    console.log('this is img, assigned to photo: ', img)
     return (
       <ResultCard
         key={id}
@@ -15,6 +16,10 @@ const ResultsPage = ({ results }) => {
         photo={img}
         isClosed={is_closed}
         alias={alias}
+        user={user}
+        addFavorite={addFavorite}
+        deleteFavorite={deleteFavorite}
+        business={business}
       />
     )
   })

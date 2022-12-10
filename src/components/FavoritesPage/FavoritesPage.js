@@ -13,7 +13,7 @@ const FavoritesPage = ({ user }) => {
     favorites = "You dont have any favorites yet"
   } else {
     favorites = user.favorites.map((favorite) => {
-      const { id, title, rating, img, alias} = favorite;
+      const { id, title, rating, image, alias} = favorite;
       console.log('this is a favorite: ', favorite)
       return (
         <ResultCard
@@ -21,8 +21,9 @@ const FavoritesPage = ({ user }) => {
           id={id}
           title={title}
           rating={rating}
-          photo={img}
+          photo={image}
           alias={alias}
+          user={user}
         />
       )
     })

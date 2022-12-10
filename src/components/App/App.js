@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Route, Switch } from "react-router-dom";
 import { gql } from '@apollo/client';
 import Nav from "../Nav/Nav";
@@ -25,11 +25,27 @@ const App = ({client}) => {
 
   // useEffect(() => {
   //   fetch(`https://throbbing-wood-3534.fly.dev/api/v1/business?business=$restaurant&location=denver`)
-  //     .then(data => data.json())
-  //       // use random num gen and length of restaurants to find a random denv rest
-  //       // set a first element in featured array
-  //       // repeat this logic for brewery and grocery?
-  //       // could add random logic for other locations if we felt inclined
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       const featRes = data.data[genRandomNum(0, data.data.length)];
+  //       console.log('featRes', featRes)
+  //     });
+    
+  //   fetch(`https://throbbing-wood-3534.fly.dev/api/v1/business?business=$market&location=denver`)
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       const featMarket = data.data[genRandomNum(0, data.data.length)];
+  //       console.log('featMarket', featMarket)
+  //     });
+
+  //   fetch(`https://throbbing-wood-3534.fly.dev/api/v1/business?business=$brewery&location=denver`)
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       const featBrewery = data.data[genRandomNum(0, data.data.length)];
+  //       console.log('featBrewery', featBrewery)
+  //     });
+
+  //       // we would want to change the api end points to reflect what we're actually searching at business= query;
   // }, [])
 
   const onSearch = (business, searchQuery) => {
@@ -93,7 +109,8 @@ const App = ({client}) => {
                    url: "${site}",
                    image: "${img}",
                    phone: "${display_phone}",
-                   userId: "${userID}"
+                   userId: "${userID}",
+                   isClosed: "currently required, but data is unused on the FE"
                  }) {
                   favorite {
                     id,
@@ -131,6 +148,8 @@ const App = ({client}) => {
     .then(res => console.log('deleteFav response: ', res))
     // when passing id, it must parseInt
   }
+
+  console.log("I am user in app: ", user);
 
   return (
     <main className="page-container">
