@@ -27,9 +27,9 @@ const App = ({client}) => {
     Promise.all([getBusiness('family restaurant', 'denver'), getBusiness('farmers market', 'denver'), getBusiness('brewery', 'denver')])
       .then(data => {
           const randomFeatBusinesses = data.reduce((acc, business) => {
-          const featBusiness = business.data[genRandomNum(0, business.data.length)];
-          acc.push(featBusiness);
-          return acc;
+            const featBusiness = business.data[genRandomNum(0, business.data.length - 1)];
+            acc.push(featBusiness);
+            return acc;
         }, []) 
         setFeatured(randomFeatBusinesses);
       })
