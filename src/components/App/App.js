@@ -108,7 +108,12 @@ const App = ({client}) => {
                  }
                }`
     })
-    .then(res => console.log('addFavorite response: ', res))
+    .then(res => {
+      console.log('addFavorite response: ', res);
+      // confused regarding having to refresh for new user data... tried this logic, not sure what's going on.
+      // const updatedUser = getUser(user.email);
+      // setUser(updatedUser);
+    })
     .catch(error => console.log('addFavorite error: ', error))
   }
 
@@ -193,6 +198,8 @@ const App = ({client}) => {
           />
         </Route>
         <Route exact path="/favorites/:title" render={({ match })=> {
+          // this is where we would mimic similar logic as the /results/:alias and /featured/:alias routes...
+          // however, there is no alias in favorites, and I don't know how to change the params variable hahaha
           // const businessToRender = user.favorites.find(business => business.title === match.params.title)
           // return <SingleResultPage 
           //           business={businessToRender}
