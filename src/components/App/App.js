@@ -9,6 +9,7 @@ import ResultsPage from "../ResultsPage/ResultsPage";
 import SingleResultPage from "../SingleResultPage/SingleResultPage";
 import FavoritesPage from "../FavoritesPage/FavoritesPage";
 import './App.css';
+import FavoritesSingleResults from "../FavoritesPage/FavoritesSingleResults.js";
 
 const App = ({client}) => {
   const [ location, setLocation ] = useState('');
@@ -220,7 +221,7 @@ const App = ({client}) => {
           // this is where we would mimic similar logic as the /results/:alias and /featured/:alias routes...
           // however, there is no alias in favorites, and I don't know how to change the params variable hahaha
           const businessToRender = user.favorites.find(business => business.id === match.params.id)
-          return <SingleResultPage 
+          return <FavoritesSingleResults
                     business={businessToRender}
                     user={user}
                     addFavorite={addFavorite}
