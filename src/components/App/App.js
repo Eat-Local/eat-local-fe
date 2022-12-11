@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import { gql } from '@apollo/client';
 import { getBusiness } from '../../apiCalls.js';
@@ -67,9 +67,10 @@ const App = ({client}) => {
     `,
   })
   .then((result) => setUser(result.data.user))
+  .catch(error => console.log('getUser error: ', error))
   }
 
-  const addFavorite = (business, userID) => {
+  const addFavorite = (business, user) => {
     const { img, display_phone, rating, site, title, display_address, venue_type } = business.attributes;
     const address = display_address.display_address.reduce((acc, element) => {
       if (element) {
@@ -89,10 +90,47 @@ const App = ({client}) => {
                    url: "${site}",
                    image: "${img}",
                    phone: "${display_phone}",
-                   userId: "${userID}",
-                   isClosed: "currently required, but data is unused on the FE"
+                   userId: "${user.id}"
                  }) {
-                  favorite {
+                  user {
+                    fname,
+                    lname,
+                    email,
+                    id,
+                    favorites {
+                      id,
+                      title,
+                      venueType,
+                      address,
+                      rating,
+                      url,
+                      image,
+                      phone,
+                      userId
+                    }
+                  }
+                  errors
+                 }
+               }`
+    })
+    .then(res => setUser(res.data.createFavorite.user))
+    .catch(error => console.log('addFavorite error: ', error))
+  }
+
+  const deleteFavorite = (id, user) => {
+    client.mutate({
+      mutation: gql`
+      mutation {
+      destroyFavorite(input: {
+                 id: ${id},
+                 userId: ${parseInt(user.id)}
+               }) {
+                user {
+                  fname,
+                  lname,
+                  email,
+                  id,
+                  favorites {
                     id,
                     title,
                     venueType,
@@ -100,38 +138,19 @@ const App = ({client}) => {
                     rating,
                     url,
                     image,
-                    isClosed,
                     phone,
                     userId
-                   }
-                  errors
-                 }
-               }`
-    })
-    .then(res => {
-      console.log('addFavorite response: ', res);
-      // confused regarding having to refresh for new user data... tried this logic, not sure what's going on.
-      // const updatedUser = getUser(user.email);
-      // setUser(updatedUser);
-    })
-    .catch(error => console.log('addFavorite error: ', error))
-  }
-
-  const deleteFavorite = (id) => {
-    client.mutate({
-      mutation: gql`
-      mutation {
-      destroyFavorite(input: {
-                 id: ${id}
-               }) {
-                favorite {
-                  id,
+                  }
                 }
                 errors
                }
               }`
     })
-    .then(res => console.log('deleteFav response: ', res))
+    .then(res => {
+      console.log('deleteFav response: ', res)
+      console.log('res.data.destroyFavorite.user ', res.data.destroyFavorite.user)
+      setUser(res.data.destroyFavorite.user);
+    })
     .catch(error => console.log('deleteFav error: ', error))
   }
 
@@ -197,16 +216,16 @@ const App = ({client}) => {
             deleteFavorite={deleteFavorite}
           />
         </Route>
-        <Route exact path="/favorites/:title" render={({ match })=> {
+        <Route exact path="/favorites/:id" render={({ match })=> {
           // this is where we would mimic similar logic as the /results/:alias and /featured/:alias routes...
           // however, there is no alias in favorites, and I don't know how to change the params variable hahaha
-          // const businessToRender = user.favorites.find(business => business.title === match.params.title)
-          // return <SingleResultPage 
-          //           business={businessToRender}
-          //           user={user}
-          //           addFavorite={addFavorite}
-          //           deleteFavorite={deleteFavorite}
-          //        />
+          const businessToRender = user.favorites.find(business => business.id === match.params.id)
+          return <SingleResultPage 
+                    business={businessToRender}
+                    user={user}
+                    addFavorite={addFavorite}
+                    deleteFavorite={deleteFavorite}
+                 />
           }
          } 
         />

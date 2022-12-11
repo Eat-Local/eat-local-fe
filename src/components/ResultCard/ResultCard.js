@@ -16,7 +16,7 @@ const ResultCard = ({title, photo, rating, id, alias, user, addFavorite, deleteF
   
   const handleDelete = () => {
     const currentFavorite = user.favorites.find(favorite => favorite.title === title)
-    deleteFavorite(parseInt(currentFavorite.id));
+    deleteFavorite(parseInt(currentFavorite.id), user);
   }
 
   let linkText;
@@ -26,8 +26,7 @@ const ResultCard = ({title, photo, rating, id, alias, user, addFavorite, deleteF
   } else if (displayType === "result") {
     linkText = `/results/${alias}`
   } else if (displayType === "favorite") {
-    linkText = `/favorites/${alias}`
-    // or favorites/title, whatever we end up using!
+    linkText = `/favorites/${id}`
   }
 
   const buttonTxt = inUserFavs ? 'delete from favorites' : 'add to favorites'
@@ -37,7 +36,7 @@ const ResultCard = ({title, photo, rating, id, alias, user, addFavorite, deleteF
       <Link to={linkText}><img className="business-card-image" src={photo} alt={title}></img></Link>
       <p>{title}</p>
       <p>{rating}</p>
-      {user && <button onClick={inUserFavs ? handleDelete : () => addFavorite(business, user.id)}>{buttonTxt}</button>}
+      {user && <button onClick={inUserFavs ? handleDelete : () => addFavorite(business, user)}>{buttonTxt}</button>}
     </article>
   )
 }
