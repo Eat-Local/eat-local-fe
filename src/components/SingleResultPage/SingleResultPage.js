@@ -49,8 +49,6 @@ const SingleResultPage = ({ business, user, addFavorite, deleteFavorite }) => {
     zoom: 12
   }
 
-
-
   return(
     <section className="single-result-section">
       <article className="single-result">

@@ -6,15 +6,6 @@ form {
   align-items: center;
 }
 
-.input-name {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  box-shadow: 1px 1px 3px lightgray;
-  width: 80%;
-  border: none;
-  font-family: 'Roboto Condensed', sans-serif;
-}
-
 .input-email {
   margin-bottom: 10px;
   width: 80%;

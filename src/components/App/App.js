@@ -8,17 +8,20 @@ import Footer from "../Footer/Footer";
 import ResultsPage from "../ResultsPage/ResultsPage";
 import SingleResultPage from "../SingleResultPage/SingleResultPage";
 import FavoritesPage from "../FavoritesPage/FavoritesPage";
+import FavoritesSingleResults from "../FavoritesPage/FavoritesSingleResults";
 import './App.css';
-import FavoritesSingleResults from "../FavoritesPage/FavoritesSingleResults.js";
 
 const App = ({client}) => {
   const [ location, setLocation ] = useState('');
   const [ business, setBusiness ] = useState('family restaurant');
   const [ featured, setFeatured ] = useState([]);
   const [ results, setResults ] = useState([]);
-  const [ name, setName ] = useState('');
+  // const [ name, setName ] = useState('');
   const [ email, setEmail ] = useState('');
   const [ user, setUser ] = useState(null);
+  const [ featError, setFeatError ] = useState('');
+  const [ searchError, setSearchError ] = useState('');
+  const [ loginError, setLoginError ] = useState('');
   
   const genRandomNum = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min)
@@ -33,14 +36,18 @@ const App = ({client}) => {
             return acc;
         }, []) 
         setFeatured(randomFeatBusinesses);
+        setFeatError('');
       })
-      .catch(error => console.log('promise.all error: ', error))
+      .catch(error => setFeatError(`Uh oh, that's a ${error.message} error. Something went wrong finding our featured local businesses. Please refresh or try again later!`))
   }, [])
 
   const onSearch = (business, searchQuery) => {
     getBusiness(business, searchQuery)
-      .then(data => setResults(data.data))
-      .catch(error => console.log('onSearch fetch error: ', error))
+      .then(data => {
+        setResults(data.data);
+        setSearchError('');
+      })
+      .catch(error => setSearchError(`Uh oh, that's a ${error.message} error. We weren't able to find any local businesses in that area. Be sure to search by city, state, or zipcode and try again!`))
   }
 
   const getUser = (userEmail) => {
@@ -67,8 +74,11 @@ const App = ({client}) => {
       }
     `,
   })
-  .then((result) => setUser(result.data.user))
-  .catch(error => console.log('getUser error: ', error))
+  .then((result) => {
+    setUser(result.data.user);
+    setLoginError('');
+  })
+  .catch(error => setLoginError(`Something went wrong logging you in! Try a different email address.`))
   }
 
   const addFavorite = (business, user) => {
@@ -114,8 +124,10 @@ const App = ({client}) => {
                  }
                }`
     })
-    .then(res => setUser(res.data.createFavorite.user))
-    .catch(error => console.log('addFavorite error: ', error))
+    .then(res => {
+      setUser(res.data.createFavorite.user)
+    })
+    .catch(error => console.log(error))
   }
 
   const deleteFavorite = (id, user) => {
@@ -163,12 +175,13 @@ const App = ({client}) => {
         business={business}
         setBusiness={setBusiness}
         onSearch={onSearch}
-        name={name}
+        // name={name}
         email={email}
-        setName={setName}
+        // setName={setName}
         setEmail={setEmail}
         getUser={getUser}
         user={user}
+        loginError={loginError}
       />
       <Switch>
         <Route exact path="/">
@@ -177,6 +190,7 @@ const App = ({client}) => {
             user={user}
             addFavorite={addFavorite}
             deleteFavorite={deleteFavorite}
+            featError={featError}
           />
         </Route>
         <Route exact path="/featured/:alias" render={({ match })=> {
@@ -196,6 +210,7 @@ const App = ({client}) => {
           user={user}
           addFavorite={addFavorite}
           deleteFavorite={deleteFavorite}
+          searchError={searchError}
          />
         </Route>
         <Route exact path="/results/:alias" render={({ match })=> {
@@ -220,7 +235,6 @@ const App = ({client}) => {
           return <FavoritesSingleResults
                     business={businessToRender}
                     user={user}
-                    addFavorite={addFavorite}
                     deleteFavorite={deleteFavorite}
                  />
           }
