@@ -2,6 +2,7 @@ import ResultCard from "../ResultCard/ResultCard";
 import "./LandingPage.css"
 
 const LandingPage = ({ user, addFavorite, deleteFavorite, featured }) => {
+  console.log(featured)
   const featBusinesses = featured.map(business => {
     const { id } = business;
     const { title, rating, img, is_closed, alias  } = business.attributes;

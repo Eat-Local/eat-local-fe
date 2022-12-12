@@ -15,11 +15,13 @@ const SingleResultPage = ({ business, user, addFavorite, deleteFavorite }) => {
   let isfavorite = false;
   console.log(business)
   
+  if (user) {
   user.favorites.forEach(fav => {
     if (fav.title === title) {
       isfavorite = true
     }
   })
+}
 
   const findFavorite = () => {
     // eslint-disable-next-line array-callback-return

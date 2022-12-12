@@ -155,8 +155,6 @@ const App = ({client}) => {
     .catch(error => console.log('deleteFav error: ', error))
   }
 
-  console.log("I am user in app: ", user);
-
   return (
     <main className="page-container">
       <Nav
