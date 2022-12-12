@@ -22,6 +22,7 @@ const SingleResultPage = ({ business, user, addFavorite, deleteFavorite }) => {
   })
 
   const findFavorite = () => {
+    // eslint-disable-next-line array-callback-return
     return user.favorites.find(favoriteBiz => {
       if (favoriteBiz.title === title) {
         return favoriteBiz

@@ -1,5 +1,5 @@
 import React from 'react'
-import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
+import { AiFillStar } from 'react-icons/ai';
 import '../SingleResultPage/SingleResultPage.css';
 import { Link } from 'react-router-dom'
 
@@ -7,17 +7,12 @@ const FavoritesSingleResults = ({business, user, addFavorite, deleteFavorite}) =
   const { address, image, phone, rating, title, url, id } = business
   const formattedPhone = phone.replace(/[^\d]/g, '');
   const altText = `A photo describing ${title}'s business, provided by ${title}`
-  let isfavorite = true;
 
   const handleDelete = () => {
     deleteFavorite(parseInt(id), user);
-    isfavorite = false
+    
   }
 
-  const handleAdd = () => {
-    addFavorite(business, user)
-    isfavorite = true
-  }
 console.log(business)
   return (
     <div className='single-result-section'>
