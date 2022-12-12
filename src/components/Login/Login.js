@@ -21,7 +21,7 @@ const Login = ({ email, setEmail, getUser, loginError }) => {
 
   return(
     <>
-      <form>
+      <form className='login-form'>
         {/* <input
             type="text"
             value={name}
@@ -31,12 +31,13 @@ const Login = ({ email, setEmail, getUser, loginError }) => {
           /> */}
           <input
             type="text"
+            className='input-email'
             value={email}
             name="email"
             placeholder="Email address"
             onChange={(event) => setEmail(event.target.value)}
           />
-          <button onClick={(event) => handleSubmit(event)}>Login!</button>
+          <button className="login-btn" onClick={(event) => handleSubmit(event)}>Login!</button>
       </form>
       {loginError && <span>{loginError}</span>}
       {displayEmailErr && <span>{emailError}</span>}

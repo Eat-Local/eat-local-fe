@@ -45,9 +45,10 @@
   position: fixed;
   top: 4.5rem;
   right: 0.5rem;
-  height: 5.5rem;
+  height: 7rem;
   width: 10rem;
   z-index: 100;
+  padding: 3px;
   background-color: #F2E8CF;
 }
 
