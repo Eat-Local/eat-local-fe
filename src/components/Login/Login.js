@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './Login.css';
 
-const Login = ({ name, email, setName, setEmail, getUser, loginError }) => {
+const Login = ({ email, setEmail, getUser, loginError }) => {
   const [ emailError, setEmailError ] = useState('');
 
   const handleSubmit = (event) => {
@@ -22,13 +22,13 @@ const Login = ({ name, email, setName, setEmail, getUser, loginError }) => {
   return(
     <>
       <form>
-        <input
+        {/* <input
             type="text"
             value={name}
             name="name"
             placeholder="Name"
             onChange={(event) => setName(event.target.value)}
-          />
+          /> */}
           <input
             type="text"
             value={email}
