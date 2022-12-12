@@ -12,21 +12,12 @@ describe('Landing Page', () => {
     cy.visit('/')
   })
 
-/* Test banner contents 
-  - Test for logo
-  - Test for search bar
-  - Test for radio buttons
-  - Test for search button
-  - Test for welcome message (no user login)
-  - Test for "Home | Login | Favorites"
-*/ 
-
 it('has a navbar with various features and functionality', () => {
   cy.get('[data-cy="navbar"]')
   .within(() => {
     cy.get('[data-cy="logo"]').should('be.visible')
     cy.get('[data-cy="search"]').should('be.visible')
-    .type('hello').should('have.value', 'hello')
+    .type('hello there').should('have.value', 'hello there')
     cy.get('[data-cy="market-radio"]').check()
     cy.get('[data-cy="brewery-radio"]').check()
     cy.get('[data-cy="restaurant-radio"]').check()
