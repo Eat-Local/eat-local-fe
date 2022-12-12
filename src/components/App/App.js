@@ -22,7 +22,6 @@ const App = ({client}) => {
   const [ featError, setFeatError ] = useState('');
   const [ searchError, setSearchError ] = useState('');
   const [ loginError, setLoginError ] = useState('');
-  const [ favError, setFavError ] = useState('');
   
   const genRandomNum = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min)
@@ -127,9 +126,8 @@ const App = ({client}) => {
     })
     .then(res => {
       setUser(res.data.createFavorite.user)
-      setFavError('');
     })
-    .catch(error => setFavError(`Oops, that's a ${error.message}. We couldn't favorite this business, please try again!`))
+    .catch(error => console.log(error))
   }
 
   const deleteFavorite = (id, user) => {
@@ -195,7 +193,6 @@ const App = ({client}) => {
             addFavorite={addFavorite}
             deleteFavorite={deleteFavorite}
             featError={featError}
-            favError={favError}
           />
         </Route>
         <Route exact path="/featured/:alias" render={({ match })=> {
@@ -205,7 +202,6 @@ const App = ({client}) => {
                     user={user}
                     addFavorite={addFavorite}
                     deleteFavorite={deleteFavorite}
-                    favError={favError}
                  />
           }
          } 
@@ -216,8 +212,7 @@ const App = ({client}) => {
           user={user}
           addFavorite={addFavorite}
           deleteFavorite={deleteFavorite}
-          error={searchError}
-          favError={favError}
+          searchError={searchError}
          />
         </Route>
         <Route exact path="/results/:alias" render={({ match })=> {
@@ -227,7 +222,6 @@ const App = ({client}) => {
                     user={user}
                     addFavorite={addFavorite}
                     deleteFavorite={deleteFavorite}
-                    favError={favError}
                  />
           }
          } 

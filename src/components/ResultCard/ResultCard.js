@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 // import { AiOutlineStar } from 'react-icons/ai';
 import "./ResultCard.css";
 
-const ResultCard = ({title, photo, rating, id, alias, user, addFavorite, deleteFavorite, business, displayType, error}) => { 
+const ResultCard = ({title, photo, rating, id, alias, user, addFavorite, deleteFavorite, business, displayType }) => { 
   let inUserFavs = false;
   
   if (user) {
@@ -37,7 +37,6 @@ const ResultCard = ({title, photo, rating, id, alias, user, addFavorite, deleteF
       <p>{title}</p>
       <p>{rating}</p>
       {user && <button onClick={inUserFavs ? handleDelete : () => addFavorite(business, user)}>{buttonTxt}</button>}
-      {error && <span>{error}</span>}
     </article>
   )
 }
