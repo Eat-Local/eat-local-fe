@@ -7,7 +7,7 @@ import "./Nav.css";
 const logo = require('../../assets/eatlocalicon.png');
 
 const Nav = ( { business, setBusiness, location, setLocation, onSearch, name, 
-              email, setName, setEmail, getUser, user } ) => {
+              email, setName, setEmail, getUser, user, error } ) => {
   const [openLogin, setOpenLogin] = useState(false);
   const ref = useRef(null);
   const loginRef = useRef();
@@ -58,6 +58,7 @@ const Nav = ( { business, setBusiness, location, setLocation, onSearch, name,
           setName={setName}
           setEmail={setEmail}
           getUser={getUser}
+          error={error}
         />
         </div>
       }

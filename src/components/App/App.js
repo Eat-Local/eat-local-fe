@@ -21,6 +21,7 @@ const App = ({client}) => {
   const [ user, setUser ] = useState(null);
   const [ featError, setFeatError ] = useState('');
   const [ searchError, setSearchError ] = useState('');
+  const [ loginError, setLoginError ] = useState('');
   
   const genRandomNum = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min)
@@ -73,8 +74,11 @@ const App = ({client}) => {
       }
     `,
   })
-  .then((result) => setUser(result.data.user))
-  .catch(error => console.log('getUser error: ', error))
+  .then((result) => {
+    setUser(result.data.user);
+    setLoginError('');
+  })
+  .catch(error => setLoginError(`Something went wrong logging you in! Try a different email address.`))
   }
 
   const addFavorite = (business, user) => {
@@ -177,7 +181,7 @@ const App = ({client}) => {
         setEmail={setEmail}
         getUser={getUser}
         user={user}
-        // error={searchError}
+        error={loginError}
       />
       <Switch>
         <Route exact path="/">
