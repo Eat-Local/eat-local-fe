@@ -35,6 +35,7 @@ it('has an overview blurb', () => {
 })
 
 it('has featured local businesses', () => {
+  cy.get('[data-cy="featured-businesses-msg"]').contains('Featured Local Businesses:')
   cy.get('[data-cy="featured-cards"]')
   .within(() => {
     cy.get('[data-cy="business-card"]').first()
@@ -50,13 +51,11 @@ it('has featured local businesses', () => {
 })
 
 it('has a footer with team info', () => {
-  
+  cy.get('[data-cy="footer-container"]').should('contain', 'Front-End Team')
+  .and('contain', 'Anthony Shellman').and('contain', 'Victoria Fields').and('contain', 'Cole Anthony')
+  cy.get('[data-cy="footer-container"]').should('contain', 'Back-End Team')
+  .and('contain', 'Erik Riggs').and('contain', 'Kaelin Sleevi').and('contain', 'Benjamin Randolph')
+  .and('contain', 'Dominic O\'Donnell')
 })
-
-/* Test footer
-- Test for teams
-- Test for names
-- Test for where links go?
-*/ 
 
 })
