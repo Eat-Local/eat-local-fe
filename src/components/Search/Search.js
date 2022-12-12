@@ -1,5 +1,6 @@
 import { useHistory } from "react-router-dom"
 import "./Search.css"
+import { FaSearch } from "react-icons/fa"
 
 const Search = ( { business, setBusiness, location, setLocation, onSearch} ) => {
   const history = useHistory()
@@ -16,43 +17,48 @@ const Search = ( { business, setBusiness, location, setLocation, onSearch} ) => 
 
   return (
     <form className="search-bar" onSubmit={handleClick}>
-      <label> 
-        <input
-          type="text"
-          value={location}
-          name="zipcode"
-          placeholder="Location"
-          onChange={(event) => setLocation(event.target.value)}
-        />
-      </label>
-      <label>
+      <div className="search">
+        <label>  
+          <input
+            className="searchbar"
+            type="text"
+            value={location}
+            name="zipcode"
+            placeholder="Location"
+            onChange={(event) => setLocation(event.target.value)}
+          />
+        </label>
+        <button className="submit" type="submit" onClick={handleNavigate}><FaSearch/></button>
+      </div>
+      <div className="radio-toolbar">
         <input
           type="radio"
+          id="restaurant"
           name="business"
           value="family restaurant"
           checked={business === "family restaurant"}
           onChange={(event) => setBusiness(event.target.value)}
-        /> Restaurant
-      </label>
-    <label>
-      <input
+        /> 
+        <label htmlFor="restaurant">Restaurant</label>
+        <input
           type="radio"
           name="business"
+          id="market"
           value="farmers market"
           checked={business === "farmers market"}
           onChange={(event) => setBusiness(event.target.value)}
-      /> Market
-     </label>
-     <label>
-      <input
+        /> 
+        <label htmlFor="market">Market</label>
+        <input
           type="radio"
           name="business"
+          id="brewery"
           value="brewery"
           checked={business === "brewery"}
           onChange={(event) => setBusiness(event.target.value)}
-      /> Brewery
-     </label>
-        <button type="submit" onClick={handleNavigate}>Search</button>
+        /> 
+        <label htmlFor="brewery">Brewery</label>
+      </div>
     </form>
 
   )

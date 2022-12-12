@@ -7,13 +7,11 @@ const apiKey = process.env.REACT_APP_GOOGLE_API_KEY
 const Marker = ({ text }) => <div>{text}</div>
 
 const SingleResultPage = ({ business, user, addFavorite, deleteFavorite }) => {
-  console.log('i am business: ', business)
   const { img, display_phone, rating, site, title, price, coordinates, display_address } = business.attributes;
   const phone = display_phone.replace(/[^\d]/g, '');
   const address = display_address.display_address.map((element) => `${element} `)
   const altText = `A photo describing ${title}'s business, provided by ${title}`
   let isfavorite = false;
-  console.log(business)
   
   if (user) {
   user.favorites.forEach(fav => {
@@ -64,8 +62,8 @@ const SingleResultPage = ({ business, user, addFavorite, deleteFavorite }) => {
           <a href={phone}>{display_phone}</a>
           <p>Check out {title}'s <a href={site} target="_blank" rel="noopener noreferrer">website</a>!</p>
         </div>
-        {!isfavorite && <span onClick={handleAdd}><AiOutlineStar className="favorite-icon"/></span>}
-        {isfavorite && <span onClick={handleDelete}><AiFillStar className="favorite-icon-active" /></span>}
+        {(!isfavorite && user) && <span onClick={handleAdd}><AiOutlineStar className="favorite-icon"/></span>}
+        {(isfavorite && user) && <span onClick={handleDelete}><AiFillStar className="favorite-icon-active" /></span>}
       </article>
       <div style={{ height: '50vh', width: '50%' }}>
       <GoogleMapReact

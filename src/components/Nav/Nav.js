@@ -38,7 +38,9 @@ const Nav = ( { business, setBusiness, location, setLocation, onSearch, name,
       <nav className="main-nav">
         <Link to="/">
           <img src={logo} alt="Eat Local logo, a green location marker with a bite taken out of it!" />
+    
         </Link>
+        <h2 className='logo-word'>Eat Local</h2>
         <Search
           business={business}
           setBusiness={setBusiness}
@@ -48,7 +50,7 @@ const Nav = ( { business, setBusiness, location, setLocation, onSearch, name,
         />
         <div className="greeting-menu-container">
          <span className="greeting">Hello, {greeting}!</span>
-          <span className="menu"><Link to="/">Home</Link> | <span ref={loginRef} className="login" onClick={(event) => handleClick(event)}>Login</span> | <Link to="/favorites">Favorites</Link></span>
+          <span className="menu"><Link to="/" style={{color: 'black'}}>About</Link> | <span ref={loginRef} className="login" onClick={(event) => handleClick(event)}>Login</span> | <Link to="/favorites" style={{color: 'black'}}>Favorites</Link></span>
         </div>
       </nav>
       {openLogin && <div className="login-container" ref={ref}>
