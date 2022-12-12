@@ -56,6 +56,5 @@ it('has a footer with team info', () => {
   cy.get('[data-cy="footer-container"]').should('contain', 'Back-End Team')
   .and('contain', 'Erik Riggs').and('contain', 'Kaelin Sleevi').and('contain', 'Benjamin Randolph')
   .and('contain', 'Dominic O\'Donnell')
-})
-
+  })
 })
