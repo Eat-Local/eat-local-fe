@@ -216,8 +216,6 @@ const App = ({client}) => {
           />
         </Route>
         <Route exact path="/favorites/:id" render={({ match })=> {
-          // this is where we would mimic similar logic as the /results/:alias and /featured/:alias routes...
-          // however, there is no alias in favorites, and I don't know how to change the params variable hahaha
           const businessToRender = user.favorites.find(business => business.id === match.params.id)
           return <FavoritesSingleResults
                     business={businessToRender}
