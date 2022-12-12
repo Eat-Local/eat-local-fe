@@ -2,7 +2,7 @@ import "./ResultsPage.css"
 import React from 'react'
 import ResultCard from "../ResultCard/ResultCard"
 
-const ResultsPage = ({ results, user, addFavorite, deleteFavorite }) => {
+const ResultsPage = ({ results, user, addFavorite, deleteFavorite, searchError }) => {
   const businessCards = results.map((business) => {
     const { id } = business;
     const { title, rating, img, is_closed, alias  } = business.attributes;
@@ -26,6 +26,7 @@ const ResultsPage = ({ results, user, addFavorite, deleteFavorite }) => {
   })
   return (
     <section className="results-section">
+      {searchError && <h2>{searchError}</h2>}
       <div className="results-container">
         {businessCards}
       </div>
