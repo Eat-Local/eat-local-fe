@@ -11,7 +11,7 @@ const Nav = ( { business, setBusiness, location, setLocation, onSearch,
   const [openLogin, setOpenLogin] = useState(false);
   const ref = useRef(null);
   const loginRef = useRef();
-  const greeting = user ? user.fname : "friend"
+  const greeting = user ? user.fname : "Friend"
 
   const handleClick = (event) => {
     setOpenLogin(!openLogin);
