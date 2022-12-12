@@ -8,8 +8,8 @@ import Footer from "../Footer/Footer";
 import ResultsPage from "../ResultsPage/ResultsPage";
 import SingleResultPage from "../SingleResultPage/SingleResultPage";
 import FavoritesPage from "../FavoritesPage/FavoritesPage";
+import FavoritesSingleResults from "../FavoritesPage/FavoritesSingleResults";
 import './App.css';
-import FavoritesSingleResults from "../FavoritesPage/FavoritesSingleResults.js";
 
 const App = ({client}) => {
   const [ location, setLocation ] = useState('');
@@ -237,7 +237,6 @@ const App = ({client}) => {
           return <FavoritesSingleResults
                     business={businessToRender}
                     user={user}
-                    addFavorite={addFavorite}
                     deleteFavorite={deleteFavorite}
                  />
           }

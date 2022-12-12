@@ -3,17 +3,15 @@ import { AiFillStar } from 'react-icons/ai';
 import '../SingleResultPage/SingleResultPage.css';
 import { Link } from 'react-router-dom'
 
-const FavoritesSingleResults = ({business, user, addFavorite, deleteFavorite}) => {
+const FavoritesSingleResults = ({business, user, deleteFavorite}) => {
   const { address, image, phone, rating, title, url, id } = business
   const formattedPhone = phone.replace(/[^\d]/g, '');
   const altText = `A photo describing ${title}'s business, provided by ${title}`
 
   const handleDelete = () => {
     deleteFavorite(parseInt(id), user);
-    
   }
-
-console.log(business)
+  
   return (
     <div className='single-result-section'>
       <article className="single-result">
