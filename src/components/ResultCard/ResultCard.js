@@ -32,7 +32,7 @@ const ResultCard = ({title, photo, rating, id, alias, user, addFavorite, deleteF
   const buttonTxt = inUserFavs ? 'delete from favorites' : 'add to favorites'
 
   return (
-    <article className="business-card">
+    <article className="business-card" data-cy="business-card">
       <Link to={linkText}><img className="business-card-image" src={photo} alt={title}></img></Link>
       <p>{title}</p>
       <p>{rating}</p>
