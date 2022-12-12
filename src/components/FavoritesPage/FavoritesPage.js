@@ -11,47 +11,92 @@ const FavoritesPage = ({ user, deleteFavorite }) => {
     displaySearch = true;
   }
 
-  let favorites;
+  // if (!user) {
+  //   favorites = "You should log in"
+  // } else if (user.favorites.length === 0) {
+  //   favorites = "You dont have any favorites yet"
+  // } else if (!searchFavorites) {
+  //   favorites = user.favorites.map((favorite) => {
+  //     const { id, title, rating, image, alias} = favorite;
+  //     return (
+  //       <ResultCard
+  //         key={id}
+  //         id={id}
+  //         title={title}
+  //         rating={rating}
+  //         photo={image}
+  //         alias={alias}
+  //         user={user}
+  //         deleteFavorite={deleteFavorite}
+  //         displayType="favorite"
+  //       />
+  //     )
+  //   })
+  // } else {
+  //   const filteredFavorites = user.favorites.filter(favorite => favorite.title.toLowerCase().includes(searchFavorites.toLocaleLowerCase()));
+  //   favorites = filteredFavorites.map((favorite) => {
+  //     const { id, title, rating, image, alias} = favorite;
+  //     return (
+  //       <ResultCard
+  //         key={id}
+  //         id={id}
+  //         title={title}
+  //         rating={rating}
+  //         photo={image}
+  //         alias={alias}
+  //         user={user}
+  //         displayType="favorite"
+  //       />
+  //     )
+  //   })
+  // }
 
-  if (!user) {
-    favorites = "You should log in"
-  } else if (user.favorites.length === 0) {
-    favorites = "You dont have any favorites yet"
-  } else if (!searchFavorites) {
-    favorites = user.favorites.map((favorite) => {
-      const { id, title, rating, image, alias} = favorite;
-      return (
-        <ResultCard
-          key={id}
-          id={id}
-          title={title}
-          rating={rating}
-          photo={image}
-          alias={alias}
-          user={user}
-          deleteFavorite={deleteFavorite}
-          displayType="favorite"
-        />
-      )
-    })
-  } else {
-    const filteredFavorites = user.favorites.filter(favorite => favorite.title.toLowerCase().includes(searchFavorites.toLocaleLowerCase()));
-    favorites = filteredFavorites.map((favorite) => {
-      const { id, title, rating, image, alias} = favorite;
-      return (
-        <ResultCard
-          key={id}
-          id={id}
-          title={title}
-          rating={rating}
-          photo={image}
-          alias={alias}
-          user={user}
-          displayType="favorite"
-        />
-      )
-    })
+  const displayFavorites = (curUser, searchFavs) => {
+    let display;
+    if (!curUser) {
+      return <h2>Log in to store your favorites!</h2>
+    } else if (curUser.favorites.length === 0) {
+      return <h2>You don't have any favorites yet</h2>
+    } else if (!searchFavs) {
+      display = user.favorites.map((favorite) => {
+        const { id, title, rating, image, alias} = favorite;
+        return (
+          <ResultCard
+            key={id}
+            id={id}
+            title={title}
+            rating={rating}
+            photo={image}
+            alias={alias}
+            user={user}
+            deleteFavorite={deleteFavorite}
+            displayType="favorite"
+          />
+        )
+      })
+      return display;
+    } else {
+      const filteredFavorites = user.favorites.filter(favorite => favorite.title.toLowerCase().includes(searchFavorites.toLocaleLowerCase()));
+      display = filteredFavorites.map((favorite) => {
+        const { id, title, rating, image, alias} = favorite;
+        return (
+          <ResultCard
+            key={id}
+            id={id}
+            title={title}
+            rating={rating}
+            photo={image}
+            alias={alias}
+            user={user}
+            displayType="favorite"
+          />
+        )
+      })
+      return display;
+    }
   }
+
+  const favorites = displayFavorites(user, searchFavorites);
 
   return (
     <section className="favorites-section">
