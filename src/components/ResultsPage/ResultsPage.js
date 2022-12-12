@@ -2,7 +2,7 @@ import "./ResultsPage.css"
 import React from 'react'
 import ResultCard from "../ResultCard/ResultCard"
 
-const ResultsPage = ({ results, user, addFavorite, deleteFavorite, error }) => {
+const ResultsPage = ({ results, user, addFavorite, deleteFavorite, error, favError }) => {
   const businessCards = results.map((business) => {
     const { id } = business;
     const { title, rating, img, is_closed, alias  } = business.attributes;
@@ -21,6 +21,7 @@ const ResultsPage = ({ results, user, addFavorite, deleteFavorite, error }) => {
         deleteFavorite={deleteFavorite}
         business={business}
         displayType="result"
+        favError={favError}
       />
     )
   })

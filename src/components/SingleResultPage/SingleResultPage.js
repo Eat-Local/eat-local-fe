@@ -6,7 +6,7 @@ const apiKey = process.env.REACT_APP_GOOGLE_API_KEY
 
 const Marker = ({ text }) => <div>{text}</div>
 
-const SingleResultPage = ({ business, user, addFavorite, deleteFavorite }) => {
+const SingleResultPage = ({ business, user, addFavorite, deleteFavorite, favError }) => {
   console.log('i am business: ', business)
   const { img, display_phone, rating, site, title, price, coordinates, display_address } = business.attributes;
   const phone = display_phone.replace(/[^\d]/g, '');
@@ -48,8 +48,6 @@ const SingleResultPage = ({ business, user, addFavorite, deleteFavorite }) => {
     zoom: 12
   }
 
-
-
   return(
     <section className="single-result-section">
       <article className="single-result">
@@ -82,6 +80,7 @@ const SingleResultPage = ({ business, user, addFavorite, deleteFavorite }) => {
         />
       </GoogleMapReact>
     </div>
+    {favError && <h2>{favError}</h2>}
     </section>
   )
 }

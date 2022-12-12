@@ -22,6 +22,7 @@ const App = ({client}) => {
   const [ featError, setFeatError ] = useState('');
   const [ searchError, setSearchError ] = useState('');
   const [ loginError, setLoginError ] = useState('');
+  const [ favError, setFavError ] = useState('');
   
   const genRandomNum = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min)
@@ -124,8 +125,11 @@ const App = ({client}) => {
                  }
                }`
     })
-    .then(res => setUser(res.data.createFavorite.user))
-    .catch(error => console.log('addFavorite error: ', error))
+    .then(res => {
+      setUser(res.data.createFavorite.user)
+      setFavError('');
+    })
+    .catch(error => setFavError(`Oops, that's a ${error.message}. We couldn't favorite this business, please try again!`))
   }
 
   const deleteFavorite = (id, user) => {
@@ -181,7 +185,7 @@ const App = ({client}) => {
         setEmail={setEmail}
         getUser={getUser}
         user={user}
-        error={loginError}
+        loginError={loginError}
       />
       <Switch>
         <Route exact path="/">
@@ -190,7 +194,8 @@ const App = ({client}) => {
             user={user}
             addFavorite={addFavorite}
             deleteFavorite={deleteFavorite}
-            error={featError}
+            featError={featError}
+            favError={favError}
           />
         </Route>
         <Route exact path="/featured/:alias" render={({ match })=> {
@@ -200,6 +205,7 @@ const App = ({client}) => {
                     user={user}
                     addFavorite={addFavorite}
                     deleteFavorite={deleteFavorite}
+                    favError={favError}
                  />
           }
          } 
@@ -211,6 +217,7 @@ const App = ({client}) => {
           addFavorite={addFavorite}
           deleteFavorite={deleteFavorite}
           error={searchError}
+          favError={favError}
          />
         </Route>
         <Route exact path="/results/:alias" render={({ match })=> {
@@ -220,6 +227,7 @@ const App = ({client}) => {
                     user={user}
                     addFavorite={addFavorite}
                     deleteFavorite={deleteFavorite}
+                    favError={favError}
                  />
           }
          } 

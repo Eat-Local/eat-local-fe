@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './Login.css';
 
-const Login = ({ name, email, setName, setEmail, getUser, error }) => {
+const Login = ({ name, email, setName, setEmail, getUser, loginError }) => {
   const [ emailError, setEmailError ] = useState('');
 
   const handleSubmit = (event) => {
@@ -9,8 +9,14 @@ const Login = ({ name, email, setName, setEmail, getUser, error }) => {
     if (email.includes('@') && email.includes('.')) {
       getUser(email)
       setEmailError('');
+    } else {
+      setEmailError(`Please enter a valid email address.`);
     }
-    setEmailError(`Please enter a valid email address.`);
+  }
+
+  let displayEmailErr = false;
+  if (emailError && !loginError) {
+    displayEmailErr = true;
   }
 
   return(
@@ -32,8 +38,8 @@ const Login = ({ name, email, setName, setEmail, getUser, error }) => {
           />
           <button onClick={(event) => handleSubmit(event)}>Login!</button>
       </form>
-      {error && <span>{error}</span>}
-      {emailError && <span>{emailError}</span>}
+      {loginError && <span>{loginError}</span>}
+      {displayEmailErr && <span>{emailError}</span>}
     </>
   )
 }
