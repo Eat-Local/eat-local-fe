@@ -19,6 +19,8 @@ const App = ({client}) => {
   const [ name, setName ] = useState('');
   const [ email, setEmail ] = useState('');
   const [ user, setUser ] = useState(null);
+  const [ featError, setFeatError ] = useState('');
+  const [ searchError, setSearchError ] = useState('');
   
   const genRandomNum = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min)
@@ -33,14 +35,18 @@ const App = ({client}) => {
             return acc;
         }, []) 
         setFeatured(randomFeatBusinesses);
+        setFeatError('');
       })
-      .catch(error => console.log('promise.all error: ', error))
+      .catch(error => setFeatError(`Uh oh, that's a ${error.message} error. Something went wrong finding our featured local businesses. Please refresh or try again later!`))
   }, [])
 
   const onSearch = (business, searchQuery) => {
     getBusiness(business, searchQuery)
-      .then(data => setResults(data.data))
-      .catch(error => console.log('onSearch fetch error: ', error))
+      .then(data => {
+        setResults(data.data);
+        setSearchError('');
+      })
+      .catch(error => setSearchError(`Uh oh, that's a ${error.message} error. We weren't able to find any local businesses in that area. Be sure to search by city, state, or zipcode and try again!`))
   }
 
   const getUser = (userEmail) => {
@@ -171,6 +177,7 @@ const App = ({client}) => {
         setEmail={setEmail}
         getUser={getUser}
         user={user}
+        // error={searchError}
       />
       <Switch>
         <Route exact path="/">
@@ -179,6 +186,7 @@ const App = ({client}) => {
             user={user}
             addFavorite={addFavorite}
             deleteFavorite={deleteFavorite}
+            error={featError}
           />
         </Route>
         <Route exact path="/featured/:alias" render={({ match })=> {
@@ -198,6 +206,7 @@ const App = ({client}) => {
           user={user}
           addFavorite={addFavorite}
           deleteFavorite={deleteFavorite}
+          error={searchError}
          />
         </Route>
         <Route exact path="/results/:alias" render={({ match })=> {
@@ -218,8 +227,6 @@ const App = ({client}) => {
           />
         </Route>
         <Route exact path="/favorites/:id" render={({ match })=> {
-          // this is where we would mimic similar logic as the /results/:alias and /featured/:alias routes...
-          // however, there is no alias in favorites, and I don't know how to change the params variable hahaha
           const businessToRender = user.favorites.find(business => business.id === match.params.id)
           return <FavoritesSingleResults
                     business={businessToRender}

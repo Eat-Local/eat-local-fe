@@ -1,7 +1,7 @@
 import ResultCard from "../ResultCard/ResultCard";
 import "./LandingPage.css"
 
-const LandingPage = ({ user, addFavorite, deleteFavorite, featured }) => {
+const LandingPage = ({ user, addFavorite, deleteFavorite, featured, error }) => {
   const featBusinesses = featured.map(business => {
     const { id } = business;
     const { title, rating, img, is_closed, alias  } = business.attributes;
@@ -23,7 +23,7 @@ const LandingPage = ({ user, addFavorite, deleteFavorite, featured }) => {
     )
    }
   )
-
+  
   return(
     <section className="landing-section">
       <div className="overview-container">
@@ -38,6 +38,7 @@ const LandingPage = ({ user, addFavorite, deleteFavorite, featured }) => {
       </div>
       <div className="featured-container">
         <p className="featured-businesses-msg">Featured Local Businesses:</p>
+          {error && <h2>{error}</h2>}
           <div className="featured-cards">
             {featBusinesses}
           </div>
