@@ -1,0 +1,100 @@
+{
+  "data": [
+      {
+          "id": "Ni8mZD1-3CC2dtqNXYwViA",
+          "type": "business",
+          "attributes": {
+              "title": "BJ's Restaurant & Brewhouse",
+              "alias": "bjs-restaurant-and-brewhouse-boulder-2",
+              "venue_type": "American (New)",
+              "display_address": {
+                  "address1": "1690 28th St",
+                  "address2": "",
+                  "address3": "",
+                  "city": "Boulder",
+                  "zip_code": "80301",
+                  "country": "US",
+                  "state": "CO",
+                  "display_address": [
+                      "1690 28th St",
+                      "Boulder, CO 80301"
+                  ]
+              },
+              "rating": 3.0,
+              "site": "https://www.yelp.com/biz/bjs-restaurant-and-brewhouse-boulder-2?adjust_creative=TWv4BIcu6CZ_3-f_0lItOQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=TWv4BIcu6CZ_3-f_0lItOQ",
+              "img": "https://s3-media3.fl.yelpcdn.com/bphoto/I8WyKF02Jlw8f_vNrde7Bg/o.jpg",
+              "is_closed": false,
+              "price": "$$",
+              "display_phone": "(303) 440-5200",
+              "coordinates": {
+                  "latitude": 40.01773204866485,
+                  "longitude": -105.25779385096563
+              }
+          }
+      },
+      {
+          "id": "_GteKUXq5Hx0ZTzzAkUW9g",
+          "type": "business",
+          "attributes": {
+              "title": "Twisted Pine Brewing Company",
+              "alias": "twisted-pine-brewing-company-boulder",
+              "venue_type": "Breweries",
+              "display_address": {
+                  "address1": "3201 Walnut St",
+                  "address2": "",
+                  "address3": "",
+                  "city": "Boulder",
+                  "zip_code": "80301",
+                  "country": "US",
+                  "state": "CO",
+                  "display_address": [
+                      "3201 Walnut St",
+                      "Boulder, CO 80301"
+                  ]
+              },
+              "rating": 4.0,
+              "site": "https://www.yelp.com/biz/twisted-pine-brewing-company-boulder?adjust_creative=TWv4BIcu6CZ_3-f_0lItOQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=TWv4BIcu6CZ_3-f_0lItOQ",
+              "img": "https://s3-media3.fl.yelpcdn.com/bphoto/eSvbQe2xn2s6n422w07UBw/o.jpg",
+              "is_closed": false,
+              "price": "$$",
+              "display_phone": "(303) 786-9270",
+              "coordinates": {
+                  "latitude": 40.0202654,
+                  "longitude": -105.2511983
+              }
+          }
+      },
+      {
+          "id": "hCYVnSVshfuZeumqPg9IcQ",
+          "type": "business",
+          "attributes": {
+              "title": "Boulder Social",
+              "alias": "boulder-social-boulder-2",
+              "venue_type": "American (New)",
+              "display_address": {
+                  "address1": "1600 38th Street",
+                  "address2": null,
+                  "address3": null,
+                  "city": "Boulder",
+                  "zip_code": "80301",
+                  "country": "US",
+                  "state": "CO",
+                  "display_address": [
+                      "1600 38th Street",
+                      "Boulder, CO 80301"
+                  ]
+              },
+              "rating": 3.5,
+              "site": "https://www.yelp.com/biz/boulder-social-boulder-2?adjust_creative=TWv4BIcu6CZ_3-f_0lItOQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=TWv4BIcu6CZ_3-f_0lItOQ",
+              "img": "https://s3-media1.fl.yelpcdn.com/bphoto/jku5MGd-a7DDSKVFw060Vw/o.jpg",
+              "is_closed": false,
+              "price": null,
+              "display_phone": "(720) 716-3345",
+              "coordinates": {
+                  "latitude": 40.01507,
+                  "longitude": -105.24579
+              }
+          }
+      }
+  ]
+}  
