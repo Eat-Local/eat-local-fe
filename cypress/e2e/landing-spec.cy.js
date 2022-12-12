@@ -1,13 +1,13 @@
 describe('Landing Page', () => {
   beforeEach(() => {
     cy.intercept('GET', Cypress.env('restaurant'), {
-      fixture: 'restaurantData.json'
+      fixture: 'singleRestaurantData.json'
     })
     cy.intercept('GET', Cypress.env('market'), {
-      fixture: 'marketData.json'
+      fixture: 'singleMarketData.json'
     })
     cy.intercept('GET', Cypress.env('brewery'), {
-      fixture: 'breweryData.json'
+      fixture: 'singleBreweryData.json'
     })
     cy.visit('/')
   })
@@ -35,22 +35,23 @@ it('has an overview blurb', () => {
 })
 
 it('has featured local businesses', () => {
-  
+  cy.get('[data-cy="featured-cards"]')
+  .within(() => {
+    cy.get('[data-cy="business-card"]').first()
+    .should('contain', 'The Buff Restaurant').and('contain', 4.5)
+    .find('img').should('have.attr', 'src').should('include', 'https://s3-media2.fl.yelpcdn.com/bphoto/p95cYM_TgNOlHvw_cf0SAw/o.jpg')
+    cy.get('[data-cy="business-card"]').first().next()
+    .should('contain', 'Boulder Farmers\' Market').and('contain', 4)
+    .find('img').should('have.attr', 'src').should('include', 'https://s3-media2.fl.yelpcdn.com/bphoto/INILW1uLypS3V55ggbKgUA/o.jpg')
+    cy.get('[data-cy="business-card"]').last()
+    .should('contain', 'BJ\'s Restaurant & Brewhouse').and('contain', 3)
+    .find('img').should('have.attr', 'src').should('include', 'https://s3-media3.fl.yelpcdn.com/bphoto/I8WyKF02Jlw8f_vNrde7Bg/o.jpg')
+  })
 })
 
 it('has a footer with team info', () => {
   
 })
-
-// Test for overview
-
-/* Test for Featured Local Businesses
-  - Check for "Featured Local Businesses:" text 
-  - Need to mock data the businesses
-  - Verify number of businesses
-  - Verify text in containers
-  - Verify images
-*/
 
 /* Test footer
 - Test for teams
