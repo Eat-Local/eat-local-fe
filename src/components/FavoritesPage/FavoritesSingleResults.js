@@ -1,12 +1,21 @@
 import React from 'react'
-import { AiOutlineStar } from 'react-icons/ai';
+import { AiFillStar } from 'react-icons/ai';
+import '../SingleResultPage/SingleResultPage.css';
+import { Link } from 'react-router-dom'
 
-const FavoritesSingleResults = (business, user, addFavorite, deleteFavorite) => {
-  const { address, image, phone, rating, title, url } = business.business
+const FavoritesSingleResults = ({business, user, addFavorite, deleteFavorite}) => {
+  const { address, image, phone, rating, title, url, id } = business
   const formattedPhone = phone.replace(/[^\d]/g, '');
   const altText = `A photo describing ${title}'s business, provided by ${title}`
+
+  const handleDelete = () => {
+    deleteFavorite(parseInt(id), user);
+    
+  }
+
+console.log(business)
   return (
-    <div>
+    <div className='single-result-section'>
       <article className="single-result">
         <img className="business-photo" src={image} alt={altText} />
         <div className="information-container">
@@ -16,7 +25,9 @@ const FavoritesSingleResults = (business, user, addFavorite, deleteFavorite) => 
           <a href={formattedPhone}>{phone}</a>
           <p>Check out {title}'s <a href={url} target="_blank" rel="noopener noreferrer">website</a>!</p>
         </div>
-        <AiOutlineStar className="favorite-icon"/>
+        <Link to='/favorites'> 
+        <span onClick={handleDelete}><AiFillStar className="favorite-icon-active" /></span>
+        </Link>
       </article>
       </div>
   )

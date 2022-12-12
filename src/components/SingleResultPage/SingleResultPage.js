@@ -1,17 +1,45 @@
 import "./SingleResultPage.css";
 import GoogleMapReact from 'google-map-react';
 import { MdLocationPin } from 'react-icons/md';
-import { AiOutlineStar } from 'react-icons/ai';
+import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
 const apiKey = process.env.REACT_APP_GOOGLE_API_KEY
 
 const Marker = ({ text }) => <div>{text}</div>
 
-const SingleResultPage = ({ business }) => {
+const SingleResultPage = ({ business, user, addFavorite, deleteFavorite }) => {
   console.log('i am business: ', business)
   const { img, display_phone, rating, site, title, price, coordinates, display_address } = business.attributes;
   const phone = display_phone.replace(/[^\d]/g, '');
   const address = display_address.display_address.map((element) => `${element} `)
   const altText = `A photo describing ${title}'s business, provided by ${title}`
+  let isfavorite = false;
+  console.log(business)
+  
+  user.favorites.forEach(fav => {
+    if (fav.title === title) {
+      isfavorite = true
+    }
+  })
+
+  const findFavorite = () => {
+    // eslint-disable-next-line array-callback-return
+    return user.favorites.find(favoriteBiz => {
+      if (favoriteBiz.title === title) {
+        return favoriteBiz
+      }
+        })
+  }
+  
+  const handleDelete = () => {
+    deleteFavorite(parseInt(findFavorite().id), user);
+    isfavorite = false
+  }
+
+  const handleAdd = () => {
+    addFavorite(business, user)
+    isfavorite = true
+  }
+
   const defaultProps = {
     center: {
       lat: coordinates.latitude,
@@ -19,6 +47,8 @@ const SingleResultPage = ({ business }) => {
     },
     zoom: 12
   }
+
+
 
   return(
     <section className="single-result-section">
@@ -32,7 +62,8 @@ const SingleResultPage = ({ business }) => {
           <a href={phone}>{display_phone}</a>
           <p>Check out {title}'s <a href={site} target="_blank" rel="noopener noreferrer">website</a>!</p>
         </div>
-        <AiOutlineStar className="favorite-icon"/>
+        {!isfavorite && <span onClick={handleAdd}><AiOutlineStar className="favorite-icon"/></span>}
+        {isfavorite && <span onClick={handleDelete}><AiFillStar className="favorite-icon-active" /></span>}
       </article>
       <div style={{ height: '50vh', width: '50%' }}>
       <GoogleMapReact
