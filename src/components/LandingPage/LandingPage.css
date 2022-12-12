@@ -3,20 +3,29 @@
 
 .landing-section {
   text-align: center;
-  margin-top: 6rem;
+  margin-top: 4rem;
   font-family: 'Prompt', sans-serif;
   font-weight: 200;
 
 }
 
 .featured-container {
-  margin-top: 10vh;
+  margin-top: 1rem;
   padding-bottom: 2rem;
 }
 
 .featured-cards {
   display: flex;
   justify-content: space-evenly;
+  font-family: 'Prompt', sans-serif;
+  font-weight: 400
+}
+
+.overview-container {
+  padding: 5rem;
+}
+
+.featured-businesses-msg {
   font-family: 'Prompt', sans-serif;
   font-weight: 400
 }
