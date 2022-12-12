@@ -38,9 +38,9 @@ const LandingPage = ({ user, addFavorite, deleteFavorite, featured, featError, f
         </span>
       </div>
       <div className="featured-container">
-        <p className="featured-businesses-msg">Featured Local Businesses:</p>
+        <p className="featured-businesses-msg" data-cy="featured-businesses-msg">Featured Local Businesses:</p>
           {featError && <h2>{featError}</h2>}
-          <div className="featured-cards">
+          <div className="featured-cards" data-cy="featured-cards">
             {featBusinesses}
           </div>
       </div>

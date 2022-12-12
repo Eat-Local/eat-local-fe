@@ -35,9 +35,9 @@ const Nav = ( { business, setBusiness, location, setLocation, onSearch,
 
   return(
     <>
-      <nav className="main-nav">
+      <nav className="main-nav" data-cy="navbar">
         <Link to="/">
-          <img src={logo} alt="Eat Local logo, a green location marker with a bite taken out of it!" />
+          <img src={logo} alt="Eat Local logo, a green location marker with a bite taken out of it!" data-cy="logo"/>
         </Link>
         <Search
           business={business}
@@ -47,8 +47,8 @@ const Nav = ( { business, setBusiness, location, setLocation, onSearch,
           onSearch={onSearch}
         />
         <div className="greeting-menu-container">
-         <span className="greeting">Hello, {greeting}!</span>
-          <span className="menu"><Link to="/">Home</Link> | <span ref={loginRef} className="login" onClick={(event) => handleClick(event)}>Login</span> | <Link to="/favorites">Favorites</Link></span>
+         <span className="greeting" data-cy="greeting">Hello, {greeting}!</span>
+          <span className="menu" data-cy="menu"><Link to="/">Home</Link> | <span ref={loginRef} className="login" onClick={(event) => handleClick(event)}>Login</span> | <Link to="/favorites">Favorites</Link></span>
         </div>
       </nav>
       {openLogin && <div className="login-container" ref={ref}>
