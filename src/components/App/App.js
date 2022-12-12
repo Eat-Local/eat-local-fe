@@ -100,7 +100,10 @@ const App = ({client}) => {
                    rating: "${rating}",
                    url: "${site}",
                    image: "${img}",
+                   price: "$",
                    phone: "${display_phone}",
+                   latitude: "1.2",
+                   longitude: "2.1",
                    userId: "${user.id}"
                  }) {
                   user {
@@ -116,7 +119,10 @@ const App = ({client}) => {
                       rating,
                       url,
                       image,
+                      price,
                       phone,
+                      latitude,
+                      longitude,
                       userId
                     }
                   }
@@ -125,6 +131,7 @@ const App = ({client}) => {
                }`
     })
     .then(res => {
+      console.log('this is what you want: ', res)
       setUser(res.data.createFavorite.user)
     })
     .catch(error => console.log(error))

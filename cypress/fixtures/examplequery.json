@@ -1,0 +1,14 @@
+{
+  "data": {
+    "user": {
+      "email": "example@email.com",
+      "favorites": [],
+      "fname": "Example",
+      "lname": "Exampleson",
+      "id": "1",
+      "__typename": "User"
+    }
+  },
+  "loading": false,
+  "networkStatus": 7
+}
