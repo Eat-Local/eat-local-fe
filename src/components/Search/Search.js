@@ -1,6 +1,6 @@
 import { useHistory } from "react-router-dom"
 import "./Search.css"
-import { FaSearch } from "react-icons/fa"
+import { FiSearch } from "react-icons/fi"
 
 const Search = ( { business, setBusiness, location, setLocation, onSearch} ) => {
   const history = useHistory()
@@ -24,11 +24,11 @@ const Search = ( { business, setBusiness, location, setLocation, onSearch} ) => 
             type="text"
             value={location}
             name="zipcode"
-            placeholder="Location"
+            placeholder="Location?"
             onChange={(event) => setLocation(event.target.value)}
           />
         </label>
-        <button className="submit" type="submit" onClick={handleNavigate}><FaSearch/></button>
+        <button className="submit" type="submit" onClick={handleNavigate}><FiSearch/></button>
       </div>
       <div className="radio-toolbar">
         <input

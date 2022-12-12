@@ -36,11 +36,14 @@ const Nav = ( { business, setBusiness, location, setLocation, onSearch, name,
   return(
     <>
       <nav className="main-nav">
-        <Link to="/">
-          <img src={logo} alt="Eat Local logo, a green location marker with a bite taken out of it!" />
-    
+        
+        <Link to="/" style={{color: 'black'}}>
+          <div className='logo-container'>
+            <img src={logo} alt="Eat Local logo, a green location marker with a bite taken out of it!" />
+            <h2 className='logo-word'>Eat Local</h2>
+          </div>
         </Link>
-        <h2 className='logo-word'>Eat Local</h2>
+        
         <Search
           business={business}
           setBusiness={setBusiness}

@@ -1,6 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
+
 .landing-section {
   text-align: center;
-  margin-top: 30vh;
+  margin-top: 6rem;
+  font-family: 'Prompt', sans-serif;
+  font-weight: 200;
+
 }
 
 .featured-container {
@@ -11,4 +17,6 @@
 .featured-cards {
   display: flex;
   justify-content: space-evenly;
+  font-family: 'Prompt', sans-serif;
+  font-weight: 400
 }

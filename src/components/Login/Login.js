@@ -10,6 +10,7 @@ const Login = ({ name, email, setName, setEmail, getUser}) => {
   return(
     <form>
       <input
+          className='input-name'
           type="text"
           value={name}
           name="name"
@@ -17,6 +18,7 @@ const Login = ({ name, email, setName, setEmail, getUser}) => {
           onChange={(event) => setName(event.target.value)}
         />
         <input
+          className='input-email'
           type="text"
           value={email}
           name="email"
