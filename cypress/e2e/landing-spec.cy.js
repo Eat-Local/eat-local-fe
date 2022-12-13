@@ -78,16 +78,17 @@ describe('Landing Page', () => {
 
   it('has featured local businesses', () => {
     cy.get('[data-cy="featured-businesses-msg"]').contains('Featured Local Businesses:')
+    cy.get('[data-cy="featured-cards"]').children().should('have.length', 3)
     cy.get('[data-cy="featured-cards"]')
     .within(() => {
       cy.get('[data-cy="business-card"]').first()
-      .should('contain', 'The Buff Restaurant').and('contain', 4.5)
+      .should('contain', 'The Buff Restaurant').and('contain', '4.5 / 5')
       .find('img').should('have.attr', 'src').should('include', 'https://s3-media2.fl.yelpcdn.com/bphoto/p95cYM_TgNOlHvw_cf0SAw/o.jpg')
       cy.get('[data-cy="business-card"]').first().next()
-      .should('contain', 'Boulder Farmers\' Market').and('contain', 4)
+      .should('contain', 'Boulder Farmers\' Market').and('contain', '4 / 5')
       .find('img').should('have.attr', 'src').should('include', 'https://s3-media2.fl.yelpcdn.com/bphoto/INILW1uLypS3V55ggbKgUA/o.jpg')
       cy.get('[data-cy="business-card"]').last()
-      .should('contain', 'BJ\'s Restaurant & Brewhouse').and('contain', 3)
+      .should('contain', 'BJ\'s Restaurant & Brewhouse').and('contain', '3 / 5')
       .find('img').should('have.attr', 'src').should('include', 'https://s3-media3.fl.yelpcdn.com/bphoto/I8WyKF02Jlw8f_vNrde7Bg/o.jpg')
     })
   })
