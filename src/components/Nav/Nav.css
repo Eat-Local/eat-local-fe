@@ -1,17 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 .main-nav {
-  border: 0.1rem solid black;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: fixed;
   top: 0;
-  width: 99vw;
+  width: 100vw;
   z-index: 100;
-  background-color: #d7edd9;
+  background-color: #acdcb4;
+  left: -1px;
+  font-family: 'Bebas Neue', cursive;
+  text-decoration: none;
+  height: 5rem;
 }
 
 .main-nav img {
   width: 3.5rem;
+  margin-left: .7rem;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+}
+.logo-word {
+  margin-top: 20px;
+  margin-bottom: 1px;
+  text-decoration: none;
+
 }
 
 .greeting-menu-container {
@@ -25,15 +42,20 @@
 }
 
 .login-container {
-  border: 1px solid red;
   position: fixed;
   top: 4.5rem;
   right: 0.5rem;
-  height: 10rem;
+  height: 7rem;
   width: 10rem;
   z-index: 100;
+  padding: 3px;
+  background-color: #F2E8CF;
 }
 
 .login:hover {
   cursor: pointer;
+}
+
+.menu {
+  margin-right: 1rem;
 }

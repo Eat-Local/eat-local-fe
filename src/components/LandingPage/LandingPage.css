@@ -1,14 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
+
 .landing-section {
   text-align: center;
-  margin-top: 25vh;
+  margin-top: 4rem;
+  font-family: 'Prompt', sans-serif;
+  font-weight: 200;
+
 }
 
 .featured-container {
-  margin-top: 30vh;
-  padding-bottom: 8rem;
+  margin-top: 1rem;
+  padding-bottom: 2rem;
 }
 
 .featured-cards {
   display: flex;
   justify-content: space-evenly;
+  font-family: 'Prompt', sans-serif;
+  font-weight: 400
+}
+
+.overview-container {
+  padding: 5rem;
+}
+
+.featured-businesses-msg {
+  font-family: 'Prompt', sans-serif;
+  font-weight: 400
 }

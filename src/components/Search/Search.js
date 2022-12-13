@@ -1,5 +1,6 @@
 import { useHistory } from "react-router-dom"
 import "./Search.css"
+import { FiSearch } from "react-icons/fi"
 
 const Search = ( { business, setBusiness, location, setLocation, onSearch} ) => {
   const history = useHistory()
@@ -16,49 +17,50 @@ const Search = ( { business, setBusiness, location, setLocation, onSearch} ) => 
 
   return (
     <form className="search-bar" onSubmit={handleClick}>
-      <label> 
-        <input
-          type="text"
-          value={location}
-          name="zipcode"
-          placeholder="Location"
-          data-cy="search"
-          onChange={(event) => setLocation(event.target.value)}
-        />
-      </label>
-      <label>
+      <div className="search">
+        <label>  
+          <input
+            className="searchbar"
+            type="text"
+            value={location}
+            name="zipcode"
+            data-cy="search"
+            placeholder="do your thing..."
+            onChange={(event) => setLocation(event.target.value)}
+          />
+        </label>
+        <button className="submit" type="submit" data-cy="submit" onClick={handleNavigate}><FiSearch/></button>
+      </div>
+      <div className="radio-toolbar">
         <input
           type="radio"
+          id="restaurant"
           name="business"
           value="family restaurant"
           checked={business === "family restaurant"}
-          data-cy="restaurant-radio"
           onChange={(event) => setBusiness(event.target.value)}
-        /> Restaurant
-      </label>
-    <label>
-      <input
+        /> 
+        <label htmlFor="restaurant" data-cy="restaurant-radio">Restaurant</label>
+        <input
           type="radio"
           name="business"
+          id="market"
           value="farmers market"
           checked={business === "farmers market"}
-          data-cy="market-radio"
           onChange={(event) => setBusiness(event.target.value)}
-      /> Market
-     </label>
-     <label>
-      <input
+        /> 
+        <label htmlFor="market" data-cy="market-radio">Market</label>
+        <input
           type="radio"
           name="business"
+          id="brewery"
           value="brewery"
           checked={business === "brewery"}
-          data-cy="brewery-radio"
           onChange={(event) => setBusiness(event.target.value)}
-      /> Brewery
-     </label>
-        <button type="submit" data-cy="submit" onClick={handleNavigate}>Search</button>
+        /> 
+        <label htmlFor="brewery" data-cy="brewery-radio">Brewery</label>
+      </div>
     </form>
-
   )
 }
 

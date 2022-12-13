@@ -1,10 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 .business-card {
-  border: 1px solid black;
+  box-shadow: 1px 1px 20px grey;
   width: 10rem;
-  margin: 0.5%;
+  margin: 1%;
+  background-color: aliceblue;
+  position: relative;
   /* height: 10rem; */
 }
 
 .business-card-image {
   width: 10rem;
+  height: 8rem;
+}
+
+.rating-container {
+  margin-top: -20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: .7rem;
+}
+
+.title {
+  margin-top: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+.address {
+  margin-top: -15px;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: .7rem;
+  font-weight: 200;
+  color: grey;
+}
+
+.under-img {
+  padding: .5rem;
+}
+
+.add-from-card {
+  position: absolute;
+  border: none;
+  background-color: transparent;
+  right: 2px;
+  top: 4px;
+  color: aliceblue;
+}
+
+.favorites {
+  fill: gold
 }

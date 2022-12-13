@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-// import { AiOutlineStar } from 'react-icons/ai';
+import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import "./ResultCard.css";
 
-const ResultCard = ({title, photo, rating, id, alias, user, addFavorite, deleteFavorite, business, displayType }) => { 
+const ResultCard = ({title, photo, rating, id, alias, user, addFavorite, deleteFavorite, business, displayAddress, displayType }) => { 
   let inUserFavs = false;
+  const address = displayAddress.map((element) => `${element} `)
   
   if (user) {
     inUserFavs = user.favorites.reduce((acc, favorite) => {
@@ -29,14 +30,21 @@ const ResultCard = ({title, photo, rating, id, alias, user, addFavorite, deleteF
     linkText = `/favorites/${id}`
   }
 
-  const buttonTxt = inUserFavs ? 'delete from favorites' : 'add to favorites'
+  const buttonTxt = inUserFavs ? <AiFillStar className="favorites"/> : <AiOutlineStar className="not-favorites"/>
 
   return (
     <article className="business-card" data-cy="business-card">
       <Link to={linkText}><img className="business-card-image" src={photo} alt={title}></img></Link>
-      <p>{title}</p>
-      <p>{rating}</p>
-      {user && <button onClick={inUserFavs ? handleDelete : () => addFavorite(business, user)}>{buttonTxt}</button>}
+      <div className="under-img">
+      <p className="title">{title}</p>
+      <p className="address">{address}</p>
+      <div className="rating-container">
+        <AiFillStar/>
+        <p>{rating} / 5</p>
+      </div>
+      </div>
+      
+      {user && <button className="add-from-card" onClick={inUserFavs ? handleDelete : () => addFavorite(business, user)}>{buttonTxt}</button>}
     </article>
   )
 }
