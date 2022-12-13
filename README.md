@@ -48,8 +48,8 @@ Are you looking to support local businesses? Look no further! Eat Local allows y
 This group project was assigned during the final module of Turing's Front-End Engineering program, about 19-20 weeks into its students learning how to code, with an emphasis on collaboration between front- and back-end teams. The details of this project are outlined in <a href="https://mod4.turing.edu/projects/capstone/index.html">this</a> project spec.
 
 ### Built With
-
 ![React][React-shield]
+![Apollo-GraphQL][Apollo-GraphQL-shield]
 ![JavaScript][JavaScript-shield]
 ![CSS][CSS-shield]
 ![HTML5][HTML-shield]
@@ -60,11 +60,14 @@ This group project was assigned during the final module of Turing's Front-End En
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Setup
-- Clone the repository to your local machine
-- Visit the <a href="https://github.com/Eat-Local/eat-local-be">BE repository</a>, and clone it down as a sibling on your local machine
+- Clone this repository to your local machine
 - `cd` into the repository
 - Make sure the necessary dependencies are installed on your local machine (`react-router-dom`, `cypress`, `apollo client`, `google-map-react`, `graphql`, `react-icons`, etc.)
-- Once the necessary dependencies are installed, `cd` back into the root of the repository, and run `npm start`
+- Once the necessary dependencies are installed, `cd` back into the parent of this repository
+- Visit the <a href="https://github.com/Eat-Local/eat-local-be">BE repository</a>, clone it down as this repo's sibling on your local machine, and install necessary dependencies
+- Run `npm start`, `cd` back to the FE repo, and run `npm start`
+- Have fun!
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -78,9 +81,9 @@ This group project was assigned during the final module of Turing's Front-End En
 
 ## Features
 
-- Let's name some features of this app
-- Let's name some features of this app
-- Let's name some features of this app
+- Consumes both RESTful and GraphQL APIs, built with CI/CD 
+- Implements TDD with a robust Cypress suite featuring error-handling, happy- and sad- path testing
+- Utilizes Router to create a multi-page user experience from a single-page application
 
 ### Reflections
 <b>Wins:</b><br>
@@ -111,6 +114,7 @@ What was challenging?
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [React-shield]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[Apollo-GraphQL-shield]: https://img.shields.io/badge/-ApolloGraphQL-311C87?style=for-the-badge&logo=apollo-graphql
 [JavaScript-shield]: https://img.shields.io/badge/javascript%20-%23323330.svg?&style=for-the-badge&logo=javascript&logoColor=%23F7DF1E
 [CSS-shield]: https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white
 [HTML-shield]: https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white
