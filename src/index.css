@@ -2,7 +2,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #efece4;
+  background-color: #f5f3ed;
 }
 
 section {

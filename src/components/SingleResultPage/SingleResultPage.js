@@ -54,17 +54,20 @@ const SingleResultPage = ({ business, user, addFavorite, deleteFavorite }) => {
       <article className="single-result">
         <img className="business-photo" src={img} alt={altText} />
         <div className="information-container">
-          <h1>{title}</h1>
-          {price}
-          <p>Rating: {rating}/5</p>
-          <p>{address}</p>
-          <a href={phone}>{display_phone}</a>
-          <p>Check out {title}'s <a href={site} target="_blank" rel="noopener noreferrer">website</a>!</p>
+          <h1 className="single-title">{title}</h1>
+          <p className="address">{address}</p>
+          <p>{price}</p>
+          <div className="single-rating-container">
+            <AiFillStar/>
+            <p>{rating} / 5</p>
+          </div>
+          <a className="phone" href={phone}>{display_phone}</a>
+          <p>Check out {title}'s <a className="website-url" href={site} target="_blank" rel="noopener noreferrer">reviews</a> at this other website that is nothing like Eat Local!</p>
         </div>
         {(!isfavorite && user) && <span onClick={handleAdd}><AiOutlineStar className="favorite-icon"/></span>}
         {(isfavorite && user) && <span onClick={handleDelete}><AiFillStar className="favorite-icon-active" /></span>}
       </article>
-      <div style={{ height: '50vh', width: '50%' }}>
+      <div style={{ height: '30rem', width: '30rem' }}>
       <GoogleMapReact
         bootstrapURLKeys={{ key: apiKey }}
         defaultCenter={defaultProps.center}

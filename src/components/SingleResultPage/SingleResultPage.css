@@ -2,19 +2,19 @@
   display: flex;
   /* flex-direction: column; */
   justify-content: space-around;
-  align-items: center;
+  flex-wrap: wrap;
+  align-items: flex-start;
   margin-top: 10rem;
+  /* border: 1px solid black; */
 }
 
 .single-result {
-  border: 1px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 2.5rem;
   margin-bottom: 2.5rem;
   position: relative;
-  width: 60vw;
+  width: 30rem;
 }
 
 .business-photo {
@@ -43,4 +43,25 @@
 .favorite-icon:hover,
 .favorite-icon-active:hover {
   cursor: pointer;
+}
+
+.single-rating-container {
+  margin-top: -20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: .7rem;
+}
+
+.phone {
+  font-family: 'Open Sans', sans-serif;
+
+}
+.website-url {
+  text-decoration: underline;
+}
+.phone {
+  color: blue;
 }
