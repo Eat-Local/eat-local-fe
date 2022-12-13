@@ -13,32 +13,67 @@ describe('Results Page', () => {
   })
 
   it('can search for a restaurant', () => {
-  /* Search Restaurant
-  - Enter Boulder in seach bar
-  - (Restaurant Default)
-  - Click search button
-  - Verify results appear
-  - Click "Home" link
-  */ 
+    cy.get('[data-cy="navbar"]')
+    .within(() => {
+      cy.get('[data-cy="search"]').type('Denver')
+      cy.get('[data-cy="submit"]').click()
+    })
+      cy.url('/results')
+      cy.get('[data-cy="results-section"]')
+      .within(() => {
+      cy.get('[data-cy="business-card"]').first()
+      .should('contain', 'The Buff Restaurant').and('contain', '4.5 / 5')
+      .find('img').should('have.attr', 'src').should('include', 'https://s3-media2.fl.yelpcdn.com/bphoto/p95cYM_TgNOlHvw_cf0SAw/o.jpg')
+      cy.get('[data-cy="business-card"]').first().next()
+      .should('contain', 'Efrain\'s of Boulder Mexican Restaurant & Cantina').and('contain', '4 / 5')
+      .find('img').should('have.attr', 'src').should('include', 'https://s3-media3.fl.yelpcdn.com/bphoto/4qf9TnnAevvDdvsDAxXxrw/o.jpg')
+      cy.get('[data-cy="business-card"]').last()
+      .should('contain', 'Walnut Cafe').and('contain', '4 / 5')
+      .find('img').should('have.attr', 'src').should('include', 'https://s3-media2.fl.yelpcdn.com/bphoto/W1eqfDjV-jjYhqvJLTw25g/o.jpg')
+    })
   })
 
   it('can search for a market', () => {
-  /* Search Market
-  - Enter Boulder in seach bar
-  - Select Market Radio
-  - Click search button
-  - Verify results appear
-  - Click "Home" link
-  */
+    cy.get('[data-cy="navbar"]')
+    .within(() => {
+      cy.get('[data-cy="market-radio"]').click()
+      cy.get('[data-cy="search"]').type('Denver')
+      cy.get('[data-cy="submit"]').click()
+    })
+      cy.url('/results')
+      cy.get('[data-cy="results-section"]')
+      .within(() => {
+      cy.get('[data-cy="business-card"]').first()
+      .should('contain', 'Boulder Farmers\' Market').and('contain', '4 / 5')
+      .find('img').should('have.attr', 'src').should('include', 'https://s3-media2.fl.yelpcdn.com/bphoto/INILW1uLypS3V55ggbKgUA/o.jpg')
+      cy.get('[data-cy="business-card"]').first().next()
+      .should('contain', 'The Diaz Farm').and('contain', '5 / 5')
+      .find('img').should('have.attr', 'src').should('include', 'https://s3-media3.fl.yelpcdn.com/bphoto/v9g5sG9mtI_VlY7Qqbw4vg/o.jpg')
+      cy.get('[data-cy="business-card"]').last()
+      .should('contain', 'Eldorado Corner Market').and('contain', '2 / 5')
+      .find('img').should('have.attr', 'src').should('include', 'https://s3-media2.fl.yelpcdn.com/bphoto/AYDnEE19MtEKUgrXx7jHfA/o.jpg')
+    })
   })
 
   it('can search for a brewery', () => {
-  /* Search Brewery
-  - Enter Boulder in seach bar
-  - Select Brewery Radio
-  - Click search button
-  - Verify results appear
-  - Click "Eat Local" logo
-  */
+    cy.get('[data-cy="navbar"]')
+    .within(() => {
+      cy.get('[data-cy="brewery-radio"]').click()
+      cy.get('[data-cy="search"]').type('Denver')
+      cy.get('[data-cy="submit"]').click()
+    })
+      cy.url('/results')
+      cy.get('[data-cy="results-section"]')
+      .within(() => {
+      cy.get('[data-cy="business-card"]').first()
+      .should('contain', 'BJ\'s Restaurant & Brewhouse').and('contain', '3 / 5')
+      .find('img').should('have.attr', 'src').should('include', 'https://s3-media3.fl.yelpcdn.com/bphoto/I8WyKF02Jlw8f_vNrde7Bg/o.jpg')
+      cy.get('[data-cy="business-card"]').first().next()
+      .should('contain', 'Twisted Pine Brewing Company').and('contain', '4 / 5')
+      .find('img').should('have.attr', 'src').should('include', 'https://s3-media3.fl.yelpcdn.com/bphoto/eSvbQe2xn2s6n422w07UBw/o.jpg')
+      cy.get('[data-cy="business-card"]').last()
+      .should('contain', 'Boulder Social').and('contain', '3.5 / 5')
+      .find('img').should('have.attr', 'src').should('include', 'https://s3-media1.fl.yelpcdn.com/bphoto/jku5MGd-a7DDSKVFw060Vw/o.jpg')
+    })
   })
 })
