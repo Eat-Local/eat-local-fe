@@ -29,7 +29,7 @@ const Search = ( { business, setBusiness, location, setLocation, onSearch} ) => 
             onChange={(event) => setLocation(event.target.value)}
           />
         </label>
-        <button className="submit" type="submit" data-cy="submit" onClick={handleNavigate}><FiSearch/></button>
+        <button className="submit" type="submit" data-cy="submit" aria-label="search businesses" onClick={handleNavigate}><FiSearch/></button>
       </div>
       <div className="radio-toolbar">
         <input
