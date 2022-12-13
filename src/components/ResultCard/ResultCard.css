@@ -12,6 +12,7 @@
 .business-card-image {
   width: 10rem;
   height: 8rem;
+  object-fit: cover;
 }
 
 .rating-container {
