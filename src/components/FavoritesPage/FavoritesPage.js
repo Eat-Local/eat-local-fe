@@ -16,7 +16,7 @@ const FavoritesPage = ({ user, deleteFavorite }) => {
     if (!curUser) {
       return <h2 data-cy="fav-user-message">Log in to store your favorites!</h2>
     } else if (curUser.favorites.length === 0) {
-      return <h2 data-cy="fav-user-message">You don't have any favorites yet</h2>
+      return <h2 data-cy="fav-user-message">You don't have any favorites yet!</h2>
     } else if (!searchFavs) {
       display = user.favorites.map((favorite) => {
         const { id, title, rating, image, alias, address } = favorite;
@@ -64,7 +64,7 @@ const FavoritesPage = ({ user, deleteFavorite }) => {
     <section className="favorites-section">
       {displaySearch && <form className='keyword-form'>
         <input type='text' 
-          placeholder='SEARCH FAVORITES' 
+          placeholder='SEARCH THROUGH FAVORITES' 
           className='input' 
           data-cy="fav-searchbar"
           value={searchFavorites} 
