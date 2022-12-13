@@ -1,0 +1,101 @@
+{
+  "data": [
+    {
+      "id": "1LMe5UqMS2ei_ubt46FbNA",
+      "type": "business",
+      "attributes": {
+          "title": "The Buff Restaurant",
+          "alias": "the-buff-restaurant-boulder",
+          "venue_type": "Breakfast & Brunch",
+          "display_address": {
+              "address1": "2600 Canyon Blvd",
+              "address2": "",
+              "address3": "",
+              "city": "Boulder",
+              "zip_code": "80302",
+              "country": "US",
+              "state": "CO",
+              "display_address": [
+                  "2600 Canyon Blvd",
+                  "Boulder, CO 80302"
+              ]
+          },
+          "rating": 4.5,
+          "site": "https://www.yelp.com/biz/the-buff-restaurant-boulder?adjust_creative=TWv4BIcu6CZ_3-f_0lItOQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=TWv4BIcu6CZ_3-f_0lItOQ",
+          "img": "https://s3-media2.fl.yelpcdn.com/bphoto/p95cYM_TgNOlHvw_cf0SAw/o.jpg",
+          "is_closed": false,
+          "price": "$$",
+          "display_phone": "(303) 442-9150",
+          "coordinates": {
+              "latitude": 40.017245,
+              "longitude": -105.2602784
+          }
+      }
+  },
+  {
+      "id": "ojMolZg1IS_agSUizXrKfw",
+      "type": "business",
+      "attributes": {
+          "title": "Efrain's of Boulder Mexican Restaurant & Cantina",
+          "alias": "efrains-of-boulder-mexican-restaurant-and-cantina-boulder",
+          "venue_type": "Mexican",
+          "display_address": {
+              "address1": "2480 Canyon Blvd",
+              "address2": "Unit M1",
+              "address3": "",
+              "city": "Boulder",
+              "zip_code": "80302",
+              "country": "US",
+              "state": "CO",
+              "display_address": [
+                  "2480 Canyon Blvd",
+                  "Unit M1",
+                  "Boulder, CO 80302"
+              ]
+          },
+          "rating": 4.0,
+          "site": "https://www.yelp.com/biz/efrains-of-boulder-mexican-restaurant-and-cantina-boulder?adjust_creative=TWv4BIcu6CZ_3-f_0lItOQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=TWv4BIcu6CZ_3-f_0lItOQ",
+          "img": "https://s3-media3.fl.yelpcdn.com/bphoto/4qf9TnnAevvDdvsDAxXxrw/o.jpg",
+          "is_closed": false,
+          "price": "$$",
+          "display_phone": "(303) 440-4045",
+          "coordinates": {
+              "latitude": 40.01686138585363,
+              "longitude": -105.26170838929262
+          }
+      }
+  },
+  {
+      "id": "CB9kcdKLhHyOKJaXbVwk1A",
+      "type": "business",
+      "attributes": {
+          "title": "Walnut Cafe",
+          "alias": "walnut-cafe-boulder",
+          "venue_type": "Breakfast & Brunch",
+          "display_address": {
+              "address1": "3073 Walnut St",
+              "address2": "",
+              "address3": "",
+              "city": "Boulder",
+              "zip_code": "80301",
+              "country": "US",
+              "state": "CO",
+              "display_address": [
+                  "3073 Walnut St",
+                  "Boulder, CO 80301"
+              ]
+          },
+          "rating": 4.0,
+          "site": "https://www.yelp.com/biz/walnut-cafe-boulder?adjust_creative=TWv4BIcu6CZ_3-f_0lItOQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=TWv4BIcu6CZ_3-f_0lItOQ",
+          "img": "https://s3-media2.fl.yelpcdn.com/bphoto/W1eqfDjV-jjYhqvJLTw25g/o.jpg",
+          "is_closed": false,
+          "price": "$$",
+          "display_phone": "(303) 447-2315",
+          "coordinates": {
+              "latitude": 40.0202549,
+              "longitude": -105.2527276
+          }
+      }
+    }
+  ]
+}  

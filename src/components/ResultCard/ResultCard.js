@@ -33,7 +33,7 @@ const ResultCard = ({title, photo, rating, id, alias, user, addFavorite, deleteF
   const buttonTxt = inUserFavs ? <AiFillStar className="favorites"/> : <AiOutlineStar className="not-favorites"/>
 
   return (
-    <article className="business-card">
+    <article className="business-card" data-cy="business-card">
       <Link to={linkText}><img className="business-card-image" src={photo} alt={title}></img></Link>
       <div className="under-img">
       <p className="title">{title}</p>

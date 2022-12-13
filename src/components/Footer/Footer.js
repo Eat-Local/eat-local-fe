@@ -4,7 +4,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <footer className="footer-container">
+    <footer className="footer-container" data-cy="footer-container">
       <div className="frontend-container">
         <h3 className="frontenders"><a href="https://github.com/Eat-Local/eat-local-fe.git" target="_blank" rel="noopener noreferrer" >Front-End Team</a></h3>
         <p className="contributors"><a href="https://www.linkedin.com/in/anthonyshellman/" target="_blank" rel="noopener noreferrer">Anthony Shellman</a></p>

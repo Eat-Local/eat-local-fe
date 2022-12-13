@@ -1,0 +1,36 @@
+{
+  "data": [
+      {
+          "id": "oyvFzU-Cpn9gDUaXDYpnHA",
+          "type": "business",
+          "attributes": {
+              "title": "Boulder Farmers' Market",
+              "alias": "boulder-farmers-market-boulder",
+              "venue_type": "Farmers Market",
+              "display_address": {
+                  "address1": "1900 13th St",
+                  "address2": "",
+                  "address3": "",
+                  "city": "Boulder",
+                  "zip_code": "80302",
+                  "country": "US",
+                  "state": "CO",
+                  "display_address": [
+                      "1900 13th St",
+                      "Boulder, CO 80302"
+                  ]
+              },
+              "rating": 4.0,
+              "site": "https://www.yelp.com/biz/boulder-farmers-market-boulder?adjust_creative=TWv4BIcu6CZ_3-f_0lItOQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=TWv4BIcu6CZ_3-f_0lItOQ",
+              "img": "https://s3-media2.fl.yelpcdn.com/bphoto/INILW1uLypS3V55ggbKgUA/o.jpg",
+              "is_closed": false,
+              "price": "$$",
+              "display_phone": "(303) 910-2236",
+              "coordinates": {
+                  "latitude": 40.0174102783203,
+                  "longitude": -105.278091430664
+              }
+          }
+      }
+  ]
+}

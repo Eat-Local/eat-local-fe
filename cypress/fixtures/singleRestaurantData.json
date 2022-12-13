@@ -1,0 +1,36 @@
+{
+  "data": [
+    {
+      "id": "1LMe5UqMS2ei_ubt46FbNA",
+      "type": "business",
+      "attributes": {
+          "title": "The Buff Restaurant",
+          "alias": "the-buff-restaurant-boulder",
+          "venue_type": "Breakfast & Brunch",
+          "display_address": {
+              "address1": "2600 Canyon Blvd",
+              "address2": "",
+              "address3": "",
+              "city": "Boulder",
+              "zip_code": "80302",
+              "country": "US",
+              "state": "CO",
+              "display_address": [
+                  "2600 Canyon Blvd",
+                  "Boulder, CO 80302"
+              ]
+          },
+          "rating": 4.5,
+          "site": "https://www.yelp.com/biz/the-buff-restaurant-boulder?adjust_creative=TWv4BIcu6CZ_3-f_0lItOQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=TWv4BIcu6CZ_3-f_0lItOQ",
+          "img": "https://s3-media2.fl.yelpcdn.com/bphoto/p95cYM_TgNOlHvw_cf0SAw/o.jpg",
+          "is_closed": false,
+          "price": "$$",
+          "display_phone": "(303) 442-9150",
+          "coordinates": {
+              "latitude": 40.017245,
+              "longitude": -105.2602784
+          }
+      }
+    }
+  ]
+}

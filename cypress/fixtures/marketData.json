@@ -1,0 +1,100 @@
+{
+  "data": [
+      {
+          "id": "oyvFzU-Cpn9gDUaXDYpnHA",
+          "type": "business",
+          "attributes": {
+              "title": "Boulder Farmers' Market",
+              "alias": "boulder-farmers-market-boulder",
+              "venue_type": "Farmers Market",
+              "display_address": {
+                  "address1": "1900 13th St",
+                  "address2": "",
+                  "address3": "",
+                  "city": "Boulder",
+                  "zip_code": "80302",
+                  "country": "US",
+                  "state": "CO",
+                  "display_address": [
+                      "1900 13th St",
+                      "Boulder, CO 80302"
+                  ]
+              },
+              "rating": 4.0,
+              "site": "https://www.yelp.com/biz/boulder-farmers-market-boulder?adjust_creative=TWv4BIcu6CZ_3-f_0lItOQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=TWv4BIcu6CZ_3-f_0lItOQ",
+              "img": "https://s3-media2.fl.yelpcdn.com/bphoto/INILW1uLypS3V55ggbKgUA/o.jpg",
+              "is_closed": false,
+              "price": "$$",
+              "display_phone": "(303) 910-2236",
+              "coordinates": {
+                  "latitude": 40.0174102783203,
+                  "longitude": -105.278091430664
+              }
+          }
+      },
+      {
+          "id": "S5_tsgNsozGRKsvuMY1rjg",
+          "type": "business",
+          "attributes": {
+              "title": "The Diaz Farm",
+              "alias": "the-diaz-farm-boulder",
+              "venue_type": "Farmers Market",
+              "display_address": {
+                  "address1": "2818 Jay Rd",
+                  "address2": null,
+                  "address3": "",
+                  "city": "Boulder",
+                  "zip_code": "80301",
+                  "country": "US",
+                  "state": "CO",
+                  "display_address": [
+                      "2818 Jay Rd",
+                      "Boulder, CO 80301"
+                  ]
+              },
+              "rating": 5.0,
+              "site": "https://www.yelp.com/biz/the-diaz-farm-boulder?adjust_creative=TWv4BIcu6CZ_3-f_0lItOQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=TWv4BIcu6CZ_3-f_0lItOQ",
+              "img": "https://s3-media3.fl.yelpcdn.com/bphoto/v9g5sG9mtI_VlY7Qqbw4vg/o.jpg",
+              "is_closed": false,
+              "price": "$",
+              "display_phone": "(720) 454-5475",
+              "coordinates": {
+                  "latitude": 40.04972,
+                  "longitude": -105.25874
+              }
+          }
+      },
+      {
+          "id": "1iS_R5j-O3V4h05HbIT6oQ",
+          "type": "business",
+          "attributes": {
+              "title": "Eldorado Corner Market",
+              "alias": "eldorado-corner-market-boulder",
+              "venue_type": "Grocery",
+              "display_address": {
+                  "address1": "1805 S Foothills Hwy",
+                  "address2": "",
+                  "address3": "",
+                  "city": "Boulder",
+                  "zip_code": "80303",
+                  "country": "US",
+                  "state": "CO",
+                  "display_address": [
+                      "1805 S Foothills Hwy",
+                      "Boulder, CO 80303"
+                  ]
+              },
+              "rating": 2.0,
+              "site": "https://www.yelp.com/biz/eldorado-corner-market-boulder?adjust_creative=TWv4BIcu6CZ_3-f_0lItOQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=TWv4BIcu6CZ_3-f_0lItOQ",
+              "img": "https://s3-media2.fl.yelpcdn.com/bphoto/AYDnEE19MtEKUgrXx7jHfA/o.jpg",
+              "is_closed": false,
+              "price": null,
+              "display_phone": "",
+              "coordinates": {
+                  "latitude": 39.9536271834846,
+                  "longitude": -105.232071876526
+              }
+          }
+      }
+  ]
+}
