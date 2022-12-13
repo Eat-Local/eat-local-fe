@@ -24,6 +24,7 @@
   display: flex;
   justify-content: center;
 }
+
 .logo-word {
   margin-top: 20px;
   margin-bottom: 1px;
@@ -50,12 +51,29 @@
   z-index: 100;
   padding: 3px;
   background-color: #F2E8CF;
+  transition: 0.5s;
 }
 
 .login:hover {
+  color: #22577A;
   cursor: pointer;
+  transition: 0.5s;
 }
 
 .menu {
   margin-right: 1rem;
+}
+
+.inactive {
+  color: black;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.inactive:hover {
+  color: #22577A;
+}
+
+.active {
+  color: #22577A;
 }

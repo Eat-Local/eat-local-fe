@@ -8,3 +8,14 @@ body {
 section {
   min-height: 100vh;
 }
+
+a {
+  color: black;
+  text-decoration: none;
+  transition: color 0.4s ease-in-out;
+}
+
+a:hover {
+  color: #22577A;
+  transition: 0.4s;
+}
