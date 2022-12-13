@@ -11,7 +11,7 @@ const Nav = ( { business, setBusiness, location, setLocation, onSearch,
   const [openLogin, setOpenLogin] = useState(false);
   const ref = useRef(null);
   const loginRef = useRef();
-  const greeting = user ? user.fname : "friend"
+  const greeting = user ? user.fname : "Friend"
 
   const handleClick = (event) => {
     setOpenLogin(!openLogin);
@@ -35,15 +35,13 @@ const Nav = ( { business, setBusiness, location, setLocation, onSearch,
 
   return(
     <>
-      <nav className="main-nav">
-        
+      <nav className="main-nav" data-cy="navbar">
         <Link to="/" style={{color: 'black'}}>
           <div className='logo-container'>
             <img src={logo} alt="Eat Local logo, a green location marker with a bite taken out of it!" />
             <h2 className='logo-word'>Eat Local</h2>
           </div>
         </Link>
-        
         <Search
           business={business}
           setBusiness={setBusiness}
@@ -52,8 +50,8 @@ const Nav = ( { business, setBusiness, location, setLocation, onSearch,
           onSearch={onSearch}
         />
         <div className="greeting-menu-container">
-         <span className="greeting">Hello, {greeting}!</span>
-          <span className="menu"><Link to="/" style={{color: 'black'}}>About</Link> | <span ref={loginRef} className="login" onClick={(event) => handleClick(event)}>Login</span> | <Link to="/favorites" style={{color: 'black'}}>Favorites</Link></span>
+         <span className="greeting" data-cy="greeting">Hello, {greeting}!</span>
+          <span className="menu" data-cy="menu"><Link to="/" style={{color: 'black'}}>About</Link> | <span ref={loginRef} className="login" onClick={(event) => handleClick(event)}>Login</span> | <Link to="/favorites" style={{color: 'black'}}>Favorites</Link></span>
         </div>
       </nav>
       {openLogin && <div className="login-container" ref={ref}>
