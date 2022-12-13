@@ -14,9 +14,9 @@ const FavoritesPage = ({ user, deleteFavorite }) => {
   const displayFavorites = (curUser, searchFavs) => {
     let display;
     if (!curUser) {
-      return <h2>Log in to store your favorites!</h2>
+      return <h2 data-cy="fav-user-message">Log in to store your favorites!</h2>
     } else if (curUser.favorites.length === 0) {
-      return <h2>You don't have any favorites yet</h2>
+      return <h2 data-cy="fav-user-message">You don't have any favorites yet</h2>
     } else if (!searchFavs) {
       display = user.favorites.map((favorite) => {
         const { id, title, rating, image, alias} = favorite;

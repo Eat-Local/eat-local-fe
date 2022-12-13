@@ -2,9 +2,18 @@ import { Link } from "react-router-dom";
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import "./ResultCard.css";
 
-const ResultCard = ({title, photo, rating, id, alias, user, addFavorite, deleteFavorite, business, displayAddress, displayType }) => { 
+const ResultCard = ({title, photo, rating, id, alias, user, addFavorite, deleteFavorite, business, displayType }) => { 
   let inUserFavs = false;
-  const address = displayAddress.map((element) => `${element} `)
+  
+  // const address = displayAddress.map((element) => `${element} `)
+
+  let address;
+
+  if (business.attributes) {
+    address = business.attributes.display_address.display_address.map((element) => `${element} `);
+  } else {
+    address = business.address;
+  }
   
   if (user) {
     inUserFavs = user.favorites.reduce((acc, favorite) => {
