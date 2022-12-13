@@ -1,0 +1,40 @@
+{
+  "data": {
+    "createFavorite": {
+      "errors": [],
+      "user": {
+        "email": "example@email.com",
+        "favorites": [
+          {
+            "address": "123 example address",
+            "id": "15",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg",
+            "phone": "(111)-111-1111",
+            "rating": 4,
+            "title": "restaurant title",
+            "url": "www.restaurant.com",
+            "userId": 1,
+            "venueType": "Burgers",
+            "__typename": "Favorite"
+          },
+          {
+            "address": "1900 13th St Boulder, CO 80302",
+            "id": "16",
+            "image": "https://s3-media2.fl.yelpcdn.com/bphoto/INILW1uLypS3V55ggbKgUA/o.jpg",
+            "phone": "(303) 910-2236",
+            "rating": 4,
+            "title": "Boulder Farmers' Market",
+            "url": "https://www.yelp.com/biz/boulder-farmers-market-boulder?adjust_creative=TWv4BIcu6CZ_3-f_0lItOQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=TWv4BIcu6CZ_3-f_0lItOQ",
+            "userId": 1,
+            "venueType": "Market",
+            "__typename": "Favorite"
+          }
+        ],
+        "fname": "Example",
+        "lname": "Exampleson",
+        "id": "1",
+        "__typename": "User"
+      }
+    }
+  }
+}

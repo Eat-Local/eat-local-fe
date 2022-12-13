@@ -39,7 +39,7 @@ const FavoritesPage = ({ user, deleteFavorite }) => {
     } else {
       const filteredFavorites = user.favorites.filter(favorite => favorite.title.toLowerCase().includes(searchFavorites.toLocaleLowerCase()));
       display = filteredFavorites.map((favorite) => {
-        const { id, title, rating, image, alias} = favorite;
+        const { id, title, rating, image, alias, address} = favorite;
         return (
           <ResultCard
             key={id}
@@ -49,6 +49,7 @@ const FavoritesPage = ({ user, deleteFavorite }) => {
             photo={image}
             alias={alias}
             user={user}
+            address={address}
             displayType="favorite"
           />
         )
@@ -65,6 +66,7 @@ const FavoritesPage = ({ user, deleteFavorite }) => {
         <input type='text' 
           placeholder='SEARCH FAVORITES' 
           className='input' 
+          data-cy="fav-searchbar"
           value={searchFavorites} 
           onChange={(event) => setSearchFavorites(event.target.value)} 
           required/>

@@ -34,7 +34,7 @@ const ResultCard = ({ title, photo, rating, id, alias, user, addFavorite, delete
     linkText = `/favorites/${id}`
   }
 
-  const buttonTxt = inUserFavs ? <AiFillStar className="favorites"/> : <AiOutlineStar className="not-favorites"/>
+  const buttonTxt = inUserFavs ? <AiFillStar className="favorites" data-cy="filled-star"/> : <AiOutlineStar className="not-favorites" data-cy="outline-star"/>
 
   return (
     <article className="business-card" data-cy="business-card">
@@ -43,7 +43,7 @@ const ResultCard = ({ title, photo, rating, id, alias, user, addFavorite, delete
       <p className="title">{title}</p>
       <p className="address">{cardAddress}</p>
       <div className="rating-container">
-        <AiFillStar/>
+        <AiFillStar data-cy="filled-star" />
         <p>{rating} / 5</p>
       </div>
       </div>
