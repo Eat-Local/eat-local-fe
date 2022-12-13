@@ -6,7 +6,7 @@ const logo = require('../../assets/eatlocalicon.png');
 const Footer = () => {
   return (
     <footer>
-      <img src={logo} className="footer-logo" />
+      <img src={logo} className="footer-logo" alt="Eat Local logo, a green location marker with a bite taken out of it!" />
       <div className="footer-container" data-cy="footer-container">
           <div className="frontend-container">
             <h3 className="frontenders"><a href="https://github.com/Eat-Local/eat-local-fe.git" target="_blank" rel="noopener noreferrer" >Front-End Team</a></h3>
