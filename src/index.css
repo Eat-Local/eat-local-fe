@@ -9,14 +9,13 @@ section {
   min-height: 100vh;
 }
 
-/* a {
-  color: #CA3D33;
-  font-weight: 700;
+a {
+  color: black;
   text-decoration: none;
   transition: color 0.4s ease-in-out;
 }
 
 a:hover {
-  color: #3E3431;
+  color: #22577A;
   transition: 0.4s;
-} */
+}
