@@ -12,35 +12,33 @@ describe('Results Page', () => {
     cy.visit('/')
   })
 
-  describe('empty spec', () => {
-    it('passes', () => {
-      cy.visit('/')
-    })
+  it('can search for a restaurant', () => {
+  /* Search Restaurant
+  - Enter Boulder in seach bar
+  - (Restaurant Default)
+  - Click search button
+  - Verify results appear
+  - Click "Home" link
+  */ 
   })
 
-/* Search Restaurant
-- Enter Boulder in seach bar
-- (Restaurant Default)
-- Click search button
-- Verify results appear
-- Click "Home" link
-*/ 
+  it('can search for a market', () => {
+  /* Search Market
+  - Enter Boulder in seach bar
+  - Select Market Radio
+  - Click search button
+  - Verify results appear
+  - Click "Home" link
+  */
+  })
 
-/* Search Market
-- Enter Boulder in seach bar
-- Select Market Radio
-- Click search button
-- Verify results appear
-- Click "Home" link
-*/
-
-/* Search Brewery
-- Enter Boulder in seach bar
-- Select Brewery Radio
-- Click search button
-- Verify results appear
-- Click "Eat Local" logo
-*/
-
-// Anything else?
+  it('can search for a brewery', () => {
+  /* Search Brewery
+  - Enter Boulder in seach bar
+  - Select Brewery Radio
+  - Click search button
+  - Verify results appear
+  - Click "Eat Local" logo
+  */
+  })
 })
