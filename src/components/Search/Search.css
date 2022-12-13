@@ -36,7 +36,6 @@
   height: 20px;
   outline: none;
   font-family: 'Roboto Condensed', sans-serif;
-
 }
 
 .submit {
@@ -49,6 +48,9 @@
   border-radius: 0 0 0 0;
   cursor: pointer;
   font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 form {
