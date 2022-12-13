@@ -1,0 +1,15 @@
+{
+  "data": {
+    "destroyFavorite": {
+      "errors": [],
+      "user": {
+        "email": "example@email.com",
+        "favorites": [],
+        "fname": "Example",
+        "lname": "Exampleson",
+        "id": "1",
+        "__typename": "User"
+      }
+    }
+  }
+}

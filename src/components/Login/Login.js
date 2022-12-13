@@ -39,8 +39,8 @@ const Login = ({ email, setEmail, getUser, loginError }) => {
           />
           <button className="login-btn" onClick={(event) => handleSubmit(event)}>Login!</button>
       </form>
-      {loginError && <span>{loginError}</span>}
-      {displayEmailErr && <span>{emailError}</span>}
+      {loginError && <span data-cy="login-error">{loginError}</span>}
+      {displayEmailErr && <span data-cy="email-error">{emailError}</span>}
     </>
   )
 }

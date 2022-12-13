@@ -14,12 +14,12 @@ const FavoritesPage = ({ user, deleteFavorite }) => {
   const displayFavorites = (curUser, searchFavs) => {
     let display;
     if (!curUser) {
-      return <h2>Log in to store your favorites!</h2>
+      return <h2 data-cy="fav-user-message">Log in to store your favorites!</h2>
     } else if (curUser.favorites.length === 0) {
-      return <h2>You don't have any favorites yet</h2>
+      return <h2 data-cy="fav-user-message">You don't have any favorites yet</h2>
     } else if (!searchFavs) {
       display = user.favorites.map((favorite) => {
-        const { id, title, rating, image, alias} = favorite;
+        const { id, title, rating, image, alias, address } = favorite;
         return (
           <ResultCard
             key={id}
@@ -29,6 +29,7 @@ const FavoritesPage = ({ user, deleteFavorite }) => {
             photo={image}
             alias={alias}
             user={user}
+            address={address}
             deleteFavorite={deleteFavorite}
             displayType="favorite"
           />
@@ -38,7 +39,7 @@ const FavoritesPage = ({ user, deleteFavorite }) => {
     } else {
       const filteredFavorites = user.favorites.filter(favorite => favorite.title.toLowerCase().includes(searchFavorites.toLocaleLowerCase()));
       display = filteredFavorites.map((favorite) => {
-        const { id, title, rating, image, alias} = favorite;
+        const { id, title, rating, image, alias, address} = favorite;
         return (
           <ResultCard
             key={id}
@@ -48,6 +49,7 @@ const FavoritesPage = ({ user, deleteFavorite }) => {
             photo={image}
             alias={alias}
             user={user}
+            address={address}
             displayType="favorite"
           />
         )
@@ -64,6 +66,7 @@ const FavoritesPage = ({ user, deleteFavorite }) => {
         <input type='text' 
           placeholder='SEARCH FAVORITES' 
           className='input' 
+          data-cy="fav-searchbar"
           value={searchFavorites} 
           onChange={(event) => setSearchFavorites(event.target.value)} 
           required/>
