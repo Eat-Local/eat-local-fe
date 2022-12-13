@@ -38,30 +38,27 @@ const Search = ( { business, setBusiness, location, setLocation, onSearch} ) => 
           name="business"
           value="family restaurant"
           checked={business === "family restaurant"}
-          data-cy="restaurant-radio"
           onChange={(event) => setBusiness(event.target.value)}
         /> 
-        <label htmlFor="restaurant">Restaurant</label>
+        <label htmlFor="restaurant" data-cy="restaurant-radio">Restaurant</label>
         <input
           type="radio"
           name="business"
           id="market"
           value="farmers market"
           checked={business === "farmers market"}
-          data-cy="market-radio"
           onChange={(event) => setBusiness(event.target.value)}
         /> 
-        <label htmlFor="market">Market</label>
+        <label htmlFor="market" data-cy="market-radio">Market</label>
         <input
           type="radio"
           name="business"
           id="brewery"
           value="brewery"
           checked={business === "brewery"}
-          data-cy="brewery-radio"
           onChange={(event) => setBusiness(event.target.value)}
         /> 
-        <label htmlFor="brewery">Brewery</label>
+        <label htmlFor="brewery" data-cy="brewery-radio">Brewery</label>
       </div>
     </form>
   )
