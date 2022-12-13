@@ -12,7 +12,6 @@ const FavoritesSingleResults = ({business, user, deleteFavorite}) => {
   const { address, image, phone, rating, title, url, id, price, latitude, longitude } = business
   const formattedPhone = phone.replace(/[^\d]/g, '');
   const altText = `A photo describing ${title}'s business, provided by ${title}`
-  console.log(business)
 
   const handleDelete = () => {
     deleteFavorite(parseInt(id), user);

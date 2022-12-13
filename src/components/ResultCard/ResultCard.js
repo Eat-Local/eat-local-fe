@@ -4,10 +4,6 @@ import "./ResultCard.css";
 
 const ResultCard = ({ title, photo, rating, id, alias, user, addFavorite, deleteFavorite, displayAddress, address, business, displayType }) => { 
   let inUserFavs = false;
-  
-  console.log('this is business', business);
-  console.log('this is title', title)
-
   const cardAddress = displayAddress ? displayAddress.map((element) => `${element} `) : address;
   
   if (user) {

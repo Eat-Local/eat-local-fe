@@ -169,8 +169,6 @@ const App = ({client}) => {
               }`
     })
     .then(res => {
-      console.log('deleteFav response: ', res)
-      console.log('res.data.destroyFavorite.user ', res.data.destroyFavorite.user)
       setUser(res.data.destroyFavorite.user);
     })
     .catch(error => console.log('deleteFav error: ', error))

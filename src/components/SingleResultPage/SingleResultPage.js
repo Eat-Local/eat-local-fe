@@ -36,7 +36,6 @@ const SingleResultPage = ({ business, user, addFavorite, deleteFavorite }) => {
   }
 
   const handleAdd = () => {
-    console.log(business)
     addFavorite(business, user)
     isfavorite = true
   }
