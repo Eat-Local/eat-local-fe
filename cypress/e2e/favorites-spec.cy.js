@@ -67,7 +67,7 @@ describe('Favorites Page', () => {
     cy.get('[data-cy="fav-user-message"]').contains(`You don't have any favorites yet`);
   })
   
-  it('a user should be able to add a favorite and search through favorites', () => {
+  it.only('a user should be able to add a favorite and search through favorites', () => {
     cy.intercept('GET', Cypress.env('restaurant'), {
       fixture: 'singleRestaurantData'
     })
@@ -99,10 +99,10 @@ describe('Favorites Page', () => {
     cy.get(':nth-child(2) > .add-from-card > [data-cy="outline-star"]').should('exist').click()
     cy.get(':nth-child(2) > .add-from-card > [data-cy="filled-star"]').should('exist')
     cy.get('[href="/favorites"]').click()
-    cy.get('.favorites-section').children().should('have.length', 3)
+    cy.get('.favorites-container').children().should('have.length', 2)
     cy.get('[data-cy="business-card"]').last().should('exist').and('contain', `Boulder Farmers' Market`).and('contain', '1900 13th St Boulder, CO 80302').and('contain', '4 / 5')
     cy.get('[data-cy="fav-searchbar"]').type('restaurant title')
-    cy.get('.favorites-section').children().should('have.length', 2)
+    cy.get('.favorites-container').children().should('have.length', 1)
     cy.get('[data-cy="business-card"]').should('exist').and('contain', 'restaurant title').and('contain', '123 example address').and('contain', '4 / 5')
   })
 })
