@@ -3,7 +3,7 @@
 <!-- HEADER -->
 <h1 align="center">Eat Local</h1>
 
-<h3 align="center">a tagline for Eat Local's FE Repo</h3>
+<h3 align="center">Support your local businesses!</h3>
 
 <h4 align="center"><a href=""><strong>Deploy Link</strong></a> | <a href=""><strong>Explore The Docs »</strong></a></h4>
 
@@ -32,7 +32,7 @@
 </details>
 
 ## About The Project
-Sentences about the project.
+Are you looking to support local businesses? Look no further! Eat Local allows you to search by city, state, zipcode, the name of a business, and just about anything else to help you find restaurants, markets, and breweries local to your area. Click a business to learn more it, check out its location, and, as a logged in user, store and delete your favorites.
 <br>
 
 <h3 align="center">Highlight Part Of The Project:</h3>
@@ -45,7 +45,7 @@ Sentences about the project.
 <p align="center"><img width="500" src="" alt="A gif preview of..."></p>
 
 <br />
-This group project was assigned during the finale module of Turing's Front-End Engineering program, about 19-20 weeks into its students learning how to code.  The details of this project are outlined in <a href="https://mod4.turing.edu/projects/capstone/index.html">this</a> project spec.
+This group project was assigned during the final module of Turing's Front-End Engineering program, about 19-20 weeks into its students learning how to code, with an emphasis on collaboration between front- and back-end teams. The details of this project are outlined in <a href="https://mod4.turing.edu/projects/capstone/index.html">this</a> project spec.
 
 ### Built With
 
@@ -61,16 +61,18 @@ This group project was assigned during the finale module of Turing's Front-End E
 
 ## Setup
 - Clone the repository to your local machine
+- Visit the <a href="https://github.com/Eat-Local/eat-local-be">BE repository</a>, and clone it down as a sibling on your local machine
 - `cd` into the repository
-- add extra local set up steps, including integration with BE repo
+- Make sure the necessary dependencies are installed on your local machine (`react-router-dom`, `cypress`, `apollo client`, `google-map-react`, `graphql`, `react-icons`, etc.)
+- Once the necessary dependencies are installed, `cd` back into the root of the repository, and run `npm start`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Roadmap
 
-- [ ] What else will we add?
-- [ ] What else will we add?
-- [ ] What else will we add?
+- [ ] Create new user functionality with user profiles
+- [ ] Display recent search history for unique users
+- [ ] Pagination for searches yeilding >10 results
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
