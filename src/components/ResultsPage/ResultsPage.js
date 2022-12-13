@@ -25,9 +25,9 @@ const ResultsPage = ({ results, user, addFavorite, deleteFavorite, searchError }
     )
   })
   return (
-    <section className="results-section">
+    <section className="results-section" data-cy="results-section">
       {searchError && <h2>{searchError}</h2>}
-      <div className="results-container">
+      <div className="results-container" data-cy="results-container">
         {businessCards}
       </div>
     </section>
