@@ -19,7 +19,7 @@ const FavoritesPage = ({ user, deleteFavorite }) => {
       return <h2 data-cy="fav-user-message">You don't have any favorites yet</h2>
     } else if (!searchFavs) {
       display = user.favorites.map((favorite) => {
-        const { id, title, rating, image, alias} = favorite;
+        const { id, title, rating, image, alias, address } = favorite;
         return (
           <ResultCard
             key={id}
@@ -29,6 +29,7 @@ const FavoritesPage = ({ user, deleteFavorite }) => {
             photo={image}
             alias={alias}
             user={user}
+            address={address}
             deleteFavorite={deleteFavorite}
             displayType="favorite"
           />

@@ -2,18 +2,13 @@ import { Link } from "react-router-dom";
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import "./ResultCard.css";
 
-const ResultCard = ({title, photo, rating, id, alias, user, addFavorite, deleteFavorite, business, displayType }) => { 
+const ResultCard = ({ title, photo, rating, id, alias, user, addFavorite, deleteFavorite, displayAddress, address, business, displayType }) => { 
   let inUserFavs = false;
   
-  // const address = displayAddress.map((element) => `${element} `)
+  console.log('this is business', business);
+  console.log('this is title', title)
 
-  let address;
-
-  if (business.attributes) {
-    address = business.attributes.display_address.display_address.map((element) => `${element} `);
-  } else {
-    address = business.address;
-  }
+  const cardAddress = displayAddress ? displayAddress.map((element) => `${element} `) : address;
   
   if (user) {
     inUserFavs = user.favorites.reduce((acc, favorite) => {
@@ -46,7 +41,7 @@ const ResultCard = ({title, photo, rating, id, alias, user, addFavorite, deleteF
       <Link to={linkText}><img className="business-card-image" src={photo} alt={title}></img></Link>
       <div className="under-img">
       <p className="title">{title}</p>
-      <p className="address">{address}</p>
+      <p className="address">{cardAddress}</p>
       <div className="rating-container">
         <AiFillStar/>
         <p>{rating} / 5</p>
