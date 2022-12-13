@@ -24,7 +24,7 @@ const Search = ( { business, setBusiness, location, setLocation, onSearch} ) => 
             type="text"
             value={location}
             name="zipcode"
-            placeholder="Location?"
+            placeholder="do your thing..."
             onChange={(event) => setLocation(event.target.value)}
           />
         </label>
