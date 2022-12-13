@@ -50,6 +50,11 @@
   font-size: 20px;
 }
 
+.submit:hover {
+  background-color: #22577A;
+  border: 1px solid #22577A;
+}
+
 form {
   text-align: center;
 }
