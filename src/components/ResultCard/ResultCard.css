@@ -6,13 +6,14 @@
   margin: 1%;
   background-color: aliceblue;
   position: relative;
-  /* height: 10rem; */
+  border-radius: 3px;
 }
 
 .business-card-image {
   width: 10rem;
   height: 8rem;
   object-fit: cover;
+  border-radius: 3px 3px 0 0;
 }
 
 .rating-container {
