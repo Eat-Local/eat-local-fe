@@ -7,6 +7,12 @@
   background-color: aliceblue;
   position: relative;
   /* height: 10rem; */
+  transition: 0.4s;
+}
+
+.business-card:hover {
+  box-shadow: 1px 1px 20px black;
+  transition: 0.4s;
 }
 
 .business-card-image {
