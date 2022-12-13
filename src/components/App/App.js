@@ -67,7 +67,10 @@ const App = ({client}) => {
              rating,
              url,
              image,
+             price,
              phone,
+             latitude,
+             longitude,
              userId
           }
         }
@@ -82,7 +85,7 @@ const App = ({client}) => {
   }
 
   const addFavorite = (business, user) => {
-    const { img, display_phone, rating, site, title, display_address, venue_type } = business.attributes;
+    const { img, display_phone, rating, site, title, display_address, venue_type, coordinates, price} = business.attributes;
     const address = display_address.display_address.reduce((acc, element) => {
       if (element) {
         acc += ` ${element} `
@@ -100,7 +103,10 @@ const App = ({client}) => {
                    rating: "${rating}",
                    url: "${site}",
                    image: "${img}",
+                   price: "${price}",
                    phone: "${display_phone}",
+                   latitude: "${coordinates.latitude}",
+                   longitude: "${coordinates.longitude}"
                    userId: "${user.id}"
                  }) {
                   user {
@@ -116,7 +122,10 @@ const App = ({client}) => {
                       rating,
                       url,
                       image,
+                      price,
                       phone,
+                      latitude,
+                      longitude,
                       userId
                     }
                   }
