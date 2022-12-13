@@ -1,13 +1,13 @@
 describe('Results Page', () => {
   beforeEach(() => {
     cy.intercept('GET', Cypress.env('restaurant'), {
-      fixture: 'RestaurantData.json'
+      fixture: 'restaurantData.json'
     })
     cy.intercept('GET', Cypress.env('market'), {
-      fixture: 'MarketData.json'
+      fixture: 'marketData.json'
     })
     cy.intercept('GET', Cypress.env('brewery'), {
-      fixture: 'BreweryData.json'
+      fixture: 'breweryData.json'
     })
     cy.visit('/')
   })
