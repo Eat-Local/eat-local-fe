@@ -1,0 +1,27 @@
+{
+  "data": {
+    "user": {
+      "email": "example@email.com",
+      "favorites": [
+        {
+          "address": "123 example address",
+          "id": "15",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg",
+          "phone": "(111)-111-1111",
+          "rating": 4,
+          "title": "restaurant title",
+          "url": "www.restaurant.com",
+          "userId": 1,
+          "venueType": "Burgers",
+          "__typename": "Favorite"
+        }
+      ],
+      "fname": "Example",
+      "lname": "Exampleson",
+      "id": "1",
+      "__typename": "User"
+    }
+  },
+  "loading": false,
+  "networkStatus": 7
+}
