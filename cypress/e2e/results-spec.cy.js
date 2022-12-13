@@ -12,7 +12,7 @@ describe('Results Page', () => {
     cy.visit('/')
   })
 
-  it('can search for a restaurant', () => {
+  it('can search for a restaurant and see results', () => {
     cy.get('[data-cy="navbar"]')
     .within(() => {
       cy.get('[data-cy="search"]').type('Denver')
@@ -21,6 +21,7 @@ describe('Results Page', () => {
       cy.url('/results')
       cy.get('[data-cy="results-section"]')
       .within(() => {
+      cy.get('[data-cy="results-container"]').children().should('have.length', 3)
       cy.get('[data-cy="business-card"]').first()
       .should('contain', 'The Buff Restaurant').and('contain', '4.5 / 5')
       .find('img').should('have.attr', 'src').should('include', 'https://s3-media2.fl.yelpcdn.com/bphoto/p95cYM_TgNOlHvw_cf0SAw/o.jpg')
@@ -33,7 +34,7 @@ describe('Results Page', () => {
     })
   })
 
-  it('can search for a market', () => {
+  it('can search for a market and see results', () => {
     cy.get('[data-cy="navbar"]')
     .within(() => {
       cy.get('[data-cy="market-radio"]').click()
@@ -43,6 +44,7 @@ describe('Results Page', () => {
       cy.url('/results')
       cy.get('[data-cy="results-section"]')
       .within(() => {
+      cy.get('[data-cy="results-container"]').children().should('have.length', 3)
       cy.get('[data-cy="business-card"]').first()
       .should('contain', 'Boulder Farmers\' Market').and('contain', '4 / 5')
       .find('img').should('have.attr', 'src').should('include', 'https://s3-media2.fl.yelpcdn.com/bphoto/INILW1uLypS3V55ggbKgUA/o.jpg')
@@ -55,7 +57,7 @@ describe('Results Page', () => {
     })
   })
 
-  it('can search for a brewery', () => {
+  it('can search for a brewery and see results', () => {
     cy.get('[data-cy="navbar"]')
     .within(() => {
       cy.get('[data-cy="brewery-radio"]').click()
@@ -65,6 +67,7 @@ describe('Results Page', () => {
       cy.url('/results')
       cy.get('[data-cy="results-section"]')
       .within(() => {
+      cy.get('[data-cy="results-container"]').children().should('have.length', 3)
       cy.get('[data-cy="business-card"]').first()
       .should('contain', 'BJ\'s Restaurant & Brewhouse').and('contain', '3 / 5')
       .find('img').should('have.attr', 'src').should('include', 'https://s3-media3.fl.yelpcdn.com/bphoto/I8WyKF02Jlw8f_vNrde7Bg/o.jpg')
