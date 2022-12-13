@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { AiFillStar } from 'react-icons/ai';
+import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import "./ResultCard.css";
 
 const ResultCard = ({title, photo, rating, id, alias, user, addFavorite, deleteFavorite, business, displayAddress, displayType }) => { 
@@ -30,7 +30,7 @@ const ResultCard = ({title, photo, rating, id, alias, user, addFavorite, deleteF
     linkText = `/favorites/${id}`
   }
 
-  const buttonTxt = inUserFavs ? 'delete from favorites' : 'add to favorites'
+  const buttonTxt = inUserFavs ? <AiFillStar className="favorites"/> : <AiOutlineStar className="not-favorites"/>
 
   return (
     <article className="business-card">
@@ -44,7 +44,7 @@ const ResultCard = ({title, photo, rating, id, alias, user, addFavorite, deleteF
       </div>
       </div>
       
-      {user && <button onClick={inUserFavs ? handleDelete : () => addFavorite(business, user)}>{buttonTxt}</button>}
+      {user && <button className="add-from-card" onClick={inUserFavs ? handleDelete : () => addFavorite(business, user)}>{buttonTxt}</button>}
     </article>
   )
 }

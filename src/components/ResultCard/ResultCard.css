@@ -5,6 +5,7 @@
   width: 10rem;
   margin: 1%;
   background-color: aliceblue;
+  position: relative;
   /* height: 10rem; */
 }
 
@@ -38,4 +39,17 @@
 
 .under-img {
   padding: .5rem;
+}
+
+.add-from-card {
+  position: absolute;
+  border: none;
+  background-color: transparent;
+  right: 2px;
+  top: 4px;
+  color: aliceblue;
+}
+
+.favorites {
+  fill: gold
 }
