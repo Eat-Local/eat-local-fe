@@ -71,7 +71,9 @@ const FavoritesPage = ({ user, deleteFavorite }) => {
           onChange={(event) => setSearchFavorites(event.target.value)} 
           required/>
       </form>}
+      <div className='favorites-container'>
       {favorites}
+      </div>
     </section>
   )
 }
