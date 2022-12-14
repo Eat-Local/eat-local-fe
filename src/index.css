@@ -19,3 +19,7 @@ a:hover {
   color: #22577A;
   transition: 0.4s;
 }
+
+button:hover {
+  cursor: pointer;
+}

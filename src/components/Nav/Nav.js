@@ -56,9 +56,7 @@ const Nav = ( { business, setBusiness, location, setLocation, onSearch,
       </nav>
       {openLogin && <div className="login-container" ref={ref}>
         <Login 
-          // name={name}
           email={email}
-          // setName={setName}
           setEmail={setEmail}
           getUser={getUser}
           loginError={loginError}

@@ -22,13 +22,6 @@ const Login = ({ email, setEmail, getUser, loginError }) => {
   return(
     <>
       <form className='login-form'>
-        {/* <input
-            type="text"
-            value={name}
-            name="name"
-            placeholder="Name"
-            onChange={(event) => setName(event.target.value)}
-          /> */}
           <input
             type="text"
             className='input-email'

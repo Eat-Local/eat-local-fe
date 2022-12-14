@@ -16,7 +16,6 @@ const App = ({client}) => {
   const [ business, setBusiness ] = useState('family restaurant');
   const [ featured, setFeatured ] = useState([]);
   const [ results, setResults ] = useState([]);
-  // const [ name, setName ] = useState('');
   const [ email, setEmail ] = useState('');
   const [ user, setUser ] = useState(null);
   const [ featError, setFeatError ] = useState('');
@@ -133,10 +132,8 @@ const App = ({client}) => {
                  }
                }`
     })
-    .then(res => {
-      setUser(res.data.createFavorite.user)
-    })
-    .catch(error => console.log(error))
+    .then(res => setUser(res.data.createFavorite.user))
+    .catch(error => alert(`Oops, that's an error! We had trouble adding your favorite. Please try again later!`))
   }
 
   const deleteFavorite = (id, user) => {
@@ -171,10 +168,8 @@ const App = ({client}) => {
                }
               }`
     })
-    .then(res => {
-      setUser(res.data.destroyFavorite.user);
-    })
-    .catch(error => console.log('deleteFav error: ', error))
+    .then(res => setUser(res.data.destroyFavorite.user))
+    .catch(error => alert(`Oops, that's an error! We had trouble deleting your favorite. Please try again later!`))
   }
 
   return (
@@ -185,9 +180,7 @@ const App = ({client}) => {
         business={business}
         setBusiness={setBusiness}
         onSearch={onSearch}
-        // name={name}
         email={email}
-        // setName={setName}
         setEmail={setEmail}
         getUser={getUser}
         user={user}

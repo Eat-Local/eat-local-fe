@@ -1,6 +1,5 @@
 describe('Single results page', () => {
   beforeEach(() => {
-
     cy.intercept('GET', Cypress.env('restaurant'), {
       fixture: 'singleRestaurantData.json'
     })
@@ -12,16 +11,15 @@ describe('Single results page', () => {
     })
     cy.visit('/')
   })
+
   it('should display a single business', () => {
     cy.get('[data-cy="search"]').type('denver')
     cy.get('[data-cy="market-radio"]').click()
     cy.intercept('GET', Cypress.env('market'), {
       fixture: 'singleMarketData.json'
     })
-
     cy.get('[data-cy="submit"]').click()
     cy.get('.business-card-image').click()
-    
     cy.get('.business-photo')
     cy.get('.single-title').contains('Boulder Farmers\' Market')
     cy.get('.single-address').contains('1900 13th St Boulder, CO 80302')
@@ -32,6 +30,7 @@ describe('Single results page', () => {
     cy.get('[style="z-index: 3; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px; touch-action: pan-x pan-y;"]')
     cy.get(['[data-cy="unfavorited]']).should('not.be.visible')
   })
+
   it('should have a star when a user logs in and is clickable', () => {
     cy.intercept('POST', 'https://throbbing-wood-3534.fly.dev/graphql', (req) => {
       if (req.body.operationName === 'getUsers') {
@@ -52,6 +51,5 @@ describe('Single results page', () => {
     cy.get('.business-card-image').click()
     cy.get('[data-cy="unfavorited"]').should('exist')
     cy.get('[data-cy="unfavorited"]').click()
-
   })
 })
