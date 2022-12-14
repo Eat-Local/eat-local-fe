@@ -5,7 +5,7 @@
 
 <h3 align="center">Support your local businesses!</h3>
 
-<h4 align="center"><a href=""><strong>Deploy Link</strong></a> | <a href=""><strong>Explore The Docs »</strong></a></h4>
+<h4 align="center"><a href="https://eatlocal.vercel.app/"><strong>Deploy Link</strong></a> | <a href=""><strong>Explore The Docs »</strong></a></h4>
 
 <p></p>
 
