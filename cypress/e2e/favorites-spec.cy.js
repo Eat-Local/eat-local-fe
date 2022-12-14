@@ -105,4 +105,59 @@ describe('Favorites Page', () => {
     cy.get('.favorites-container').children().should('have.length', 1)
     cy.get('[data-cy="business-card"]').should('exist').and('contain', 'restaurant title').and('contain', '123 example address').and('contain', '4 / 5')
   })
+
+  it.only('should handle server errors for adding favorites', () => {
+    cy.intercept('POST', 'https://throbbing-wood-3534.fly.dev/graphql', (req) => {
+      if (req.body.operationName === 'getUsers') {
+          req.reply({
+             fixture: 'userQuery'
+         });
+       }
+    });
+    cy.intercept('GET', Cypress.env('restaurant'), {
+      fixture: 'singleRestaurantData.json'
+    })
+    cy.intercept('POST', 'https://throbbing-wood-3534.fly.dev/graphql', (req) => {
+      if (req.body.query.includes('create')) {
+          req.reply({
+             ok: false
+         });
+       }
+    });
+    cy.visit('/favorites')
+    cy.get('.login').click()
+    cy.get('.input-email').type('example@email.com')
+    cy.get('.login-btn').click()
+    cy.get('[data-cy="search"]').type('denver')
+    cy.get('[data-cy="submit"]').click()
+    cy.get('.add-from-card').click()
+    cy.on('window:alert', (str) => {
+      expect(str).to.equal(`Oops, that's an error! We had trouble adding your favorite. Please try again later!`)
+    })
+  })
+
+  it('should handle server errors for removing favorites', () => {
+    cy.intercept('POST', 'https://throbbing-wood-3534.fly.dev/graphql', (req) => {
+      if (req.body.operationName === 'getUsers') {
+          req.reply({
+             fixture: 'userQuery'
+         });
+       }
+    });
+    cy.intercept('POST', 'https://throbbing-wood-3534.fly.dev/graphql', (req) => {
+      if (req.body.query.includes('destroy')) {
+          req.reply({
+             ok: false
+         });
+       }
+    });
+    cy.visit('/favorites')
+    cy.get('.login').click()
+    cy.get('.input-email').type('example@email.com')
+    cy.get('.login-btn').click()
+    cy.get('.add-from-card').click()
+    cy.on('window:alert', (str) => {
+      expect(str).to.equal(`Oops, that's an error! We had trouble deleting your favorite. Please try again later!`)
+    })
+  })
 })
