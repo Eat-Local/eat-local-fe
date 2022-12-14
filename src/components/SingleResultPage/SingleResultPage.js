@@ -68,8 +68,8 @@ const SingleResultPage = ({ business, user, addFavorite, deleteFavorite }) => {
           <a className="phone" href={phone}>{display_phone}</a>
           <p className="link-to">Check out {title}'s <a className="website-url" href={site} target="_blank" rel="noopener noreferrer">reviews</a> at this other website that is nothing like Eat Local!</p>
         </div>
-        {(!isfavorite && user) && <button data-cy="unfavorited" onClick={handleAdd} className="favorite-icon"><AiOutlineStar className="favorite-icon"/></button>}
-        {(isfavorite && user) && <button onClick={handleDelete} className="favorite-icon-active"><AiFillStar  className="favorite-icon-active"/></button>}
+        {(!isfavorite && user) && <button data-cy="unfavorited" onClick={handleAdd} className="favorite-icon"><AiOutlineStar style={{fontSize: "25px"}} className="favorite-icon"/></button>}
+        {(isfavorite && user) && <button onClick={handleDelete} className="favorite-icon-active"><AiFillStar style={{fontSize: "25px"}} className="favorite-icon-active"/></button>}
       </article>
       <div style={{ height: '30rem', width: '30rem' }}>
       <GoogleMapReact
