@@ -33,8 +33,9 @@ describe('Single results page', () => {
     cy.get('.phone').contains('(303) 910-2236')
     cy.get('.link-to').contains('Check out Boulder Farmers\' Market\'s reviews at this other website that is nothing like Eat Local!')
     cy.get('[style="z-index: 3; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px; touch-action: pan-x pan-y;"]')
+    cy.get(['[data-cy="unfavorited]']).should('not.be.visible')
   })
-  it('should have a star when a user logins in', () => {
+  it('should have a star when a user logs in and is clickable', () => {
     cy.intercept('POST', 'https://throbbing-wood-3534.fly.dev/graphql', (req) => {
       if (req.body.operationName === 'getUsers') {
           req.reply({
@@ -52,6 +53,8 @@ describe('Single results page', () => {
     })
     cy.get('[data-cy="submit"]').click()
     cy.get('.business-card-image').click()
-    cy.get(['[data-cy="unfavorited]'])
+    cy.get('[data-cy="unfavorited"]').should('exist')
+    cy.get('[data-cy="unfavorited"]').click()
+
   })
 })

@@ -61,7 +61,7 @@ const SingleResultPage = ({ business, user, addFavorite, deleteFavorite }) => {
             <AiFillStar className="single-rating title-and-rating "/>
             <p className="single-rating title-and-rating">{rating} / 5</p>
           </div>
-          <p className="single-price">Is it expensive? {price}</p>
+          <p className="single-price">Price Rating: {price}</p>
           <p className="single-address">{address}</p>
           <a className="phone" href={phone}>{display_phone}</a>
           <p className="link-to">Check out {title}'s <a className="website-url" href={site} target="_blank" rel="noopener noreferrer">reviews</a> at this other website that is nothing like Eat Local!</p>
