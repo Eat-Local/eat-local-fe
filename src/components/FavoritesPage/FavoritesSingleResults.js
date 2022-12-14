@@ -33,12 +33,10 @@ const FavoritesSingleResults = ({business, user, deleteFavorite}) => {
       <article className="single-result">
       <img className="business-photo" src={workingImg} alt={altText} />
         <div className="information-container">
-          <div className="single-title-container">
-          <h1 className="single-title">{title}</h1>
-          <div className="single-rating-container">
-            <AiFillStar/>
-            <p className="single-rating">{rating} / 5</p>
-          </div>
+        <div className="single-title-container">
+            <h1 className="single-title title-and-rating">{title}</h1>
+            <AiFillStar className="single-rating title-and-rating star-space"/>
+            <p className="single-rating title-and-rating">{rating} / 5</p>
           </div>
           <p className="single-price">Is it expensive? {price}</p>
           <p className="single-address">{address}</p>
