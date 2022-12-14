@@ -133,7 +133,7 @@ const App = ({client}) => {
                }`
     })
     .then(res => setUser(res.data.createFavorite.user))
-    .catch(error => alert(`Oops, that's a ${error.message}. We had trouble adding your favorite. Please try again later!`))
+    .catch(error => alert(`Oops, that's an error! We had trouble adding your favorite. Please try again later!`))
   }
 
   const deleteFavorite = (id, user) => {
@@ -169,7 +169,7 @@ const App = ({client}) => {
               }`
     })
     .then(res => setUser(res.data.destroyFavorite.user))
-    .catch(error => alert(`Oops, that's a ${error.message}. We had trouble deleting your favorite. Please try again later!`))
+    .catch(error => alert(`Oops, that's an error! We had trouble deleting your favorite. Please try again later!`))
   }
 
   return (
