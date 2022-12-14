@@ -1,28 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 .single-result-section {
   display: flex;
-  /* flex-direction: column; */
   justify-content: space-around;
   flex-wrap: wrap;
   align-items: flex-start;
   margin-top: 10rem;
-  /* border: 1px solid black; */
 }
 
 .single-result {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 2.5rem;
   position: relative;
   width: 30rem;
+  background-color: aliceblue;
+  box-shadow: 1px 1px 10px grey;
 }
 
 .business-photo {
   width: 15rem;
+  height: 20rem;
+  object-fit: cover;
 }
 
 .information-container {
   margin-left: 1%;
+  margin-top: -6rem;
 }
 
 .favorite-icon {
@@ -37,7 +41,7 @@
   top: 0;
   right: 0;
   margin: 0.5%;
-  fill: limegreen;
+  fill: gold;
 }
 
 .favorite-icon:hover,
@@ -47,26 +51,57 @@
 
 .single-rating-container {
   margin-top: -20px;
+  margin-left: .5rem;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   padding: 0px;
   font-family: 'Open Sans', sans-serif;
   font-size: .7rem;
+  flex-wrap: nowrap;
 }
 
 .phone {
   font-family: 'Open Sans', sans-serif;
-
+  color: blue;
+  font-size: 2.5vh;
 }
 .website-url {
   text-decoration: underline;
-}
-.phone {
-  color: blue;
 }
 
 button {
 border: none;
 background-color: transparent;
 }
+
+.single-title {
+  font-family: 'Open Sans', sans-serif;
+  margin-top: 0;
+}
+
+.single-address {
+  margin-top: -5px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 2vh;
+}
+
+.single-price {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.8vh;
+  color: rgb(107, 107, 107);
+  margin-top: -20px;
+}
+
+.single-title-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.link-to {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 2.0vh;
+}
+
+
