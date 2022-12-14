@@ -6,7 +6,7 @@ const Login = ({ email, setEmail, getUser, loginError, setOpenLogin }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    if (email.includes('@') && email.includes('.')) {
+    if (email.includes('@') && email.includes('.') && !loginError) {
       getUser(email)
       setEmail('');
       setEmailError('');
