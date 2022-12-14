@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import "./FavoritesPage.css"
 import ResultCard from '../ResultCard/ResultCard'
+import PropTypes from 'prop-types';
 
 const FavoritesPage = ({ user, deleteFavorite }) => {
   const [searchFavorites, setSearchFavorites] = useState('')
@@ -79,3 +80,9 @@ const FavoritesPage = ({ user, deleteFavorite }) => {
 }
 
 export default FavoritesPage
+
+
+FavoritesPage.propTypes = {
+  user: PropTypes.object,
+  deleteFavorite: PropTypes.func.isRequired
+}
