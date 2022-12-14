@@ -1,13 +1,10 @@
 import { Link } from "react-router-dom";
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import "./ResultCard.css";
+import eatLocalIcon from '../../assets/eatlocalicon.png'
 
 const ResultCard = ({ title, photo, rating, id, alias, user, addFavorite, deleteFavorite, displayAddress, address, business, displayType }) => { 
   let inUserFavs = false;
-  
-  console.log('this is business', business);
-  console.log('this is title', title)
-
   const cardAddress = displayAddress ? displayAddress.map((element) => `${element} `) : address;
   
   if (user) {
@@ -18,6 +15,8 @@ const ResultCard = ({ title, photo, rating, id, alias, user, addFavorite, delete
       return acc;
     }, false)
   }
+
+  const workingImg = photo ? photo : eatLocalIcon
   
   const handleDelete = () => {
     const currentFavorite = user.favorites.find(favorite => favorite.title === title)
@@ -34,11 +33,11 @@ const ResultCard = ({ title, photo, rating, id, alias, user, addFavorite, delete
     linkText = `/favorites/${id}`
   }
 
-  const buttonTxt = inUserFavs ? <AiFillStar className="favorites" data-cy="filled-star"/> : <AiOutlineStar className="not-favorites" data-cy="outline-star"/>
+  const buttonTxt = inUserFavs ? <AiFillStar style={{fontSize: "25px"}} className="favorites" data-cy="filled-star"/> : <AiOutlineStar style={{fontSize: "25px"}} className="not-favorites" data-cy="outline-star"/>
 
   return (
     <article className="business-card" data-cy="business-card">
-      <Link to={linkText}><img className="business-card-image" src={photo} alt={title}></img></Link>
+      <Link to={linkText}><img className="business-card-image" src={workingImg} alt={title}></img></Link>
       <div className="under-img">
       <p className="title">{title}</p>
       <p className="address">{cardAddress}</p>

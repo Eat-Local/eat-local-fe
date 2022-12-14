@@ -1,67 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 .single-result-section {
   display: flex;
-  /* flex-direction: column; */
   justify-content: space-around;
   flex-wrap: wrap;
   align-items: flex-start;
   margin-top: 10rem;
-  /* border: 1px solid black; */
 }
 
 .single-result {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 2.5rem;
   position: relative;
   width: 30rem;
+  background-color: aliceblue;
+  box-shadow: 1px 1px 10px grey;
+  margin-bottom: 1rem;
 }
 
 .business-photo {
   width: 15rem;
+  height: 20rem;
+  object-fit: cover;
 }
 
 .information-container {
   margin-left: 1%;
+  margin-right: 1%;
+  margin-top: -6rem;
+  
 }
 
 .favorite-icon {
   position: absolute;
   top: 0;
   right: 0;
-  margin: 0.5%;
+  margin: 0.7%;
 }
 
 .favorite-icon-active {
   position: absolute;
   top: 0;
   right: 0;
-  margin: 0.5%;
-  fill: limegreen;
+  margin: 0.7%;
+  fill: #e6c406;
 }
 
 .favorite-icon:hover,
 .favorite-icon-active:hover {
   cursor: pointer;
-}
-
-.single-rating-container {
-  margin-top: -20px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 0px;
-  font-family: 'Open Sans', sans-serif;
-  font-size: .7rem;
+  color: #e6c406;
 }
 
 .phone {
   font-family: 'Open Sans', sans-serif;
-
+  color: blue;
+  font-size: .8rem;
 }
 .website-url {
   text-decoration: underline;
 }
-.phone {
-  color: blue;
+
+button {
+border: none;
+background-color: transparent;
 }
+
+.single-title {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  margin: 0 10px 0 0;
+}
+
+.single-address {
+  margin-top: -5px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: .55rem;
+}
+
+.single-price {
+  font-family: 'Open Sans', sans-serif;
+  font-size: .5rem;
+  color: rgb(75, 74, 74);
+  margin-top: -3px;
+}
+
+.single-title-container {
+  white-space: wrap;
+  overflow-x: auto;
+}
+
+.link-to {
+  font-family: 'Open Sans', sans-serif;
+  font-size: .8rem;
+}
+
+.ratings {
+  font-size: 15px;
+}
+
+.title-and-rating {
+  display: inline-block;
+}
+
+.single-rating {
+  font-size: .6rem;
+  margin-top: -10px;
+  font-family:'Open Sans', sans-serif;;
+}
+
+.map {
+  margin-bottom: 10px;
+}
+
