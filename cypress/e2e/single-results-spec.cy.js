@@ -25,7 +25,7 @@ describe('Single results page', () => {
     cy.get('.business-photo')
     cy.get('.single-title').contains('Boulder Farmers\' Market')
     cy.get('.single-address').contains('1900 13th St Boulder, CO 80302')
-    cy.get('.single-price').contains('Is it expensive? $$')
+    cy.get('.single-price').contains('Price Rating: $$')
     cy.get('.single-rating').contains('4')
     cy.get('.phone').contains('(303) 910-2236')
     cy.get('.link-to').contains('Check out Boulder Farmers\' Market\'s reviews at this other website that is nothing like Eat Local!')
