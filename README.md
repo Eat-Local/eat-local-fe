@@ -5,7 +5,8 @@
 
 <h3 align="center">Support your local businesses!</h3>
 
-<h4 align="center"><a href="https://eatlocal.vercel.app/"><strong>Deploy Link</strong></a> | <a href=""><strong>Explore The Docs »</strong></a></h4>
+<h4 align="center"><a href="https://eatlocal.vercel.app/"><strong>Deploy Link*</strong></a> | <a href=""><strong>Explore The Docs »</strong></a></h4>
+<p align="center"><strong>*use this login email for access to user features:</strong> toriT@fakeemail.com</h5>
 
 <p></p>
 
@@ -32,7 +33,7 @@
 </details>
 
 ## About The Project
-Are you looking to support local businesses? Look no further! Eat Local allows you to search by city, state, zipcode, the name of a business, and just about anything else to help you find restaurants, markets, and breweries local to your area. Click a business to learn more it, check out its location, and, as a logged in user, store and delete your favorites.
+Are you looking to support local businesses? Look no further! This accessible application allows you to search by city, state, zipcode, the name of a business, and just about anything else to help you find restaurants, markets, and breweries local to your area. Click a business to learn more it, check out its location, and, as a logged in user, store and delete your favorites.
 <br>
 
 <h3 align="center">Highlight Part Of The Project:</h3>
@@ -82,15 +83,16 @@ This group project was assigned during the final module of Turing's Front-End En
 ## Features
 
 - Consumes both RESTful and GraphQL APIs, built with CI/CD 
-- Implements TDD with a robust Cypress suite featuring error-handling, happy- and sad- path testing
-- Utilizes Router to create a multi-page user experience from a single-page application
+- Implements TDD with a robust Cypress suite featuring accessibility, error-handling, happy- and sad- path testing
+- Creates a multi-page user experience from a single-page application with Router
 
 ### Reflections
 <b>Wins:</b><br>
-What are we proud of?
+The FE team is most proud of our collaboration with the BE team. We learned so much about the value of JSON contracts, how to meaningfully shape data and response contents, and how to speak to our different codebases in a way that translates across the stack. We were also proud of implementing CI/CD alongside GitHub Projects and Issues for our asynchronous ticketing system.
+
 <p>
 <b>Challenges:</b><br>
-What was challenging?
+The most challenging aspect of this project was integrating GraphQL. While we were grateful for the opporunity to learn a new technology, we were not able to reap GraphQL's benefits as much as we had hoped given the functionality and size of our application.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
