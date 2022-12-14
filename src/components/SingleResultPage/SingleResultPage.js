@@ -26,11 +26,6 @@ const SingleResultPage = ({ business, user, addFavorite, deleteFavorite }) => {
 
   const findFavorite = () => {
     return user.favorites.find(favoriteBiz => favoriteBiz.title === title)
-    // return user.favorites.find(favoriteBiz => {
-    //   if (favoriteBiz.title === title) {
-    //     return favoriteBiz
-    //   }
-    //     })
   }
   
   const handleDelete = () => {
