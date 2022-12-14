@@ -50,8 +50,14 @@
   right: 2px;
   top: 4px;
   color: aliceblue;
+  cursor: pointer;
 }
 
+.add-from-card:hover {
+  color: #e6c406;
+}
+
+
 .favorites {
-  fill: gold
+  fill: #e6c406;
 }

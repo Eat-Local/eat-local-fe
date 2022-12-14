@@ -33,7 +33,7 @@ const ResultCard = ({ title, photo, rating, id, alias, user, addFavorite, delete
     linkText = `/favorites/${id}`
   }
 
-  const buttonTxt = inUserFavs ? <AiFillStar className="favorites" data-cy="filled-star"/> : <AiOutlineStar className="not-favorites" data-cy="outline-star"/>
+  const buttonTxt = inUserFavs ? <AiFillStar style={{fontSize: "25px"}} className="favorites" data-cy="filled-star"/> : <AiOutlineStar style={{fontSize: "25px"}} className="not-favorites" data-cy="outline-star"/>
 
   return (
     <article className="business-card" data-cy="business-card">
