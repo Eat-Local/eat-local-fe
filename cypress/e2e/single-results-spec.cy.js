@@ -27,11 +27,11 @@ describe('Single results page', () => {
     
     cy.get('.business-photo')
     cy.get('.single-title').contains('Boulder Farmers\' Market')
-    cy.get('.address').contains('1900 13th St Boulder, CO 80302')
-    cy.get('.information-container > :nth-child(3)').contains('$$')
-    cy.get('.single-rating-container').contains('4')
+    cy.get('.single-address').contains('1900 13th St Boulder, CO 80302')
+    cy.get('.single-price').contains('Is it expensive? $$')
+    cy.get('.single-rating').contains('4')
     cy.get('.phone').contains('(303) 910-2236')
-    cy.get('.information-container > :nth-child(6)').contains('Check out Boulder Farmers\' Market\'s reviews at this other website that is nothing like Eat Local!')
+    cy.get('.link-to').contains('Check out Boulder Farmers\' Market\'s reviews at this other website that is nothing like Eat Local!')
     cy.get('[style="z-index: 3; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px; touch-action: pan-x pan-y;"]')
   })
   it('should have a star when a user logins in', () => {
