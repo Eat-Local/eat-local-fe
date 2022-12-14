@@ -1,8 +1,5 @@
 describe('Single results page', () => {
   beforeEach(() => {
-    // cy.intercept('GET', Cypress.env('restaurant'), {
-    //   fixture: 'restaurantData.json'
-    // })
 
     cy.intercept('GET', Cypress.env('restaurant'), {
       fixture: 'singleRestaurantData.json'

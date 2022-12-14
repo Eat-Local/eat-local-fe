@@ -7,6 +7,13 @@
   background-color: aliceblue;
   position: relative;
   border-radius: 3px;
+  /* height: 10rem; */
+  transition: 0.4s;
+}
+
+.business-card:hover {
+  box-shadow: 1px 1px 20px black;
+  transition: 0.4s;
 }
 
 .business-card-image {
@@ -36,7 +43,7 @@
   font-family: 'Open Sans', sans-serif;
   font-size: .7rem;
   font-weight: 200;
-  color: grey;
+  color: #5A5A5A;
 }
 
 .under-img {
