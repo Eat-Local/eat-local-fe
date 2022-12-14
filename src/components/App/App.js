@@ -16,7 +16,6 @@ const App = ({client}) => {
   const [ business, setBusiness ] = useState('family restaurant');
   const [ featured, setFeatured ] = useState([]);
   const [ results, setResults ] = useState([]);
-  // const [ name, setName ] = useState('');
   const [ email, setEmail ] = useState('');
   const [ user, setUser ] = useState(null);
   const [ featError, setFeatError ] = useState('');
@@ -185,9 +184,7 @@ const App = ({client}) => {
         business={business}
         setBusiness={setBusiness}
         onSearch={onSearch}
-        // name={name}
         email={email}
-        // setName={setName}
         setEmail={setEmail}
         getUser={getUser}
         user={user}
