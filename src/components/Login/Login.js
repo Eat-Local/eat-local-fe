@@ -1,14 +1,16 @@
 import { useState } from 'react';
 import './Login.css';
 
-const Login = ({ email, setEmail, getUser, loginError }) => {
+const Login = ({ email, setEmail, getUser, loginError, setOpenLogin }) => {
   const [ emailError, setEmailError ] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault()
     if (email.includes('@') && email.includes('.')) {
       getUser(email)
+      setEmail('');
       setEmailError('');
+      setOpenLogin(false);
     } else {
       setEmailError(`Please enter a valid email address.`);
     }

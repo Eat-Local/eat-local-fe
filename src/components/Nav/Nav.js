@@ -60,6 +60,7 @@ const Nav = ( { business, setBusiness, location, setLocation, onSearch,
           setEmail={setEmail}
           getUser={getUser}
           loginError={loginError}
+          setOpenLogin={setOpenLogin}
         />
         </div>
       }
