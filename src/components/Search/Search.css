@@ -8,7 +8,7 @@
 
 .radio-toolbar label {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 8px 20px;
   font-size: 16px;
   border-radius: 4px;
 }
@@ -20,6 +20,7 @@
 
 .radio-toolbar label:hover {
   background-color: #dfd;
+  cursor: pointer;
 }
 
 .search {
@@ -35,7 +36,7 @@
   height: 20px;
   outline: none;
   font-family: 'Roboto Condensed', sans-serif;
-
+  margin-bottom: 1%;
 }
 
 .submit {
@@ -48,6 +49,9 @@
   border-radius: 0 0 0 0;
   cursor: pointer;
   font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .submit:hover {
