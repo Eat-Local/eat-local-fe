@@ -160,7 +160,10 @@ const App = ({client}) => {
                     rating,
                     url,
                     image,
+                    price,
                     phone,
+                    latitude,
+                    longitude,
                     userId
                   }
                 }

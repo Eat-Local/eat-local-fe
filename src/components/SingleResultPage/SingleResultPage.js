@@ -58,7 +58,7 @@ const SingleResultPage = ({ business, user, addFavorite, deleteFavorite }) => {
         <div className="information-container">
           <div className="single-title-container">
             <h1 className="single-title title-and-rating">{title}</h1>
-            <AiFillStar className="single-rating title-and-rating star-space"/>
+            <AiFillStar className="single-rating title-and-rating "/>
             <p className="single-rating title-and-rating">{rating} / 5</p>
           </div>
           <p className="single-price">Is it expensive? {price}</p>
@@ -69,7 +69,7 @@ const SingleResultPage = ({ business, user, addFavorite, deleteFavorite }) => {
         {(!isfavorite && user) && <button data-cy="unfavorited" onClick={handleAdd} className="favorite-icon"><AiOutlineStar style={{fontSize: "25px"}} className="favorite-icon"/></button>}
         {(isfavorite && user) && <button onClick={handleDelete} className="favorite-icon-active"><AiFillStar style={{fontSize: "25px"}} className="favorite-icon-active"/></button>}
       </article>
-      <div style={{ height: '30rem', width: '30rem' }}>
+      <div className="map" style={{ height: '30rem', width: '30rem' }}>
       <GoogleMapReact
         bootstrapURLKeys={{ key: apiKey }}
         defaultCenter={defaultProps.center}

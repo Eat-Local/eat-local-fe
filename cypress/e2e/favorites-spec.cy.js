@@ -67,7 +67,7 @@ describe('Favorites Page', () => {
     cy.get('[data-cy="fav-user-message"]').contains(`You don't have any favorites yet`);
   })
   
-  it.only('a user should be able to add a favorite and search through favorites', () => {
+  it('a user should be able to add a favorite and search through favorites', () => {
     cy.intercept('GET', Cypress.env('restaurant'), {
       fixture: 'singleRestaurantData'
     })

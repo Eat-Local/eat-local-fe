@@ -16,6 +16,7 @@
   width: 30rem;
   background-color: aliceblue;
   box-shadow: 1px 1px 10px grey;
+  margin-bottom: 1rem;
 }
 
 .business-photo {
@@ -28,6 +29,7 @@
   margin-left: 1%;
   margin-right: 1%;
   margin-top: -6rem;
+  
 }
 
 .favorite-icon {
@@ -54,7 +56,7 @@
 .phone {
   font-family: 'Open Sans', sans-serif;
   color: blue;
-  font-size: 2.5vh;
+  font-size: .8rem;
 }
 .website-url {
   text-decoration: underline;
@@ -67,38 +69,35 @@ background-color: transparent;
 
 .single-title {
   font-family: 'Open Sans', sans-serif;
-  
+  font-size: 1rem;
+  margin: 0 10px 0 0;
 }
 
 .single-address {
   margin-top: -5px;
   font-family: 'Open Sans', sans-serif;
-  font-size: 2vh;
+  font-size: .55rem;
 }
 
 .single-price {
   font-family: 'Open Sans', sans-serif;
-  font-size: 1.8vh;
-  color: rgb(107, 107, 107);
-  margin-top: -20px;
+  font-size: .5rem;
+  color: rgb(75, 74, 74);
+  margin-top: -10px;
 }
 
 .single-title-container {
-  
   white-space: wrap;
-  overflow-x: ;
+  overflow-x: auto;
 }
 
 .link-to {
   font-family: 'Open Sans', sans-serif;
-  font-size: 2.5vh;
+  font-size: .8rem;
 }
 
 .ratings {
   font-size: 15px;
-}
-.break {
-  margin-top: -2rem;
 }
 
 .title-and-rating {
@@ -106,13 +105,12 @@ background-color: transparent;
 }
 
 .single-rating {
-  font-size: 2.5vh;
+  font-size: .6rem;
   margin-top: -10px;
   font-family:'Open Sans', sans-serif;;
 }
 
-.star-space {
-  margin-left: 10px;
+.map {
+  margin-bottom: 10px;
 }
-
 
