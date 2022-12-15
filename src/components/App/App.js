@@ -17,6 +17,7 @@ const App = ({client}) => {
   const [ featured, setFeatured ] = useState([]);
   const [ results, setResults ] = useState([]);
   const [ email, setEmail ] = useState('');
+  const [ openLogin, setOpenLogin ] = useState(false);
   const [ user, setUser ] = useState(null);
   const [ featError, setFeatError ] = useState('');
   const [ searchError, setSearchError ] = useState('');
@@ -79,6 +80,7 @@ const App = ({client}) => {
   .then((result) => {
     setUser(result.data.user);
     setLoginError('');
+    setOpenLogin(false);
   })
   .catch(error => setLoginError(`Something went wrong logging you in! Try a different email address.`))
   }
@@ -182,6 +184,8 @@ const App = ({client}) => {
         onSearch={onSearch}
         email={email}
         setEmail={setEmail}
+        openLogin={openLogin}
+        setOpenLogin={setOpenLogin}
         getUser={getUser}
         user={user}
         loginError={loginError}
