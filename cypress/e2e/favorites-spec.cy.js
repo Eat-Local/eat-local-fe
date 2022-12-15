@@ -106,7 +106,7 @@ describe('Favorites Page', () => {
     cy.get('[data-cy="business-card"]').should('exist').and('contain', 'restaurant title').and('contain', '123 example address').and('contain', '4 / 5')
   })
 
-  it.only('should handle server errors for adding favorites', () => {
+  it('should handle server errors for adding favorites', () => {
     cy.intercept('POST', 'https://throbbing-wood-3534.fly.dev/graphql', (req) => {
       if (req.body.operationName === 'getUsers') {
           req.reply({
