@@ -57,7 +57,7 @@ describe('Landing Page', () => {
     cy.get('[data-cy="email-error"]').should('exist').and('contain', 'Please enter a valid email address.')
   })
 
-  it.only('login handles server errors', () => {
+  it('login handles server errors', () => {
     cy.intercept('POST', 'https://throbbing-wood-3534.fly.dev/graphql', (req) => {
         if (req.body.operationName === 'getUsers') {
             req.reply({
