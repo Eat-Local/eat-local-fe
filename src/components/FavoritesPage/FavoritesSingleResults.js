@@ -5,6 +5,7 @@ import { MdLocationPin } from 'react-icons/md';
 import '../SingleResultPage/SingleResultPage.css';
 import { Link } from 'react-router-dom'
 import eatLocalIcon from '../../assets/eatlocalicon.png'
+import PropTypes from 'prop-types';
 const apiKey = process.env.REACT_APP_GOOGLE_API_KEY
 
 const Marker = ({ text }) => <div>{text}</div>
@@ -69,3 +70,8 @@ const FavoritesSingleResults = ({business, user, deleteFavorite}) => {
 }
 
 export default FavoritesSingleResults
+
+FavoritesSingleResults.propTypes = {
+  business: PropTypes.object.isRequired,
+  user: PropTypes.object
+}

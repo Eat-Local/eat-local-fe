@@ -1,4 +1,5 @@
 import ResultCard from "../ResultCard/ResultCard";
+import PropTypes from 'prop-types';
 import "./LandingPage.css"
 
 const LandingPage = ({ user, addFavorite, deleteFavorite, featured, featError, favError }) => {
@@ -51,3 +52,12 @@ const LandingPage = ({ user, addFavorite, deleteFavorite, featured, featError, f
 }
 
 export default LandingPage
+
+LandingPage.propTypes = {
+  user: PropTypes.object,
+  addFavorite: PropTypes.func.isRequired,
+  deleteFavorite: PropTypes.func.isRequired,
+  featured: PropTypes.array.isRequired,
+  featError: PropTypes.string,
+  favError: PropTypes.string
+}
