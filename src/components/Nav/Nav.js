@@ -76,10 +76,12 @@ Nav.propTypes = {
   ]),
   setBusiness: PropTypes.func.isRequired,
   location: PropTypes.string,
-  setLocation: PropTypes.func,
+  setLocation: PropTypes.func.isRequired,
   onSearch: PropTypes.func.isRequired,
   email: PropTypes.string,
   setEmail: PropTypes.func.isRequired,
+  openLogin: PropTypes.bool,
+  setOpenLogin: PropTypes.func.isRequired,
   getUser: PropTypes.func.isRequired,
   user: PropTypes.object,
   loginError: PropTypes.string
