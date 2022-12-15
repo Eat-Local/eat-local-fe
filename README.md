@@ -25,6 +25,7 @@
     <li>
         <a href="#features">Features</a>
         <ul>
+            <li><a href="#extensions">Extensions</a>
             <li><a href="#reflections">Reflections</a>
         </ul>
     </li>
