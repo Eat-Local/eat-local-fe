@@ -6,7 +6,7 @@
 <h3 align="center">Support your local businesses!</h3>
 
 <h4 align="center"><a href="https://eatlocal.vercel.app/"><strong>Deploy Link</strong></a>* | <a href=""><strong>Explore The Docs »</strong></a></h4>
-<p align="center"><strong>*use this login email for access to user features:</strong> toriT@fakeemail.com</h5>
+<p align="center"><strong>*use this login email for access to user features:</strong> BillyB@fakeemail.com</h5>
 
 <p></p>
 
@@ -36,14 +36,14 @@
 Are you looking to support local businesses? Look no further! This accessible application allows you to search by city, state, zipcode, the name of a business, and just about anything else to help you find restaurants, markets, and breweries local to your area. Click a business to learn more it, check out its location, and, as a logged in user, store and delete your favorites.
 <br>
 
-<h3 align="center">Highlight Part Of The Project:</h3>
-<p align="center"><img width="500" src="" alt="A gif preview of..."></p>
+<h3 align="center">Logged Out Searches:</h3>
+<p align="center"><img width="500" src="https://media.giphy.com/media/htllLTv1fFQLRIhyys/giphy.gif" alt="A gif preview of a logged out user searching for local breweries"></p>
 
-<h3 align="center">Highlight Part Of The Project:</h3>
-<p align="center"><img width="500" src="" alt="A gif preview of..."></p>
+<h3 align="center">Logged In Access To Favoriting/Unfavoriting:</h3>
+<p align="center"><img width="500" src="https://media.giphy.com/media/hsBQi849MJR186t9jt/giphy.gif" alt="A gif preview of user logging in and favoriting local businesses"></p>
 
-<h3 align="center">Highlight Part Of The Project:</h3>
-<p align="center"><img width="500" src="" alt="A gif preview of..."></p>
+<h3 align="center">Searching Favorites:</h3>
+<p align="center"><img width="500" src="https://media.giphy.com/media/dpiRUcvrDYDQiCVxAn/giphy.gif" alt="A gif preview of a logged in user searching through stored favorites"></p>
 
 <br />
 This group project was assigned during the final module of Turing's Front-End Engineering program, about 19-20 weeks into its students learning how to code, with an emphasis on collaboration between front- and back-end teams. The details of this project are outlined in <a href="https://mod4.turing.edu/projects/capstone/index.html">this</a> project spec.
