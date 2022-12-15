@@ -41,10 +41,10 @@ const ResultCard = ({ title, photo, rating, id, alias, user, addFavorite, delete
       <div className="under-img">
       <p className="title">{title}</p>
       <p className="address">{cardAddress}</p>
-      <div className="rating-container">
-        <AiFillStar data-cy="filled-star" />
-        <p>{rating} / 5</p>
-      </div>
+        <div className="rating-container">
+          <AiFillStar data-cy="filled-star" />
+          <p>{rating} / 5</p>
+        </div>
       </div>
       
       {user && <button className="add-from-card" onClick={inUserFavs ? handleDelete : () => addFavorite(business, user)}>{buttonTxt}</button>}

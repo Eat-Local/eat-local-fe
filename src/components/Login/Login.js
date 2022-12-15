@@ -8,6 +8,7 @@ const Login = ({ email, setEmail, getUser, loginError }) => {
     event.preventDefault()
     if (email.includes('@') && email.includes('.')) {
       getUser(email)
+      setEmail('');
       setEmailError('');
     } else {
       setEmailError(`Please enter a valid email address.`);

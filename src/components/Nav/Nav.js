@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import Search from "../Search/Search";
 import Login from "../Login/Login";
 import { NavLink, Link } from "react-router-dom"
@@ -7,8 +7,7 @@ import "./Nav.css";
 const logo = require('../../assets/eatlocalicon.png');
 
 const Nav = ( { business, setBusiness, location, setLocation, onSearch, 
-              email, setEmail, getUser, user, loginError } ) => {
-  const [openLogin, setOpenLogin] = useState(false);
+              email, setEmail, openLogin, setOpenLogin, getUser, user, loginError } ) => {
   const ref = useRef(null);
   const loginRef = useRef();
   const greeting = user ? user.fname : "Friend"
@@ -31,7 +30,7 @@ const Nav = ( { business, setBusiness, location, setLocation, onSearch,
       document.removeEventListener("mousedown", listener);
       document.removeEventListener("touchstart", listener);
     }
-  }, [ref])
+  }, [ref, setOpenLogin])
 
   return(
     <>
