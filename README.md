@@ -36,6 +36,9 @@
 Are you looking to support local businesses? Look no further! This accessible application allows you to search by city, state, zipcode, the name of a business, and just about anything else to help you find restaurants, markets, and breweries local to your area. Click a business to learn more it, check out its location, and, as a logged in user, store and delete your favorites.
 <br>
 
+<h3 align="center">Wireframe:</h3>
+<p align="center"><img width="500" src="https://user-images.githubusercontent.com/103962335/207761546-c8cb3a28-005c-46cc-87cc-f0506be6d35f.png" alt="Eat Local's FE wireframe"></p>
+
 <h3 align="center">Logged Out Searches:</h3>
 <p align="center"><img width="500" src="https://media.giphy.com/media/htllLTv1fFQLRIhyys/giphy.gif" alt="A gif preview of a logged out user searching for local breweries"></p>
 
