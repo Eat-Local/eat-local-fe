@@ -58,4 +58,6 @@ LandingPage.propTypes = {
   addFavorite: PropTypes.func.isRequired,
   deleteFavorite: PropTypes.func.isRequired,
   featured: PropTypes.array.isRequired,
+  featError: PropTypes.string,
+  favError: PropTypes.string
 }

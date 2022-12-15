@@ -1,6 +1,7 @@
 import { useHistory } from "react-router-dom"
 import "./Search.css"
 import { FiSearch } from "react-icons/fi"
+import PropTypes from 'prop-types';
 
 const Search = ( { business, setBusiness, location, setLocation, onSearch} ) => {
   const history = useHistory()
@@ -65,3 +66,14 @@ const Search = ( { business, setBusiness, location, setLocation, onSearch} ) => 
 }
 
 export default Search
+
+Search.propTypes = {
+  business: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object,
+  ]),
+  setBusiness: PropTypes.func.isRequired,
+  location: PropTypes.string,
+  setLocation: PropTypes.func.isRequired,
+  onSearch: PropTypes.func.isRequired
+}

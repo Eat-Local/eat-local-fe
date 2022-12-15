@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './Login.css';
+import PropTypes from 'prop-types';
 
 const Login = ({ email, setEmail, getUser, loginError }) => {
   const [ emailError, setEmailError ] = useState('');
@@ -40,3 +41,10 @@ const Login = ({ email, setEmail, getUser, loginError }) => {
 }
 
 export default Login;
+
+Login.propTypes = {
+  email: PropTypes.string,
+  setEmail: PropTypes.func,
+  getUser: PropTypes.func,
+  loginError: PropTypes.string
+}

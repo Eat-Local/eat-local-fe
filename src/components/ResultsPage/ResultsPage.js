@@ -1,6 +1,8 @@
 import "./ResultsPage.css"
 import React from 'react'
 import ResultCard from "../ResultCard/ResultCard"
+import PropTypes from 'prop-types';
+
 
 const ResultsPage = ({ results, user, addFavorite, deleteFavorite, searchError }) => {
   const businessCards = results.map((business) => {
@@ -35,3 +37,11 @@ const ResultsPage = ({ results, user, addFavorite, deleteFavorite, searchError }
 }
 
 export default ResultsPage
+
+ResultsPage.propTypes = {
+  results: PropTypes.array.isRequired,
+  user: PropTypes.object,
+  addFavorite: PropTypes.func.isRequired,
+  deleteFavorite: PropTypes.func.isRequired,
+  searchError: PropTypes.string
+}

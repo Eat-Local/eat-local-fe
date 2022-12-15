@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import Search from "../Search/Search";
 import Login from "../Login/Login";
 import { NavLink, Link } from "react-router-dom"
+import PropTypes from 'prop-types';
 import "./Nav.css";
 
 const logo = require('../../assets/eatlocalicon.png');
@@ -67,3 +68,19 @@ const Nav = ( { business, setBusiness, location, setLocation, onSearch,
 }
 
 export default Nav
+
+Nav.propTypes = {
+  business: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object,
+  ]),
+  setBusiness: PropTypes.func.isRequired,
+  location: PropTypes.string,
+  setLocation: PropTypes.func,
+  onSearch: PropTypes.func.isRequired,
+  email: PropTypes.string,
+  setEmail: PropTypes.func.isRequired,
+  getUser: PropTypes.func.isRequired,
+  user: PropTypes.object,
+  loginError: PropTypes.string
+}

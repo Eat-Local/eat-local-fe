@@ -3,6 +3,7 @@ import GoogleMapReact from 'google-map-react';
 import { MdLocationPin } from 'react-icons/md';
 import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
 import eatLocalIcon from '../../assets/eatlocalicon.png'
+import PropTypes from 'prop-types';
 const apiKey = process.env.REACT_APP_GOOGLE_API_KEY
 
 const Marker = ({ text }) => <div>{text}</div>
@@ -86,3 +87,13 @@ const SingleResultPage = ({ business, user, addFavorite, deleteFavorite }) => {
 }
 
 export default SingleResultPage
+
+SingleResultPage.propTypes = {
+  business: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object,
+  ]),
+  user: PropTypes.object,
+  addFavorite: PropTypes.func.isRequired,
+  deleteFavorite: PropTypes.func.isRequired
+}

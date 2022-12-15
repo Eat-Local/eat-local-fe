@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import "./ResultCard.css";
 import eatLocalIcon from '../../assets/eatlocalicon.png'
+import PropTypes from 'prop-types';
 
 const ResultCard = ({ title, photo, rating, id, alias, user, addFavorite, deleteFavorite, displayAddress, address, business, displayType }) => { 
   let inUserFavs = false;
@@ -53,3 +54,21 @@ const ResultCard = ({ title, photo, rating, id, alias, user, addFavorite, delete
 }
 
 export default ResultCard
+
+ResultCard.propTypes = {
+  title: PropTypes.string,
+  photo: PropTypes.string,
+  rating: PropTypes.number,
+  id: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]),
+  alias: PropTypes.string,
+  user: PropTypes.object,
+  addFavorite: PropTypes.func.isRequired,
+  deleteFavorite: PropTypes.func.isRequired,
+  displayAddress: PropTypes.array.isRequired,
+  address: PropTypes.string,
+  business: PropTypes.object,
+  displayType: PropTypes.string
+}
