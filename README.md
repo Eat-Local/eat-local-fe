@@ -89,6 +89,9 @@ This group project was assigned during the final module of Turing's Front-End En
 - Implements TDD with a robust Cypress suite featuring accessibility, error-handling, happy- and sad- path testing
 - Creates a multi-page user experience from a single-page application with Router
 
+### Extensions
+See [issues](https://github.com/Eat-Local/eat-local-fe/issues)
+
 ### Reflections
 <b>Wins:</b><br>
 The FE team is most proud of our collaboration with the BE team. We learned so much about the value of JSON contracts, how to meaningfully shape data and response contents, and how to speak to our different codebases in a way that translates across the stack. We were also proud of implementing CI/CD alongside GitHub Projects and Issues for our asynchronous ticketing system.
